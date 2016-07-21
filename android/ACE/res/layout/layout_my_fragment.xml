@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_eeeeee"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_f9f9f9"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_white"
+                android:visibility="visible">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="86dp"
+                    android:background="@drawable/img_my_fragment_bg" />
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/img_my_fragment_portrait"
+                    android:layout_width="@dimen/my_fragment_portrait_diameter"
+                    android:layout_height="@dimen/my_fragment_portrait_diameter"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/my_fragment_portrait_top_margin"
+                    fresco:roundAsCircle="true"
+                    fresco:roundingBorderColor="@color/color_white"
+                    fresco:roundingBorderWidth="@dimen/my_fragment_portrait_border_width" />
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/img_my_fragment_edit_data"
+                    android:layout_width="@dimen/my_fragment_edit_data_diameter"
+                    android:layout_height="@dimen/my_fragment_edit_data_diameter"
+                    android:layout_alignBottom="@id/img_my_fragment_portrait"
+                    android:layout_alignRight="@id/img_my_fragment_portrait"
+                    fresco:placeholderImage="@drawable/img_edit_data" />
+                <FrameLayout
+                    android:id="@+id/fl_my_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img_my_fragment_portrait"
+                    android:layout_marginTop="@dimen/my_fragment_name_top_margin">
+                    <RelativeLayout
+                        android:id="@+id/rl_my_fragment_login_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/tv_my_fragment_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:text="奔跑的蜗牛"
+                            android:textColor="@color/color_6d4007"
+                            android:textSize="@dimen/my_fragment_name_text_size" />
+
+                        <TextView
+                            android:id="@+id/tv_my_fragment_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_my_fragment_name"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/my_fragment_id_top_margin"
+                            android:text="12121212"
+                            android:textColor="@color/color_7f7f7f"
+                            android:textSize="@dimen/my_fragment_id_text_size" />
+
+                        <ImageView
+                            android:id="@+id/img_my_fragment_user_level"
+                            android:layout_width="@dimen/my_fragment_icon_side"
+                            android:layout_height="@dimen/my_fragment_icon_side"
+                            android:layout_alignBottom="@id/tv_my_fragment_name"
+                            android:layout_marginLeft="@dimen/my_fragment_icon_margin"
+                            android:layout_toRightOf="@id/tv_my_fragment_name"
+                            android:src="@drawable/ic_launcher"
+                            android:visibility="gone" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_my_fragment_unlogin_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_my_fragment_login"
+                            android:layout_width="@dimen/my_fragment_login_btn_width"
+                            android:layout_height="@dimen/my_fragment_login_btn_height"
+                            android:background="@drawable/xml_transparent_long_btn_bg"
+                            android:text="@string/login"
+                            android:textColor="@color/color_6b4008"
+                            android:textSize="@dimen/my_fragment_login_btn_textSize" />
+
+                        <Button
+                            android:id="@+id/btn_my_fragment_regist"
+                            android:layout_width="@dimen/my_fragment_login_btn_width"
+                            android:layout_height="@dimen/my_fragment_login_btn_height"
+                            android:layout_marginLeft="@dimen/my_fragment_login_btn_margin"
+                            android:background="@drawable/xml_transparent_long_btn_bg"
+                            android:text="@string/regist"
+                            android:textColor="@color/color_6b4008"
+                            android:textSize="@dimen/my_fragment_login_btn_textSize" />
+                    </LinearLayout>
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/my_fragment_middle_button_height"
+                    android:layout_below="@id/fl_my_fragment"
+                    android:layout_marginTop="17dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/ll_my_fragment_my_subscribe"
+                        style="@style/my_fragment_middle_button_style">
+
+                        <TextView
+                            android:id="@+id/tv_my_fragment_my_subscribe_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:text="0"
+                            android:textColor="@color/color_333333"/>
+
+                        <TextView
+                            android:id="@+id/tv_my_fragment_my_subscribe"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/subscribe"
+                            android:textSize="16sp"
+                            android:textColor="@color/color_333333" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/one_px"
+                        android:layout_height="@dimen/my_fragment_middle_button_line_height"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/color_e6e6eb" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_my_fragment_my_fans"
+                        style="@style/my_fragment_middle_button_style">
+
+                        <TextView
+                            android:id="@+id/tv_my_fragment_my_fans_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textColor="@color/color_333333"
+                            android:maxLines="1"
+                            android:text="0"/>
+
+                        <TextView
+                            android:id="@+id/tv_my_fragment_my_fans"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fans"
+                            android:textSize="16sp"
+                            android:textColor="@color/color_333333" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/one_px"
+                        android:layout_height="@dimen/my_fragment_middle_button_line_height"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/color_e6e6eb" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one_px"
+            android:background="@color/color_e6e6eb" />
+
+        <RelativeLayout
+            android:id="@+id/rl_my_fragment_recharge"
+            style="@style/my_fragment_item_style"
+            android:layout_marginTop="12dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_px"
+                android:layout_alignParentTop="true"
+                android:background="@color/color_e6e6eb" />
+
+            <ImageView
+                android:id="@+id/img_my_fragment_recharge"
+                android:layout_width="@dimen/my_fragment_middle_button_img_width"
+                android:layout_height="@dimen/my_fragment_middle_button_img_width"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/my_fragment_item_margin"
+                android:src="@drawable/img_coin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/my_fragment_item_margin"
+                android:layout_toRightOf="@id/img_my_fragment_recharge"
+                android:text="@string/my_coins"
+                android:textColor="@color/color_19191a"
+                android:textSize="@dimen/my_fragment_item_text_size" />
+
+            <ImageView
+                android:id="@+id/iv_my_coin_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/my_fragment_item_margin"
+                android:src="@drawable/img_forward" />
+
+            <TextView
+                android:id="@+id/tv_coins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="6dp"
+                android:layout_toLeftOf="@+id/iv_my_coin_right"
+                android:text="0"
+                android:textColor="@color/color_ff3232"
+                android:textSize="@dimen/my_fragment_item_text_size" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_px"
+                android:layout_alignParentBottom="true"
+                android:background="@color/color_e6e6eb" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_my_fragment_withdrawals"
+            style="@style/my_fragment_item_style">
+
+            <ImageView
+                android:id="@+id/img_my_fragment_withdrawals"
+                android:layout_width="@dimen/my_fragment_middle_button_img_width"
+                android:layout_height="@dimen/my_fragment_middle_button_img_width"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/my_fragment_item_margin"
+                android:src="@drawable/img_recharge" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/my_fragment_item_margin"
+                android:layout_toRightOf="@id/img_my_fragment_withdrawals"
+                android:text="@string/my_income"
+                android:textColor="@color/color_19191a"
+                android:textSize="@dimen/my_fragment_item_text_size" />
+
+            <ImageView
+                android:id="@+id/iv_my_income_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/my_fragment_item_margin"
+                android:src="@drawable/img_forward" />
+
+            <TextView
+                android:id="@+id/tv_income"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="6dp"
+                android:layout_toLeftOf="@+id/iv_my_income_right"
+                android:text="0"
+                android:textColor="@color/color_ff3232"
+                android:textSize="@dimen/my_fragment_item_text_size" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_my_fragment_setting"
+            style="@style/my_fragment_item_style"
+            android:layout_marginTop="12dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_px"
+                android:layout_alignParentTop="true"
+                android:background="@color/color_e6e6eb" />
+
+            <ImageView
+                android:id="@+id/img_my_fragment_setting"
+                android:layout_width="@dimen/my_fragment_middle_button_img_width"
+                android:layout_height="@dimen/my_fragment_middle_button_img_width"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/my_fragment_item_margin"
+                android:src="@drawable/img_setting" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/my_fragment_item_margin"
+                android:layout_toRightOf="@id/img_my_fragment_setting"
+                android:text="@string/setting"
+                android:textColor="@color/color_19191a"
+                android:textSize="@dimen/my_fragment_item_text_size" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/my_fragment_item_margin"
+                android:src="@drawable/img_forward" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_px"
+                android:layout_alignParentBottom="true"
+                android:background="@color/color_e6e6eb" />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

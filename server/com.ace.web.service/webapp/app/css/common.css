@@ -1,0 +1,103 @@
+@charset "utf-8";
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+body {
+	line-height: 1; 
+	-webkit-font-smoothing: antialiased;		/* Fix for webkit rendering */
+	-webkit-text-size-adjust: 100%;				/* Fix for webkit minFont size */
+	-webkit-tap-highlight-color	:rgba(0,0,0,0);	/* Remove highlight on tap event*/
+	-moz-tap-highlight-color	:rgba(0,0,0,0);
+	-ms-tap-highlight-color		:rgba(0,0,0,0);
+	tap-highlight-color			:rgba(0,0,0,0);	
+	/* 上面的css是用来禁止用户选中 */
+	font-family: "Helvetica Neue","Heiti SC","Microsoft YaHei",\5FAE\8F6F\96C5\9ED1,Tohoma; /* mac字体，黑体，微软雅黑，xp字体，宋体有点问题，所以不用，除非自写*/
+}
+/* 移动端字体单位等比例适配 */
+@media screen and (min-width:240px) and (max-width:319px){
+	body{font-size:6px;}
+	input{font-size:6px;}
+	img{max-width: 60%;}
+}
+@media screen and (min-width:320px) and (max-width:359px){
+	body{font-size:8px;}
+	input{font-size:8px;}
+	img{max-width: 70%;}
+}
+@media screen and (min-width:360px) and (max-width:384px){
+	body{font-size:9.5px;}
+	input{font-size:9.5px;}
+	img{max-width: 70%;}
+}
+@media screen and (min-width:385px) and (max-width:410px){
+	body{font-size:10px;}
+	input{font-size:10px;}
+	img{max-width: 70%;}
+}
+@media screen and (min-width:411px) and (max-width:479px){
+	body{font-size:10px;}
+	input{font-size:10px;}
+	img{max-width: 70%;}
+}
+@media screen and (min-width:480px) and (max-width:639px){
+	body{font-size:14px;}
+	input{font-size:14px;}
+	img{max-width: 80%;}
+}
+@media screen and (min-width:640px) and (max-width:719px){
+	body{font-size:16px;}
+	input{font-size:16px;}
+	img{max-width: 90%;}
+}
+@media screen and (min-width:720px) and (max-width:799px){
+	body{font-size:16px;}
+	input{font-size:16px;}
+	img{max-width: 100%;}
+}
+@media screen and (min-width:800px) and (max-width:1079px){
+	body{font-size:20px;}
+	input{font-size:20px;}
+	img{max-width: 100%;}
+}
+@media only screen and (min-width:1080px) {
+	body{font-size:24px;}
+	input{font-size:24px;}
+	img{max-width: 100%;}
+}
+ol, ul, li { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+/* remember to define focus styles! */
+:focus { outline: 0; }
+/* remember to highlight inserts somehow! */
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+/* tables still need 'cellspacing="0"' in the markup */
+table { border-collapse: collapse; border-spacing: 0; }
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+	float:none !important;
+}
+table, th, td {
+	vertical-align: middle;
+}
+em,i {font-style:normal;}
+/* Remove annoying border on linked images. */
+a,img { border: none; text-decoration:none; }
+
+/* Remember to define your own focus styles! */
+:focus { outline: 0; }
+/* #Clearing
+================================================== */
+.clearfix:before, .clearfix:after { content: ""; display: table; font-size:0 !important; line-height:0!important; height:0!important;}  
+.clearfix:after { clear: both; }
+.clear {clear: both;display: block;overflow: hidden;visibility: hidden;width: 0;height: 0;}
+.fl {float: left;}.fr {float: right;}.of {overflow: hidden;}

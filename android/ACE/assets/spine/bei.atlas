@@ -1,0 +1,13 @@
+
+bei.png
+size: 64,32
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+212312
+  rotate: true
+  xy: 0, 0
+  size: 27, 46
+  orig: 27, 46
+  offset: 0, 0
+  index: -1

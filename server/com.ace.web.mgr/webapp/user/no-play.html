@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>禁播</title>
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css">
+	<script type="text/javascript" src="/easyui/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//禁播
+		$("#no_play_btn").click(function(){
+			var userId = $('#search_play_userId').val();
+			$("#no_play_form").form('submit',{
+				url:"../service/001-003",
+				queryParams:{path:"001-028",userId:userId,isForbidShow:"1"}
+			});	
+		});
+		//取消禁播
+		$("#cancel_play_btn").click(function(){
+			var userId = $('#search_play_userId').val();
+			$("#no_play_form").form('submit',{
+				url:"../service/001-003",
+				queryParams:{path:"001-028",userId:userId,isForbidShow:"0"}
+			});	
+		});
+		$("#no_play_form").form({
+			success:function(res){
+				res = eval("(" + res + ")");
+				if(res.exeStatus == 1){
+					$.messager.alert('提示','操作成功！');
+	    			$("#no_play_form").form('clear');//清空添加信息表单里的内容
+				}else{
+					$.messager.alert('提示','操作失败！');
+				}
+			}
+		});
+	});
+	
+	//取消禁播
+	function operation(userId){
+		$.ajax({
+			type:"post",
+			url:"../service/001-003",
+			data:{"userId":userId,"path":"001-002","isForbidShow":"0"},
+			dataType:"json",
+			success:function(exeStatus){
+				if(exeStatus.exeStatus == 1){
+					$.messager.alert('提示','取消禁播成功！');
+	    			$("#userId").val("");
+				}else{
+					$.messager.alert('提示','取消禁播失败！');
+				}
+			}
+		});
+	}
+
+</script>
+</head>
+
+<body>
+	<div id="no_play_panel" class="easyui-panel" style="width:100%;padding:2px;background:#fafafa;">   
+    	<form id="no_play_form" method="POST">
+    	<center><p>
+    		<label for="">用户ID:</label>   
+     			<input id="search_play_userId" name="userId" class="easyui-textbox"	data-options="required:false" />&nbsp;&nbsp;
+    		<a id="no_play_btn" class="easyui-linkbutton" data-options="iconCls:'icon-lock'">禁播</a>&nbsp;&nbsp;
+    		<a id="cancel_play_btn" class="easyui-linkbutton" data-options="iconCls:'icon-key'">取消禁播</a>
+   		 </center> 
+   		</form>
+	</div>
+</body>
+</html>

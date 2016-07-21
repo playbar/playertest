@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>用户管理</title>
+<link rel="stylesheet" type="text/css"
+	href="/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css"
+	href="/easyui/themes/icon.css">
+
+<script type="text/javascript"
+	src="/easyui/jquery-1.8.3.min.js"></script>
+<script type="text/javascript"
+	src="/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript"
+	src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+	
+<script type="text/javascript">
+	$(function(){
+		$('#dg').datagrid({
+			url : '../../service/001-210',
+			fitColumns : false,
+			pagination : true,
+			pagePosition : 'bottom',
+			rownumbers : true,
+			singleSelect : true,
+			pageNumber : 1,
+			pageSize : 20,
+			pageList : [20,50,70, 100,500, 1000],
+			queryParams: {path: '001-021'},
+			columns : [[ 
+			   {field : 'userId',title : '用户ID',width : 100},
+			   {field : 'nickName',title : '用户昵称',width : 100},
+			   {field : 'sex',title : '性别',width : 50,
+				   formatter:function(value, row, index){
+						if(row.sex == 0){
+							return "男";	
+						}else{
+							return "女";	
+						}
+					} 
+			   },
+			   {field : 'signature',title : '签名',width : 100},
+			   {field : 'profile',title : '用户图像',width : 200,
+				   formatter:function(value,row,index){
+						 return '<img src="'+row.profile+'" style="height:50px" />';
+					}	   
+			   },
+			   {field : 'rank',title : '身份',width : 100,
+				   formatter:function(value, row, index){
+						if(row.rank == 0){
+							return "主播";	
+						}else{
+							return  "普通用户";
+						}
+					} 
+			   },
+			   {field : 'showImg',title : '直播封面地址',width : 200,
+				   	formatter:function(value,row,index){
+						 return '<img src="'+row.showImg+'" style="width:200px;height:50px" />';
+					}	  
+			   },
+			   {field : 'subscribeCnt',title : '订阅数量',width : 100},
+			   {field : 'basicScore',title : '基础分值',width : 100},
+			   {field : 'status',title : '用户状态',width : 100,
+					formatter:function(value, row, index){
+						if(row.status == 1){
+							return "激活";	
+						}else if(row.status == 2){
+							return  "冻结";
+						}else if(row.status == 3){
+							return  "解禁";
+						}
+					} 
+				},
+				{field : 'cc',title : '操作',width : 150,
+					formatter:function(value, row, index){
+						return '<input type="button" value="封号" />  <input type="button" value="签约" />';
+					} 
+				}
+			]]
+		});	
+		
+		$("#search_btn").click(function(){
+			var userId = $("#userId").val();
+			$("#dg").datagrid('reload',{
+				"path": "001-021",
+				"key" : userId
+			});
+		});
+		
+		$('#add_update_panel').window({ 
+			title:"用户详情",
+		    collapsible:false,
+		    minimizable:false,
+		    maximizable:false,
+		    closable:true,
+		    draggable:true,
+		    modal:true,
+		    width:600
+		}); 
+		$('#add_update_panel').window('close');
+
+		
+	})
+	function openUser(){
+		var row = $('#dg').datagrid('getSelected');
+		if (row){
+			$("#uimg").textbox('setValue',row.showImg);
+			$("#uid").textbox('setValue',row.userId);
+			$("#uname").textbox('setValue',row.nickName);
+			$("#ubasicScore").textbox('setValue',row.basicScore.toString());
+			$("#usex").textbox('setValue',row.sex==0?"男":"女");
+
+			$('#add_update_panel').window('open');
+		}
+	}
+	
+</script>
+</head>
+<body>
+	
+    <div class="easyui-panel" style="width:100%;height:50px;padding:1px;background:#fafafa;">
+    	
+    	<center>
+		<p>
+    	<label for="">&nbsp;&nbsp;用户ID:</label>   
+        	<input id="userId" name="userId" class="easyui-textbox" data-options="required:false" />&nbsp;&nbsp;&nbsp;&nbsp;
+		<a id="search_btn" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a><br>
+   		</center>
+    </div>     
+	<!-- DataGrid 数据展示 -->
+	<table id="dg"  class="easyui-datagrid"  style="width:100%" ></table> 
+	
+	<div id="add_update_panel"  style="width:500px;height:400px;">
+	<form id="add_update_form" method="POST">
+		<center>
+		<p>
+		<label for="">用户头像：</label>
+			<input id="uimg" value="" class="easyui-textbox" />
+		<br>
+		<p>
+		<p>
+		<label for="">用户ID：</label>
+			<input id="uid" value="" class="easyui-textbox" />
+		<br>
+		<p>
+		<label for="">用户昵称	：</label>
+			<input id="uname" class="easyui-textbox" />
+		<br><p>
+		<label for="">用户性别：</label>
+			<input id="usex" class="easyui-textbox" />
+		<br><p><p>
+		<label for="">基础分值：</label>
+			<input id="ubasicScore" class="easyui-textbox" />
+		<br><p>
+		<label for="">用户类型：</label>
+			<input id="utransformPrice" class="easyui-textbox" />
+		<br><p>
+		<label for="">用户状态：</label>
+			<input id="usendPrice" class="easyui-textbox" />
+		<br><p>
+		</center>
+	</form>
+	</div>
+	
+	
+</body>
+</html>

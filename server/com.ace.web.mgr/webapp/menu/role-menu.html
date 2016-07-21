@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>菜单管理</title>
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css">
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/js/jquery.json-2.4.js"></script>
+	<script type="text/javascript" src="/easyui/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+</head>
+<script type="text/javascript">
+	$(function(){
+		$.ajax({
+			type:"POST",
+			url:"../service/001-017",
+			success:function(res){
+				var data = eval('(' + res + ')');
+				var dataList=eval(data.menuList);  
+				$("#dataTab").html('');
+				for(var i = 0 ; i < dataList.length; i){
+					var codeHtmlTR = "<tr>";
+					if(dataList[i].id.length == 3){
+						codeHtmlTR += "<td style='border-right-style: hidden;border-bottom-style: hidden;' width='10%' colspan='6' ><center><input id='checkbox"+dataList[i].id+"' type='checkbox' name='checkbox' value='"+dataList[i].id+"'/><label for='checkbox"+dataList[i].id+"'><b>"+dataList[i].text+"</b></label><center></td>";
+						i++;
+					}else{
+						for(var j = 0 ; j < 6; j++){
+							if(i >= dataList.length){
+								codeHtmlTR += "<td style='border-right-style: hidden;border-bottom-style: hidden;' ></td>";
+								continue;
+							}
+							var id = dataList[i].id;
+							if(id.length == 3){
+								if(j == 1){codeHtmlTR += "<td style='border-right-style: hidden;border-bottom-style: hidden;' ></td><td style='border-right-style: hidden;border-bottom-style: hidden;' ></td><td style='border-right-style: hidden;border-bottom-style: hidden;' ></td><td style='border-right-style: hidden;border-bottom-style: hidden;' ></td><td style='border-right-style: hidden;border-bottom-style: hidden;' ></td></tr>";}
+								if(j == 2){codeHtmlTR += "<td style='border-right-style: hidden;border-bottom-style: hidden;' ></td><td style='border-right-style: hidden;border-bottom-style: hidden;' ></td><td style='border-right-style: hidden;border-bottom-style: hidden;' ></td><td style='border-right-style: hidden;border-bottom-style: hidden;' ></td></tr>";}
+								if(j == 3){codeHtmlTR += "<td style='border-right-style: hidden;border-bottom-style: hidden;' ></td><td style='border-right-style: hidden;border-bottom-style: hidden;' ></td><td style='border-right-style: hidden;border-bottom-style: hidden;' ></td></tr>";}
+								if(j == 4){codeHtmlTR += "<td style='border-right-style: hidden;border-bottom-style: hidden;' ></td><td style='border-right-style: hidden;border-bottom-style: hidden;' ></td></tr>";}
+								if(j == 5){codeHtmlTR += "<td style='border-right-style: hidden;border-bottom-style: hidden;></td></tr>";}
+								codeHtmlTR += "<tr><td style='border-right-style: hidden;border-bottom-style: hidden;' width='10%' colspan='6'><center><input id='checkbox"+dataList[i].id+"' type='checkbox' name='checkbox' value='"+dataList[i].id+"'/><label for='checkbox"+dataList[i].id+"'><b>"+dataList[i].text+"</b></label><center></td>";
+								if(j == 5){codeHtmlTR += "</tr>";}
+								if(j == 4){codeHtmlTR += "</tr>";j++;}
+								if(j == 3){codeHtmlTR += "</tr>";j=j+2;}
+								if(j == 2){codeHtmlTR += "</tr>";j=j+3;}
+								if(j == 1){codeHtmlTR += "</tr>";j=j+4;}
+								i++;
+								continue;
+							}else{
+								if(i < dataList.length){	
+									codeHtmlTR += "<td width='10%' style='border-right-style: hidden;border-bottom-style: hidden;' ><center><input id='checkbox"+dataList[i].id+"' type='checkbox' name='checkbox' value='"+dataList[i].id+"' /><label for='checkbox"+dataList[i].id+"'>"+dataList[i].text+"</label><center></td>";
+									i++;
+								}
+							}
+						}
+					}
+					codeHtmlTR += "</tr>";
+					$("#dataTab").append(codeHtmlTR);
+				}
+			}
+		});
+		
+		$("#search_btn").click(function(){
+			var value = $("#userId").val();
+			$("input[name='checkbox']:checked").each(function(){
+				if (this.checked) {
+					this.checked = false;
+				}
+			});
+			$("#add_form").form('submit',{
+				url:"../service/001-018",
+				queryParams:{path:"001-036"}
+			});	
+		});
+		$("#add_form").form({
+			success:function(res){
+				var data = eval('(' + res + ')');
+				var list= new Array();   
+				list = data.idList;
+				 for (var i=0;i<list.length ;i++ ){
+					 $("#checkbox"+list[i]).prop("checked",true);
+				 }
+			}
+		});
+		
+		$("#delete_btn").click(function(){
+			var keys = getCheckedIds();
+			if( keys.length < 1){
+				$.messager.alert('提示','请选择菜单信息！');
+			}else{
+				var userId = $("#userId").val();
+				if(userId != null){
+					$.messager.confirm('确认','确定分配已选菜单吗?',function(r){
+						 $.ajax({
+							type:"POST",
+							url:"../service/001-019",
+							data:{"menus":keys,"path":"001-035","userId":userId},
+							dataType:"json",
+							success:function(res){
+								if(res.exeStatus == 1){
+					        		window.location.reload();
+					        		$.messager.alert('提示','操作成功！');
+					        	}else{
+					        		$.messager.alert('提示','操作失败！');
+					        	}
+							}
+						});
+					});
+				}else{
+					$.messager.alert('提示','请填写用户ID！');
+				}
+			}
+		});
+	
+		$("#remove_btn").click(function(){
+			var userId = $("#userId").val();
+			if(userId != null){
+				$.messager.confirm('确认','确定清空用户菜单吗?',function(r){
+					 $.ajax({
+						type:"POST",
+						url:"../service/001-019",
+						data:{"menus":"","path":"001-035","userId":userId},
+						dataType:"json",
+						success:function(res){
+							if(res.exeStatus == 1){
+				        		window.location.reload();
+				        		$.messager.alert('提示','操作成功！');
+				        	}else{
+				        		$.messager.alert('提示','操作失败！');
+				        	}
+						}
+					});
+				});
+			}else{
+				$.messager.alert('提示','请填写用户ID！');
+			}
+		});
+	});
+	
+	function select(id){
+		alert(id);
+	}
+	
+	function getCheckedIds(){
+		var ids = "";
+		$("input[name='checkbox']:checked").each(function(){
+			if (this.checked) {
+				ids += this.value + "^";
+			}
+		});
+		return ids;
+	}
+</script>
+
+<body>
+	<div id="easyui-panel" class="easyui-panel" style="width:100%;padding:2px;background:#fafafa;">   
+		<center><p>
+		<form id="add_form" method="POST">
+       		<label for="">用户ID:</label>   
+        		<input id="userId" name="userId" class="easyui-numberbox"   data-options="required:false" />
+       		<a id="search_btn" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查看用户权限</a>
+       		<a id="delete_btn" class="easyui-linkbutton" data-options="iconCls:'icon-redo'">分配权限</a>
+       		<a id="remove_btn" class="easyui-linkbutton" data-options="iconCls:'icon-no'">清空所有权限</a>
+       	</form>
+       	</center><p>	
+		<table id="dataTab"  width="95%" bordercolor="#95B8E7" border="1"  style="border-left-style: hidden;border-top-style: hidden;" align="center" cellpadding="2" cellspacing="0"  >
+		</table><p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>系統消息</title>
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css">
+	<script type="text/javascript" src="/easyui/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+	
+<script type="text/javascript">
+	$(function(){
+		$("#warn-Message_btn").click(function(){
+			var userId = $("#userId").val();
+			var warnMessage = $("#editor_id").val();
+			$.ajax({
+				type:"post",
+				url:"../service/001-008",
+				data:{"warnMessage":warnMessage,"path":"001-001","userId":userId},
+				dataType:"json",
+				success:function(exeStatus){
+					if(exeStatus.exeStatus == 1){
+						$.messager.alert('提示','警告消息发送成功！');
+						$("#userId").textbox("setValue","");
+		    			$("#editor_id").textbox("setValue","");
+					}else{
+						$.messager.alert('提示','警告消息发送失败！');
+						$("#userId").textbox("setValue","");
+		    			$("#editor_id").textbox("setValue","");
+					}
+				}
+			});
+		});
+	});
+</script>
+</head>
+
+<body>
+	<div id="warn-Message_panel" class="easyui-panel" style="width:100%;padding:2px;background:#fafafa;">   
+       <center><p>
+       <label for="">&nbsp;&nbsp;用户ID:</label>   
+        	<input id="userId" name="userId" class="easyui-textbox"   data-options="required:false" />
+       <label for="">&nbsp;&nbsp;警告的内容:</label>
+      	 	<input id="editor_id" name="editor_id" class="easyui-textbox"  data-options="required:false"  style="width:300px"> 
+       <a id="warn-Message_btn" class="easyui-linkbutton" data-options="iconCls:'icon-redo'">发送</a>
+      </center> 
+	</div>
+</body>
+</html>

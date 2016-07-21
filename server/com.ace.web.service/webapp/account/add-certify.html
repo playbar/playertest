@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.json-2.4.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+
+		$("#button").click(function() {
+
+			$.ajax({
+				type : "post",
+				url : "../service/001-040",
+				data : $("#frm").serialize(),
+				beforeSend : function(data) {
+					$("#res").html("<font color='red'>请求发送中，请稍后....</font>");
+				},
+				success : function(data) {
+					$("#res").html("<font color='red'>结果：</font><br>" + data);
+				}
+			});
+
+		});
+
+	});
+</script>
+
+</head>
+<body>
+	<h2>
+	<font style="color:#288F53">修改图像</font> <a href="../../debug.html">返回</a>
+	</h2>
+	<form name="frm1" id="frm" method="post" action="../service/001-040" enctype="multipart/form-data">
+		<table cellpadding="2" cellspacing="2">
+			<tr>
+				<td style="text-align:right">用户id:</td>
+				<td><input type="text" name="userId" id="userId" value=""></td>
+			</tr>
+			
+			<tr>
+				<td style="text-align:right">真实姓名:</td>
+				<td><input type="text" name="name" id="name" value=""></td>
+			</tr>
+			
+			<tr>
+				<td style="text-align:right">手机号:</td>
+				<td><input type="text" name="phone" id="phone" value=""></td>
+			</tr>
+			
+			<tr>
+				<td style="text-align:right">证件类型:</td>
+				<td><input type="text" name="cardType" id="cardType" value=""></td>
+			</tr>
+			
+			<tr>
+				<td style="text-align:right">证件号码:</td>
+				<td><input type="text" name="cardId" id="cardId" value=""></td>
+			</tr>
+			
+				<tr>
+				<td style="text-align:right">银行卡号:</td>
+				<td><input type="text" name="bankId" id="bankId" value=""></td>
+			</tr>
+			
+				<tr>
+				<td style="text-align:right">银行名称:</td>
+				<td><input type="text" name="bankName" id="bankName" value=""></td>
+			</tr>
+			
+					<tr>
+				<td style="text-align:right">开卡省份:</td>
+				<td><input type="text" name="bankProvince" id="bankProvince" value=""></td>
+			</tr>
+			
+				<tr>
+				<td style="text-align:right">开卡城市:</td>
+				<td><input type="text" name="bankCity" id="bankCity" value=""></td>
+			</tr>
+	
+					<tr>
+				<td style="text-align:right">开卡详细地址:</td>
+				<td><input type="text" name="bankAddress" id="bankAddress" value=""></td>
+			</tr>
+			
+			<tr>
+				<td style="text-align:right">状态:</td>
+				<td>
+				<select id="status" name="status">
+					<option value="0" >审核中</option>
+					<option value="1" >审核成功</option>
+					<option value="2" >审核失败</option>
+				</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td style="text-align:right">前面图像</td>
+				<td><input type="file" name="frontImg" id="frontImg"></td>
+			</tr>
+			
+			<tr>
+				<td style="text-align:right">背面图像</td>
+				<td><input type="file" name="backImg" id="backImg"></td>
+			</tr>
+			
+				<tr>
+				<td style="text-align:right">手持图像</td>
+				<td><input type="file" name="holdImg" id="holdImg"></td>
+			</tr>
+			
+			<tr>
+				<td colspan="2" style="text-align:right"><input type="submit" value="提交"></td>
+			</tr>
+		</table>
+	</form>
+	<br>
+	<div id="res"></div>
+</body>
+</html>

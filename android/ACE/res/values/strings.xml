@@ -1,0 +1,334 @@
+<resources>
+
+    <string name="app_name">Ace直播</string>
+
+    <!-- 我的 -->
+    <string name="data">资料</string>
+    <string name="my_subscribe">我的关注</string>
+    <string name="my_fans">我的粉丝</string>
+    <string name="browsing_history">浏览记录</string>
+    <string name="account_center">账号中心</string>
+    <string name="withdrawals">A豆兑换(提现)</string>
+    <string name="setting">设置</string>
+    <string name="user_zone">个人空间</string>
+    <string name="my_coins">我的金币</string>
+    <string name="my_income">我的收益</string>
+    <string name="subscribe">关注</string>
+    <string name="fans">粉丝</string>
+    <string name="recharge_type">充值方式</string>
+
+    <!-- 底部栏 -->
+    <string name="tab_bar_hall">大厅</string>
+    <string name="tab_bar_my">我的</string>
+
+    <!-- 个人主页 -->
+    <string name="id_text">ID:%s</string>
+    <string name="fans_num">粉丝</string>
+
+    <!-- 账号中心 -->
+    <string name="level_">等级:</string>
+    <string name="coin_balance">金币余额</string>
+    <string name="recharge_records">充值记录</string>
+    <string name="consumption_records">消费记录</string>
+    <string name="withdrawals_redords">提现记录</string>
+    <string name="recharge">充值</string>
+    <string name="level_info">距离升级还需</string>
+    <string name="experience">经验</string>
+    <string name="level_max">超神!已到达最高等级!</string>
+    <string name="lv">LV</string>
+    <string name="more_talk">记得多发言哦，听说可以升级</string>
+    <string name="more_consume">消费能让升级更快哦</string>
+
+    <!-- 大厅 -->
+    <string name="hall_hot_text">热门</string>
+    <string name="hall_subscribe_text">关注</string>
+    <string name="title_search_btn_description">搜索</string>
+    <string name="subscribe_ask">这么精彩，还不关注？</string>
+    <string name="subscribe_no_liveing">关注到主播没直播？\n去“热门”找找吧！</string>
+    <string name="subscribe_no_login">还没登陆哟！</string>
+    <string name="good_recommendation">精彩推荐</string>
+    <string name="person_cnt" formatted="false">人数:%s / %s</string>
+
+    <!-- 设置 -->
+    <string name="account_manager">账号管理</string>
+    <string name="clean_cache">清理缓存</string>
+    <string name="suggestion_feedback">意见反馈</string>
+    <string name="about">关于</string>
+    <string name="logout">退出登录</string>
+    <string name="is_quit">是否退出</string>
+    <string name="quit">退出</string>
+    <string name="find_new_version">发现新版本V%s</string>
+    <string name="check_update">检查更新</string>
+    <string name="now_update">立即更新</string>
+    <string name="not_find_new_version">当前已是最新版本</string>
+
+    <!-- 账号管理 -->
+    <string name="change_password">修改密码</string>
+    <string name="bind_phone">手机绑定</string>
+    <!-- 修改密码 -->
+    <string name="please_edit_password">请输入密码(6~18位字符,区分大小写)</string>
+    <string name="please_edit_old_passwoed">请输入原密码(6~18位字符,区分大小写)</string>
+    <string name="please_edit_new_passwoed">请输入新密码(6~18位字符,区分大小写)</string>
+    <string name="please_edit_password_again">请再输入一次新密码</string>
+    <string name="password_wrong">请输入正确密码</string>
+    <string name="password_format_wrong">请按照要求设置密码</string>
+    <string name="password_not_same">两次密码不一致</string>
+    <string name="change_password_success">修改密码成功</string>
+    <string name="change_password_failed">修改密码失败</string>
+    <string name="emoji_not_password">密码不得输入表情</string>
+    <string name="complete">完成</string>
+
+    <!-- 手机绑定 -->
+    <string name="please_edit_right_phone_number">请正确输入手机号</string>
+    <string name="get_identifying_code">获取验证码</string>
+    <string name="please_edit_identifying_code">请输入验证码</string>
+    <string name="identifying_code_can_not_null">验证码不能为空</string>
+    <string name="identifying_code_wrong">验证码错误</string>
+    <string name="identifying_code_get_success">验证码发送成功</string>
+    <string name="identifying_code_get_failed">验证码发送失败</string>
+    <string name="after_second_get">%d秒</string>
+    <string name="next_step">下一步</string>
+
+    <!-- 意见反馈 -->
+    <string name="welcome_to_feedback">欢迎反馈,您的反馈是我们进步的动力!</string>
+    <string name="your_contact_way">您的联系方式(QQ/微信/邮箱/手机号)</string>
+    <string name="commit">提交</string>
+    <string name="feedback_can_not_null">反馈内容不能为空</string>
+    <string name="commit_success">提交成功</string>
+    <string name="commit_failed">提交失败</string>
+
+    <!-- 关于 -->
+    <string name="version_code_text">V%s</string>
+    <string name="official_website">官网</string>
+    <string name="official_website_info">www.17ace.cn</string>
+    <string name="feedback_email">反馈邮箱</string>
+    <string name="feedback_email_info">kefu@rednovo.com</string>
+    <string name="ltd_name">微播网络技术（北京）有限公司</string>
+    <string name="clean_cache_success">清理缓存成功</string>
+    <string name="cache_cleaning">清理缓存中...</string>
+
+    <!-- 登录 -->
+    <string name="user_id_phone_num">用户ID/手机号</string>
+    <string name="input_password">输入密码</string>
+    <string name="forget_password">忘记密码?</string>
+    <string name="get_back_password">点此找回</string>
+    <string name="forget_password_title">找回密码</string>
+    <string name="reset_password_success">重置密码成功，请登录</string>
+    <string name="reset_password_error">重置密码失败</string>
+    <string name="login">登录</string>
+    <string name="regist">注册</string>
+    <string name="third_party_login">第三方登录</string>
+    <string name="qq">QQ</string>
+    <string name="wechat">微信</string>
+    <string name="sina">新浪</string>
+    <string name="please_input_phone_num">请输入手机号</string>
+    <string name="please_input_phone_num_or_id">请输入手机号或ID号</string>
+    <string name="please_input_password">请输入密码</string>
+    <string name="login_failed">登录失败</string>
+    <string name="logining">登录中...</string>
+    <string name="regist_failed">注册失败</string>
+    <string name="registing">注册中...</string>
+    <string name="logout_success">已退出此账号</string>
+    <string name="please_login_first">&gt;_&lt;亲先去注册个号吧~</string>
+    <string name="password_not_chinese">密码不可以使用汉字</string>
+    <string name="password_not_null">密码不能为空</string>
+    <string name="phone_already_regist">该手机已被注册</string>
+    <string name="auth_cancle">授权取消</string>
+    <string name="user_login_protocol_text">登录即表示您同意</string>
+    <string name="user_login_protocol">《用户许可及服务协议》</string>
+    <string name="casual_watch">随便看看</string>
+
+    <!-- 充值 -->
+    <string name="recharge_balance">金币余额：</string>
+    <string name="wechat_recharge">微信充值</string>
+    <string name="alipay_recharge">支付宝充值</string>
+    <string name="once_a_day">每日一次</string>
+    <string name="give_10">送10币</string>
+    <string name="give_100">送100币</string>
+    <string name="give_300">送300币</string>
+    <string name="give_600">送600币</string>
+    <string name="coin_unit">币</string>
+    <string name="wechat_pay_error">该功能即将上线，尽请期待！</string>
+    <string name="yuans">￥%s</string>
+    <string name="wans">%d万</string>
+    <string name="recharge_explain">如充值遇到问题，请联系客服QQ：2583801618</string>
+    <string name="please_select_money_num">请选择金额</string>
+
+    <!-- 充值记录 -->
+    <string name="this_month">本月</string>
+    <string name="order_num">订单号:</string>
+    <string name="sum">金额:</string>
+    <string name="weibi">金币:</string>
+
+    <!-- 消费记录 -->
+    <string name="to_give">赠送  给:</string>
+    <string name="gift_name">礼物名称:</string>
+    <string name="gift_num">礼物数量:</string>
+    <string name="pay_num">支付金额:</string>
+
+    <!-- 直播间 -->
+    <string name="live_room">直播间</string>
+    <string name="live_create">创建直播</string>
+    <string name="tv_send">发送</string>
+    <string name="tv_reprot">举报</string>
+    <string name="tv_home">主页</string>
+    <string name="tv_kick">踢出</string>
+    <string name="tv_silent">禁言</string>
+    <string name="tv_yinbi">A豆</string>
+    <string name="tv_audience">观众</string>
+    <string name="live_time">直播时间</string>
+    <string name="tv_like">点赞</string>
+    <string name="tv_sure">确定</string>
+    <string name="tv_fans">粉丝:%s</string>
+    <string name="subscribe_already">已关注</string>
+    <string name="tv_reprot_success">举报成功</string>
+    <string name="tv_shutup_success">禁言成功</string>
+    <string name="tv_kick_success">踢人成功</string>
+    <string name="kick_out_msg">您已被请出房间</string>
+    <string name="anchor_offline">主播已下播...</string>
+    <string name="welcome_erter_room">欢迎%s进入房间</string>
+    <string name="youke">游客</string>
+    <string name="live_loading">精彩内容,马上呈现</string>
+    <string name="loading_video_error">视频加载失败,请重新进入直播间</string>
+    <string name="ID">ID: %s</string>
+    <string name="send_continue_txt">连发</string>
+    <string name="room_tips">直播提醒</string>
+    <string name="gift_msg">送了1个%s</string>
+    <string name="room_system">系统消息</string>
+    <string name="ticket_txt">A豆</string>
+    <string name="sys_follow_text">关注了主播</string>
+    <string name="sys_share_text">分享了主播</string>
+    <string name="sys_support_text">点了%s个赞</string>
+
+    <!-- 创建房间 -->
+    <string name="text_start_live">开始直播</string>
+    <string name="hint_live_name">输入作品名称</string>
+    <string name="text_adjust_cover">调整封面</string>
+    <string name="text_select_photo">从手机相册选择</string>
+    <string name="text_take_photo">拍照</string>
+    <string name="photo_edit">照片裁剪</string>
+    <string name="text_cancel">取消</string>
+    <string name="text_choice">选取</string>
+    <string name="text_check_permissions">请检查相机权限是否开启</string>
+    <string name="text_check_record_permissions">请检查录音权限是否开启</string>
+    <string name="text_sure_exit">您确定退出直播吗?</string>
+    <string name="text_create_live_ing">创建直播ing...</string>
+    <string name="text_create_live_failure">创建直播失败</string>
+    <string name="text_coin_lower_hint">金币不足，请充值</string>
+    <string name="text_no_create_live">三级以下不能直播哟</string>
+    <string name="network_exception">网络异常</string>
+    <string name="certify_notice_title">实名认证</string>
+    <string name="certify_notice_content">为了提供更加良好的直播环境，开播需要进行实名认证。在官方人员审核通过后，才可进行直播。\n（如有疑问请联系QQ:2583801618）</string>
+    <string name="certify_notice_doing">实名认证审核中...</string>
+    <string name="certify_notice_fail">实名认证失败</string>
+    <string name="certify_notice_fail_content">资料填写有误，请重新申请实名认证\n（如有疑问请联系QQ:2583801618）</string>
+    <string name="certify_notice_link">（如有疑问请联系QQ:2583801618）</string>
+    <string name="certify_now">去认证</string>
+    <string name="certify_again">重新认证</string>
+
+    <!-- 分享 -->
+    <string name="tv_weixin">微信</string>
+    <string name="tv_friends">朋友圈</string>
+    <string name="tv_qq">QQ</string>
+    <string name="tv_qqzone">QQ空间</string>
+    <string name="tv_sina">新浪微博</string>
+    <string name="share_success">分享成功</string>
+    <string name="share_fail">分享失败</string>
+    <string name="share_cancle">分享取消</string>
+    <string name="wechat_uninstalled">微信未安装，请安装后重试</string>
+    <string name="wechat_support_api_to_less">微信版本过低，请更新后重试</string>
+    <string name="share_title">%s正在直播，精彩不要错过，速来围观！</string>
+    <string name="share_body">ACE带你发现世界的精彩！</string>
+
+    <!-- 编辑个人资料 -->
+    <string name="edit_my_data">编辑个人资料</string>
+    <string name="portrait">头像</string>
+    <string name="nick_name">昵称</string>
+    <string name="id">ID</string>
+    <string name="account_num">账号</string>
+    <string name="autograph">个性签名</string>
+    <string name="sex">性别</string>
+    <string name="age">年龄</string>
+    <string name="location">所在地</string>
+    <string name="constellation">星座</string>
+    <string name="emotion">情感状态</string>
+    <string name="label">标签</string>
+    <string name="man">男</string>
+    <string name="woman">女</string>
+    <string name="rename">修改昵称</string>
+    <string name="please_edit_new_nickname">请输入新昵称</string>
+    <string name="edit_can_not_null">输入框不能为空哟</string>
+    <string name="edit_can_not_contains_space">昵称不能包括空格</string>
+    <string name="rename_success">修改昵称成功</string>
+    <string name="rename_failed">修改昵称失败</string>
+    <string name="please_choose">请选择</string>
+    <string name="please_input_autograph">请输入您的个性签名</string>
+    <string name="autograph_limit">请不要超过20字</string>
+    <string name="update_autograph_success">修改签名成功</string>
+    <string name="update_autograph_failed">修改签名失败</string>
+    <string name="update_portrait_success">修改头像成功</string>
+    <string name="update_portrait_failed">修改头像失败</string>
+    <string name="update_sex_success">修改性别成功</string>
+    <string name="update_sex_failed">修改性别失败</string>
+    <string name="default_signature">这家伙的签名私奔了</string>
+
+    <!-- 提现 -->
+    <string name="withdrawals_title">提现</string>
+    <string name="can_withdrawals_num">可提现(元)</string>
+    <string name="can_withdrawals_yuan">￥</string>
+    <string name="yuan">元</string>
+    <string name="silver_num">A豆：</string>
+    <string name="ge">个</string>
+    <string name="wechat_withdrawals">微信提现</string>
+    <string name="read_withdrawals_doc">详细阅读提现文档 > > </string>
+    <string name="withdrawals_money">提现金额:</string>
+    <string name="need_coin">需要A豆:</string>
+    <string name="please_input_withdrawals_money">请输入自定义提现金额</string>
+    <string name="bind_wechat">绑定微信</string>
+    <string name="bind_wechat_withdrawals">绑定微信才可提现</string>
+    <string name="please_input_wechat">请输入微信号</string>
+    <string name="please_input_wechat_again">请再次输入微信号</string>
+    <string name="bind">绑定</string>
+    <string name="withdrawals_info">提现信息</string>
+    <string name="withdrawals_rmb">提现人民币:</string>
+    <string name="withdrawals_coin">提现A豆数:</string>
+    <string name="withdrawals_account">提现账号:</string>
+    <string name="withdrawals_wechat">提现微信号:</string>
+    <string name="commit_withdrawals">确定无误，提交</string>
+    <string name="input_again">再次填写</string>
+    <string name="withdrawals_error">提现必要相关信息加载失败，请检查网络环境或者稍后重试</string>
+    <string name="silver_num_error">A豆数量不足，无法提现</string>
+    <string name="wechat_not_same">请正确输入两次微信号</string>
+    <string name="verify_error">验证码错误</string>
+    <string name="bind_failed">绑定失败</string>
+    <string name="withdrawals_success">提现成功!</string>
+    <string name="withdrawals_failed">提现失败</string>
+    <string name="withdrawals_num_error">提现金额必须为100的倍数</string>
+
+    <!--公用的加载文字-->
+    <string name="text_loading">加载中...</string>
+    <string name="text_loading_loign">登陆中...</string>
+    <string name="text_create_room_loading">正在创建房间...</string>
+    <string name="video_load_error">视频加载失败！</string>
+    <string name="not_more_data">已无更多数据</string>
+    <string name="no_internet_message">您的网络不给力了,点击刷新试试吧!</string>
+    <string name="no_content_message">没有更多内容</string>
+    <string name="login_now">立即登录</string>
+    <string name="is_login">是否登录</string>
+    <string name="web_view_error">网页加载失败，点击重试</string>
+    <string name="retry">重试</string>
+
+    <string name="search_empty_hint">沒有找到您要查询的用户</string>
+    <string name="signature_default_text">这家伙的签名私奔了</string>
+    <string name="position_default_text">地球的背面</string>
+    <string name="login_info_validate_failed">用户验证失败，请重新登录</string>
+    <string name="downloading">下载中...</string>
+    <string name="i_know">我知道了</string>
+    <string name="account_freeze">账号禁封</string>
+    <string name="freeze_acount_content">因为您违反Ace平台规则或国家相关法律法规，账号已被封禁%s小时。\n（如有疑问请联系QQ：2583801618）</string>
+
+    <string name="live_freeze">直播禁封</string>
+    <string name="live_freeze_content">因为您违反了Ace平台规则或国家相关法律法规,暂停开播%s小时。\n（如有疑问请联系QQ：2583801618）</string>
+
+    <string name="create_order_fail">生成订单失败!</string>
+</resources>

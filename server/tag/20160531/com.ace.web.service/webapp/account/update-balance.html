@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.json-2.4.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+
+		$("#button").click(function() {
+
+			$.ajax({
+				type : "post",
+				url : "../service/001-034",
+				data : $("#frm").serialize(),
+				beforeSend : function(data) {
+					$("#res").html("<font color='red'>请求发送中，请稍后....</font>");
+				},
+				success : function(data) {
+					$("#res").html("<font color='red'>结果：</font><br>" + data);
+				}
+			});
+
+		});
+
+	});
+</script>
+
+</head>
+<body>
+	<h2>
+	<font style="color:#288F53">加、减金币</font> <a href="../../debug.html">返回</a>
+	</h2>
+	<form name="frm1" id="frm" method="post" action="">
+		<table cellpadding="2" cellspacing="2">
+			<tr>
+				<td style="text-align:right">(必填)用户ID:</td>
+				<td><input type="text" name="userId" id="userId" value="" ></td>
+			</tr>
+			<tr>
+				<td style="text-align:right">关联用户ID</td>
+				<td><input type="text"  name="relateUserId" id="relateUserId" value=""></td>
+			</tr>
+			<tr>
+				<td style="text-align:right">(必填)金币数量</td>
+				<td><input type="text"  name="num" id="num" value=""></td>
+			</tr>
+			
+			<tr>
+				<td colspan="2" style="text-align:right"><input type="button" id="button" value="提交"></td>
+			</tr>
+		</table>
+	</form>
+	<br>
+	<div id="res"></div>
+</body>
+</html>

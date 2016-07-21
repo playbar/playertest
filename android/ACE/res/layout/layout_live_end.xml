@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_live_end"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/live_fuzzy_bg"
+    android:clickable="true"
+    android:visibility="visible">
+
+    <ImageView
+        android:id="@+id/iv_offline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:src="@drawable/live_end" />
+
+    <TextView
+        android:id="@+id/notice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_offline"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/anchor_offline"
+        android:textColor="@color/color_fff100"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_subscribe"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/notice"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="65dp"
+        android:background="@drawable/selector_liveend_button"
+        android:gravity="center"
+        android:text="@string/hall_subscribe_text"
+        android:textColor="@drawable/selector_share_text_yellow"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_quit"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_subscribe"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/selector_liveend_button"
+        android:gravity="center"
+        android:text="@string/quit"
+        android:textColor="@drawable/selector_share_text_yellow"
+        android:textSize="18sp" />
+
+</RelativeLayout>
+

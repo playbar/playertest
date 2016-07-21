@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners
+        android:bottomLeftRadius="@dimen/recharge_item_give_top_corners_radius"
+        android:topLeftRadius="@dimen/recharge_item_give_top_corners_radius"
+        android:bottomRightRadius="0dp"
+        android:topRightRadius="0dp"/>
+
+    <solid android:color="@color/color_ff5a03" />
+</shape>

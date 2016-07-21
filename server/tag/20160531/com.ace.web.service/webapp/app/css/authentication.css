@@ -1,0 +1,192 @@
+@charset "utf-8";
+/*公共样式 start*/
+body,div,h1,p,h2,header,ul,li,dl,dt,dd,ol,nav,input,footer{ margin:0; padding:0;}
+body{ color:#000;font-family:"黑体" "微软雅黑" Arial, Helvetica, sans-serif;background:#eeeeee;}
+body,html{ height:100%;-webkit-touch-callout: none;-webkit-user-select:none;}
+@media screen and (max-width:479px){
+	body{font-size:10px;-webkit-text-size-adjust: none;}
+	input{font-size:10px;}
+	.top dt img{width: 100%;}
+	.top p img{width: 40%;padding-right: 0.5em;}
+}
+@media screen and (min-width:480px) and (max-width:639px){
+	body{font-size:15px;-webkit-text-size-adjust: none;}
+	input{font-size:15px;}
+}
+@media screen and (min-width:640px) and (max-width:719px){
+	body{font-size:20px;-webkit-text-size-adjust: none;}
+	input{font-size:20px;}
+}
+@media screen and (min-width:720px){
+	body{font-size:22.5px;-webkit-text-size-adjust: none;}
+	input{font-size:22.5px;}
+}
+h1,h2,h3,h4,h5,h6{ margin:0; padding:0;font-size:100%; font-weight:normal;}
+ul,li{ list-style:none;}
+html{-webkit-text-size-adjust:none;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}
+img{border:none;  vertical-align:middle; max-width:100%;}
+.clearfix:after {content:"\200B"; display:block; height:0; clear:both;}
+.clearfix{ *zoom:1;}
+input{ font-family:Arial, Helvetica, sans-serif;}
+a{ text-decoration:none; color:#fff;}
+a:hover{ text-decoration:none;}
+
+/*=================================信息认证========================*/
+li{
+	width: 100%;
+	background-color: #fff;
+}
+li input{
+	border-style:none;
+	width: 56%;
+	height: 2em;
+	font-size: 1.4em;
+}
+li label{
+	font-size: 1.4em;
+	margin-left: 1em;
+	line-height: 3em;
+}
+.li-height
+{
+	margin-top: 2em;
+}
+.sub-div-style{
+	background-color: #fed130;
+	width: 94%;
+	height: 4em;
+	margin: 3em auto;
+	border-radius: 0.4em;
+
+}
+.sub-div-style p{
+	text-align: center;
+	font-size:2em;
+	line-height: 2.5em;
+}
+
+.line{
+	background-color: #eeeeee;
+	width: 100%;
+	height: 0.1em;
+}
+
+.arrow{
+	width: 3%;
+	height: 3%;
+	float: right;
+	margin-top: 1em;
+	margin-right: 2em;
+}
+.color-f2371e{
+	color: #f2371e;
+}
+select{
+	width:56%;
+	height:2.5em;
+	color:#000;
+	font-size:1.4em;
+	border:0px solid #000;
+	appearance:none;
+	-moz-appearance:none; 
+	-webkit-appearance:none; 
+	background: transparent;
+	direction: rtl;
+
+}
+select option {
+    direction: rtl;
+}
+/*=======================照片认证====================*/
+
+.top{
+	background-color: #fff;
+	position: relative;
+	width: 100%;
+	height: 12em;
+	font-size: 1.8em;
+	font-weight: bold;
+}
+.bottom{
+	background-color: #fff;
+	margin-top: 1em;
+	width: 100%;
+	height: 20em;
+	font-size: 1.4em;
+	font-weight: bold;
+}
+.top p{
+	padding: 0.5em;
+}
+.picture-a{
+	float: left;
+	padding-top: 1.2em;
+	padding-left: 2em;
+
+}
+.picture-b{
+	float: right;
+	padding-top: 1.2em;
+	padding-right: 2em;
+}
+.bottom p{
+	padding: 0.5em;
+}
+.picture-line{
+	background-color: #eeeeee;
+	width: 100%;
+	height: 0.1em;
+	margin-top: 0.4em;
+}
+.picture-example{
+	width: 44%;
+	float: left;
+	padding-top: 2em;
+	padding-left: 1em;
+}
+.picture-up{
+	width: 44%;
+	float: right;
+	padding-top: 2em;
+	padding-right: 1em;
+}
+
+#file_a {
+	position: absolute;
+	z-index: 100;
+	font-size: 1em;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	width:5em;
+	height: 3em;
+	margin-top: 1em;
+	margin-left: 1em;
+}
+#file_b {
+	position: absolute;
+	z-index: 100;
+	font-size: 1em;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	width:5em;
+	height: 3em;
+	margin-top: 1em;
+	margin-left: 1em;
+}
+#file_up{
+	position: absolute;
+	z-index: 100;
+	font-size: 2em;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	width:6em;
+	height: 6em;
+}
+.form-picture{
+	position: absolute;
+	top: 0;
+}
+.form-info{
+	display: none;
+}

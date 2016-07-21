@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:minHeight="@dimen/pulltorefresh_item_height"
+    android:layout_height="@dimen/pulltorefresh_item_height">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/img_ptrf_item_portrait"
+        android:layout_width="@dimen/pulltorefresh_item_portrait_diameter"
+        android:layout_height="@dimen/pulltorefresh_item_portrait_diameter"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/pulltorefresh_item_portrait_left_margin"
+        fresco:placeholderImage="@drawable/head_online"
+        fresco:placeholderImageScaleType="centerInside"
+        fresco:failureImage="@drawable/head_online"
+        fresco:failureImageScaleType="centerInside"
+        fresco:roundAsCircle="true"
+        android:src="@drawable/ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/pulltorefresh_item_name_left_margin"
+        android:orientation="vertical"
+        android:layout_toRightOf="@id/img_ptrf_item_portrait">
+
+        <TextView
+            android:id="@+id/tv_ptrf_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_black" />
+
+        <ImageView
+            android:id="@+id/img_ptrf_item_level_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/pulltorefresh_item_level_icon_top_margin" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/img_ptrf_item_live"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/pulltorefresh_item_live_margin"
+        android:visibility="gone"
+        android:src="@drawable/ic_launcher"/>
+    <TextView
+        android:id="@+id/tv_ptrf_item_signature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_a7a7a8"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="10dp"
+        android:paddingBottom="15dp"
+        android:maxLength="10"
+        android:text="@string/default_signature"
+        android:ellipsize="marquee"
+        android:textSize="12sp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_px"
+        android:background="@color/color_e6e6eb"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

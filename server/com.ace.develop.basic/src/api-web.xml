@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<web-dispatcher>
+	<!-- responseType: 1 常规请求,返回文本内容 responseType: 2 流请求,返回文件流 responseType: 
+		3 URL跳转请求 -->
+
+	<!--用户相关 -->
+	<request keyId="001-001" des="获取用户信息">{"basicData","userId"}</request>
+	<response>{"exeStatus","errCode","user":{user}}</response>
+
+	<request keyId="001-002" des="账户余额">{"basicData","userId"}</request>
+	<response>{"exeStatus","errCode","balance"}</response>
+
+	<request keyId="001-003" des="等级列表">{"basicData","userId"}</request>
+	<response>{"exeStatus","errCode","rankList":[{rank}]}</response>
+
+	<request keyId="001-004" des="充值列表">{"basicData"}</request>
+	<response>{"exeStatus","errCode","orderOptions":[{option}]}</response>
+
+	<request keyId="001-005" des="充值明细">{"basicData","userId","starTime","endTime","page","pageSize"}</request>
+	<response>{"exeStatus","errCode","payList":{[detail]...}}</response>
+	
+	<request keyId="001-006" des="账户明细">{"basicData","userId","starTime","endTime","page","pageSize"}</request>
+	<response>{"exeStatus","errCode","accountDetailList":{[consume]...}}</response>
+
+	<request keyId="001-007" des="创建用户">{"basicData","userId(后续该参数由服务器生成)","passwd","nickName","sex","channel","signature"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="001-008" des="创建订单">{"basicData","payerId","receiverId","goodId","goodCnt","payChannel"}</request>
+	<response>{"exeStatus","errCode","orderId"}</response>
+
+	<request keyId="001-009" des="开通订单">{"basicData","orderId","operatorId"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="001-010" des="送礼物">{"basicData","senderId","showId","receiverId","giftId","giftCnt"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="001-011" des="兑换进出账明细">{"basicData","userId","starTime","endTime","page","pageSize"}</request>
+	<response>{"exeStatus","errCode","incomeDetailList"}</response>
+
+	<request keyId="001-012" des="礼物进出账明细">{"basicData","userId","starTime","endTime","page","pageSize"}</request>
+	<response>{"exeStatus","errCode","giftDetailList"}</response>
+
+	<request keyId="001-013" des="登录">{"basicData","userId","passwd"}</request>
+	<response>{"exeStatus","errCode","user"}</response>
+
+	<request keyId="001-014" des="礼物列表">{"basicData"}</request>
+	<response>{"exeStatus","errCode","giftList"}</response>
+
+	<request keyId="001-015" des="上传图像">{"basicData",userId,profile}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="001-016" des="修改密码">{"basicData",userId,passwd}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="001-017" des="修改昵称">{"basicData",userId,nickName}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="001-018" des="修改签名">{"basicData",userId,signature}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+		<request keyId="001-019" des="获取兑点余额">{"basicData",userId}</request>
+	<response>{"exeStatus","errCode","balance"}</response>
+
+	<request keyId="001-020" des="苹果支付回调">{"basicData","userId","ticket","version","iosVer"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="001-021" des="主持人搜索">{"basicData","key"}</request>
+	<response>{"exeStatus","errCode","userList"}</response>
+
+	<request keyId="001-022" des="找回密码">{"basicData","userId","newPasswd","verifyCode"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="001-023" des="修改性别">{"basicData","userId","sex"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="001-024" des="获取兑点绑卡信息">{"basicData","userId"}</request>
+	<response>{"exeStatus","errCode","bind"}</response>
+
+	<request keyId="001-025" des="兑点绑卡">{"basicData","userId","weChatId","mobileId"}</request>
+	<response>{"exeStatus","errCode","bind"}</response>
+
+	<request keyId="001-026" des="申请兑点">{"basicData","userId","weChatId","mobileId"}</request>
+	<response>{"exeStatus","errCode","bind"}</response>
+
+	<request keyId="001-027" des="更新用户推送设备">{"basicData","userId","tokendId","deviceType","provider"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="001-028" des="修改用户状态">{"basicData","userId",""}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="001-029" des="获取我的订阅直列表">{"basicData","userId"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="001-030" des="获取实名认证状态">{"basicData","userId"}</request>
+	<response>{"exeStatus","errCode","auth(1 已认证 0 未认证 2 正在审核 3 认证失败)","authUrl"}</response>
+	<request keyId="001-031" des="实名认证资料填写">{"basicData","userId","..."}</request>
+	<response>{"exeStatus","errCode"}</response>
+	<request keyId="001-032" des="加减币">{"basicData","userId",".."}</request>
+	<response>{"exeStatus","errCode"}</response>
+	<request keyId="001-033" des="支付宝支付">{"basicData","userId",".."}</request>
+	<response>{"exeStatus","errCode"}</response>
+	<request keyId="001-034" des="manager登录">{"basicData","userId",".."}</request>
+	<response>{"exeStatus","errCode"}</response>
+	<request keyId="001-035" des="修改用户权限">{"basicData","userId",".."}</request>
+	<response>{"exeStatus","errCode"}</response>
+	<request keyId="001-036" des="获取用户权限">{"basicData","userId",".."}</request>
+	<response>{"exeStatus","errCode"}</response>
+	<request keyId="001-037" des="orderlist">{"basicData","userId",".."}</request>
+	<response>{"exeStatus","errCode"}</response>
+	<!-- income 兑换的点数 -->
+	<request keyId="001-038" des="a点兑换金币">{"basicData","userId","income"}</request>
+	<response>{"exeStatus","errCode","income"}</response>
+	<request keyId="001-044" des="微信回调">{"basicData","userId",".."}</request>
+	<response>{"exeStatus","errCode"}</response>
+	
+	<!--房间操作 -->
+
+	<request keyId="002-002" des="开播">{"basicData","userId","title","position"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="002-003" des="图像/直播封面">{"basicData","pic","type"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="002-005" des="房间初始化数据">{"basicData","showId","page","pageSize"}</request>
+	<response>{"exeStatus","errCode","memberList":[{user}...]}</response>
+
+	<request keyId="002-004" des="直播列表">{"basicData","userId(可选)","page","pageSize"}</request>
+	<response>{"exeStatus","errCode","showList":[{show}...]}</response>
+
+	<request keyId="002-011" des="分享">{"basicData","userId","showId","channel"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="002-014" des="结束直播(清除数据库)">{"basicData","userId","showId"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="002-015" des="结束直播(清除所有数据)">{"basicData","userId","showId"}</request>
+	<response>{"exeStatus","errCode"}</response>
+	
+	<request keyId="002-016" des="直播清算">{"basicData","userId","showId"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+
+	<!-- type = 1.警告,2.分享,3.点赞,4.系统广播,5.关注	 -->
+	<request keyId="002-018" des="公屏显示系统消息">{"basicData","senderId","chatMode","showId","receiverId","txt","type"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="002-021" des="封禁用户">{"basicData","userId"}</request>
+	<response>{"exeStatus","errCode"}</response>
+	<!-- type = 1.下播,0.禁播	 -->
+	<request keyId="002-020" des="禁播">{"basicData","userId","type"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+     <request keyId="002-017" des="直播列表">{"page","pageSize"}</request>
+	<response>{"exeStatus","errCode","showList":[{show}...]}</response>
+	
+
+	<!-- 关系相关-->
+	<request keyId="003-001" des="订阅">{"basicData","userId","starId"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="003-002" des="举报">{"basicData","userId","starId"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="003-003" des="建议">{"basicData","userId","suggest","contactInfo"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="003-004" des="粉丝列表">{"basicData","userId","page","pageSize"}</request>
+	<response>{"exeStatus","errCode","fansList":[{user}...]}</response>
+
+	<request keyId="003-005" des="订阅好友列表">{"basicData","userId","page","pageSize"}</request>
+	<response>{"exeStatus","errCode","subscribeList":[{user}...]}</response>
+
+	<request keyId="003-006" des="取消订阅">{"basicData","userId","starId"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<!-- 系统相关-->
+	<request keyId="008-001" des="获取可用的WEB服务器">{"basicData","userId","starId"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="008-002" des="米大师创建订单">{"basicData","userId","starId"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="008-003" des="米大师回调">{"basicData","userId","starId"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+
+
+	<!-- 系统相关-->
+	<request keyId="009-001" des="系统总控">{"basicData","userId","starId"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="009-002" des="获取广告列表">{"basicData","userId","starId"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="009-003" des="发送短信">{"basicData","userId","suggest","contactInfo"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="009-004" des="服务器列表">{"basicData"}</request>
+	<response>{"exeStatus","errCode"}</response>
+	<request keyId="009-005" des="修改服务器列表">{"basicData","id","ip","port","status","description"}</request>
+	<response>{"exeStatus","errCode"}</response>
+	
+
+</web-dispatcher>

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>账号--礼物查询</title>
+<link rel="stylesheet" type="text/css"
+	href="/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css"
+	href="/easyui/themes/icon.css">
+
+<script type="text/javascript"
+	src="/easyui/jquery-1.8.3.min.js"></script>
+<script type="text/javascript"
+	src="/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript"
+	src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+	
+<script type="text/javascript">
+	$(function(){
+		//数据的展示
+		$('#giftRecord-table').datagrid({
+			url : '../../service/001-120',
+			fitColumns : true,
+			pagination : true,
+			pagePosition : 'bottom',
+			rownumbers : true,
+			singleSelect : true,
+			pageNumber : 1,
+			pageSize : 20,
+			pageList : [20,50,70, 100,500, 1000],
+			queryParams: {path: '001-012'},
+			columns : [ [ 
+			   {field : 'channel',title : '类别',width : 50},
+			   {field : 'createTime',title : '创建时间',width : 150},
+			   {field : 'description',title : '描述',width : 500},
+			   {field : 'giftCnt',title : '礼物数量',width : 100},
+			   {field : 'giftId',title : '礼物ID',width : 50},
+			   {field : 'giftName',title : '礼物名称',width : 100},
+			   {field : 'id',title : 'id',width : 50},
+			   {field : 'price',title : '价格',width : 50},
+			   {field : 'relateUserId',title : '关联用户ID',width : 50},
+			   {field : 'relateUserName',title : '关联用户名称',width : 100},
+			   {field : 'userId',title : '用户ID',width : 100},
+			   {field : 'userName',title : '用户昵称',width : 100}
+			]]
+		});
+		
+		$("#search_btn").click(function(){
+			var userId = $("#userId").val();
+			var startTime = $('#startTime').datebox('getValue');
+			var endTime = $('#endTime').datebox('getValue');
+			var channel = $('#channel-combobox').combobox('getValue');
+			
+			$("#giftRecord-table").datagrid('reload',{
+				"path" : "001-012",
+				"userId" : userId,
+				"startTime" : startTime,
+				"endTime" : endTime,
+				"channel" : channel
+				
+			});
+		});
+	})
+</script>
+</head>
+<body>
+	<div class="easyui-panel" class="easyui-panel" style="width:100%;height:90px;padding:2px;background:#fafafa;">
+		<center>
+		<p>
+		<label for="name">&nbsp;&nbsp;用户ID:</label>   
+        	<input id="userId" name="userId" class="easyui-textbox" data-options="required:true" />
+        <label for="name">开始日期:</label>   
+        	<input id="startTime" name="startTime" class="easyui-datebox" data-options="required:true" ></input>
+        <label for="name">结束日期:</label>   
+        	<input id="endTime" name="endTime" class="easyui-datebox" data-options="required:true" ></input> 
+        <label for="name">请选择类别:</label>
+        <select id="channel-combobox" class="easyui-combobox" name="channel-combobox" style="width:200px;">   
+			    <option value="1">进账</option>   
+			    <option value="2">出账</option>   
+		</select>
+        <p>
+        <a id="search_btn" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a><br>
+    	</center>	
+    </div>  
+	<!-- DataGrid 数据展示 -->
+	<table id="giftRecord-table" class="easyui-datagrid" style="width:100%"></table>
+</body>
+</html>

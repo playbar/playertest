@@ -1,0 +1,230 @@
+//
+//  Ace-Prefix.pch
+//  Ace
+//
+//  Created by 周兵 on 16/2/23.
+//  Copyright © 2016年 RNT. All rights reserved.
+//
+
+#ifdef __cplusplus
+#include "cocos2d.h"
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
+
+//define this constant if you want to use Masonry without the 'mas_' prefix
+#define MAS_SHORTHAND
+
+//define this constant if you want to enable auto-boxing for default syntax
+#define MAS_SHORTHAND_GLOBALS
+
+
+#import "Masonry.h"
+#import "MJRefresh.h"
+#import "MBProgressHUD+RNT.h"
+#import "UIImage+RNT.h"
+#import "RNTUserManager.h"
+#import "NSString+Extension.h"
+
+#define AppleID @"1081244080"
+
+//网络请求头
+
+#define RNTURLHEADER @"http://172.16.150.23:8080/service/"
+//#define RNTURLHEADER @"http://api.17ace.cn/service/"
+//#define RNTURLHEADER @"http://172.16.1.157:80/service/"
+//web网络请求头
+#define RNTWebURLHeader @"http://api.17ace.cn/app/"
+
+//去除泄露警告
+#define SuppressPerformSelectorLeakWarning(Stuff) \
+do { \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+Stuff; \
+_Pragma("clang diagnostic pop") \
+} while (0)
+
+// 相机帧率
+#define CameraFPS 18
+
+//用户资料修改
+#define USER_INFO_CHANGE @"userInfoChange"
+
+/**
+ *  NSLog
+ */
+#ifdef DEBUG
+
+#define classmethod [NSString stringWithFormat:@"\n%s\n%d行\n",__func__,__LINE__]
+#define RNTLog(...) NSLog(@"\n💀⚡️💋💀⚡️💋💀⚡️💋💀⚡️💋%@%@\n💋⚡️💀💋⚡️💀💋⚡️💀💋⚡️💀",classmethod,[NSString stringWithFormat:__VA_ARGS__])
+
+#define MobClickSetLogEnabled [MobClick setLogEnabled:YES]
+
+#else
+
+#define RNTLog(...)
+#define MobClickSetLogEnabled [MobClick setLogEnabled:NO]
+
+#endif
+
+//调试专用随机色
+#define kRandomColor [UIColor colorWithRed:arc4random_uniform(256) / 255.0 green:arc4random_uniform(256) / 255.0 blue:arc4random_uniform(256) / 255.0 alpha:1]
+
+/** 16进制颜色*/
+#define RNTColor_16(c) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:((c)&0xFF)/255.0 alpha:1.0]
+/** 16进制颜色 带透明度*/
+#define RNTAlphaColor_16(c, a) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:((c)&0xFF)/255.0 alpha:a]
+
+/** 主背景色*/
+#define RNTMainColor RNTColor_16(0xffd200)
+
+/** 按钮高亮色 */
+#define RNTMainHighlightColor RNTAlphaColor_16(0xffd200, 0.5)
+
+/** 背景颜色*/
+#define RNTBackgroundColor RNTColor_16(0xfbfbfb)
+
+/** 分割线颜色*/
+#define RNTSeparatorColor RNTColor_16(0xe6e6eb)
+
+/** Mine页面Cell的text颜色*/
+#define RNTCellTextColor RNTColor_16(0x19191a)
+
+#pragma mark - 系统目录参数部分
+/** 获取Caches目录 */
+#define kCachesPath ([NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject])
+// weakSelf
+#define WEAK(object) __weak typeof(object) weak##object = object;
+
+// 分享渠道
+#define SHARE_CHANNEL_QQ @"002"
+#define SHARE_CHANNEL_WEIXIN @"003"
+#define SHARE_CHANNEL_WEIBO @"004"
+
+//屏幕宽度
+#define kScreenWidth ([UIScreen mainScreen].bounds.size.width)
+//屏幕高度
+#define kScreenHeight ([UIScreen mainScreen].bounds.size.height)
+#define X(view) view.frame.origin.x
+#define Y(view) view.frame.origin.y
+#define Width(view) view.frame.size.width
+#define Height(view) view.frame.size.height
+#define Left(view) X(view)
+#define Right(view) (X(view) + Width(view))
+#define Top(view) Y(view)
+#define Bottom(view) (Y(view) + Height(view))
+#define CenterX(view) (Left(view) + Right(view))/2
+#define CenterY(view) (Top(view) + Bottom(view))/2
+
+#pragma mark - NSNotificationKey
+#define VIDEO_LOAD_START @"VIDEO_LOAD_START"
+#define VIDEO_LOAD_END @"VIDEO_LOAD_END"
+#define VIDEO_LOAD_RESULT_KEY @"VIDEO_LOAD_RESULT_KEY"
+
+
+#pragma mark - 登录
+//最近一个用户token 存储到plist中的key
+#define ACCESSTOKEN @"accessToken"
+//最近一个用户id 存储到plist中的key
+#define USERID @"userId"
+//最近一个用户登陆的密码 存储到plist中的key
+#define USER_PASSWORD @"userPassword"
+//最近一个用户登陆的时间 存储到plist中的key
+#define LAST_LOGIN_TIME @"lastLoginTime"
+//最近一个用户token过期的时间 存储到plist中的key
+#define USER_TOKEN_TIME @"userTokenTime"
+//三方登录的openId
+#define USER_OPENID @"openId"
+//三方登录渠道
+#define USER_CHANNEL @"channel"
+//最近登陆的三个用户用户名 存储到plist表中的key
+#define USER_ACCOUNTS @"userAccouts"
+//登陆后的通知名字
+#define LOGIN_RESULT_NOTIFICATION @"loginResultNotification"
+//相机方向
+#define Camera_Position @"CameraPosition"
+#define Camera_Front @"CameraFront"
+#define Camera_Back @"CameraBack"
+
+//启动页广告
+#define Launch_AD_BOOTPIC @"Launch_AD_BOOTPIC"
+
+
+//首页cell高度
+#define homeCellH (491 *  kScreenWidth / 375)
+
+
+/** 设备是否为iPhone 4/4S 分辨率320x480，像素640x960，@2x */
+#define iPhone4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
+
+/** 设备是否为iPhone 5C/5/5S 分辨率320x568，像素640x1136，@2x */
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+
+/** 设备是否为iPhone 6 分辨率375x667，像素750x1334，@2x */
+#define iPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
+//此处判断6p 不是很准确  最好先判断4 5 6 再用else 判断剩下的6p
+/** 设备是否为iPhone 6 Plus 分辨率414x736，像素1242x2208，@3x */
+#define iPhone6P ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+
+// 礼物图片路径
+/*
+ createTime = "2016-03-04 22:54:05 468";
+ id = 6;
+ isCombined = 0;
+ name = "\U7ea2\U5507";
+ pic = "http://172.16.150.21/gift-images/6.png";
+ schemaId = 1457103245468;
+ sendPrice = 1000;
+ status = 1;
+ transformPrice = 1000;
+ */
+#define GiftImagesPath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"Gifts"]
+
+#define GiftDictsPath [GiftImagesPath stringByAppendingPathComponent:@"gifts.plist"]
+
+#define GiftImagePathWithGiftID(giftID)  [GiftImagesPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", giftID]]
+
+#define  GiftSourcesPath [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"GiftsSources"]
+
+#define GiftSourcesPathWithGiftID(giftID) [GiftSourcesPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@", giftID]]
+
+#define  GiftSourcesZipPathWithGiftID(giftID) [GiftSourcesPathWithGiftID(giftID) stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.zip", giftID]]
+
+#define GiftSourcesDownUrl(giftID) [NSString stringWithFormat:@"http://download.17ace.cn/gift/%@.zip", giftID]
+
+#pragma mark - 通知
+/** 有网通知 */
+#define RNTNetworkConnectedNotification @"NetworkConnectedNotification"
+/** 断网通知 */
+#define RNTNetworkDisconnectedNotification @"NetworkDisconnectedNotification"
+
+/** 切换后置摄像头通知 */
+#define RNTSwitcCameraBackNotification @"RNTSwitcCameraBackNotification"
+/** 切换前置摄像头通知 */
+#define RNTSwitcCameraFrontNotification @"RNTSwitcCameraFrontNotification"
+
+/** 视频开始加载 */
+#define RNTPlayStartLoadingNotification @"RNTPlayStartLoadingNotification"
+/** 视频开始加载 */
+#define RNTPlayEndLoadingNotification @"RNTPlayEndLoadingNotification"
+#define RNTPlayEndLoadResultKey @"RNTPlayEndLoadResultKey"
+
+// 聊天区域点击事件
+#define RNTPlayChatShowInfoNotification @"RNTPlayChatShowInfoNotification"
+#define RNTPlayChatShowInfoUserIDKey @"RNTPlayChatShowInfoUserIDKey"
+
+#define RNTPlayChatClickLinkNotification @"RNTPlayChatClickLinkNotification"
+#define RNTPlayChatClickLinkUrlStrKey @"RNTPlayChatClickLinkUrlStrKey"
+
+//动画结束
+#define RNTGIftAnimationEnd @"RNTGIftAnimationEnd"
+
+#endif
+
+
+
+

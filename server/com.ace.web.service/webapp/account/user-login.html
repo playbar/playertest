@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.json-2.4.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+
+		$("#button").click(function() {
+
+			$.ajax({
+				type : "post",
+				url : "../service/001-013",
+				data : $("#frm").serialize(),
+				beforeSend : function(data) {
+					$("#res").html("<font color='red'>请求发送中，请稍后....</font>");
+				},
+				success : function(data) {
+					$("#res").html("<font color='red'>结果：</font><br>" + data);
+				}
+			});
+
+		});
+
+	});
+</script>
+
+</head>
+<body>
+	<h2>
+	<font style="color:#288F53">用户登录</font> <a href="../../debug.html">返回</a>
+	</h2>
+	<form name="frm1" id="frm" method="post" action="">
+		<table cellpadding="2" cellspacing="2">
+		<tr>
+				<td style="text-align:right">渠道方式:</td>
+				<td><input type="radio" name="channel" id="channel" value="4" >本地
+				<input type="radio" name="channel" id="channel" value="3" >手机
+				<input type="radio" name="channel" id="channel" value="1" >微信
+				<input type="radio" name="channel" id="channel" value="2" >QQ
+				<input type="radio" name="channel" id="channel" value="5" >新浪微博
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:right">ID:</td>
+				<td><input type="text" name="tokenId" id="tokenId" value=""></td>
+			</tr>
+			<tr>
+				<td style="text-align:right">昵称:</td>
+				<td><input type="text" name="nickName" id="nickName" value=""></td>
+			</tr>
+			<tr>
+				<td style="text-align:right">头像:</td>
+				<td><input type="text" name="profile" id="profile" value=""></td>
+			</tr>
+			<tr>
+				<td style="text-align:right">密码:</td>
+				<td><input type="text"  name="passwd" id="passwd" value="本地和手机登录需要"></td>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align:right"><input type="button" id="button" value="提交"></td>
+			</tr>
+		</table>
+	</form>
+	<br>
+	<div id="res"></div>
+</body>
+</html>

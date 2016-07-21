@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_recharge_records_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/records_item_time_height"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/records_item_time_img_width"
+                android:layout_height="@dimen/records_item_time_img_width"
+                android:layout_marginLeft="@dimen/records_item_time_left_margin"
+                android:src="@drawable/img_records_item_title" />
+
+            <TextView
+                android:id="@+id/tv_recharge_records_item_title_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/records_item_time_left_margin"
+                android:text="本月"
+                android:textColor="@color/color_7f7f7f"
+                android:textSize="@dimen/records_item_time_text_size" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one_px"
+            android:background="@color/color_e6e6eb" />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/records_item_body_height"
+        android:background="@color/color_white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_recharge_records_item_body_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/records_item_body_left_margin"
+            android:text="@string/order_num"
+            android:textColor="@color/color_7f7f7f"
+            android:textSize="@dimen/records_item_body_order_text_size" />
+
+        <TextView
+            android:id="@+id/tv_recharge_records_item_body_order_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_recharge_records_item_body_order"
+            android:layout_toRightOf="@id/tv_recharge_records_item_body_order"
+            android:singleLine="true"
+            android:text="@string/order_num"
+            android:textColor="@color/color_7f7f7f"
+            android:textSize="@dimen/records_item_body_order_num_text_size" />
+
+        <TextView
+            android:id="@+id/tv_recharge_records_item_body_sum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_recharge_records_item_body_order"
+            android:layout_marginLeft="@dimen/records_item_body_left_margin"
+            android:layout_marginTop="@dimen/records_item_body_sum_top_margin"
+            android:text="@string/sum"
+            android:textColor="@color/color_7f7f7f"
+            android:textSize="@dimen/records_item_body_sum_text_size" />
+
+        <TextView
+            android:id="@+id/tv_recharge_records_item_body_sum_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_recharge_records_item_body_sum"
+            android:layout_toRightOf="@id/tv_recharge_records_item_body_sum"
+            android:text="@string/sum"
+            android:textColor="@color/color_7f7f7f"
+            android:textSize="@dimen/records_item_body_sum_num_text_size" />
+
+        <TextView
+            android:id="@+id/tv_recharge_records_item_body_weibi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_recharge_records_item_body_sum"
+            android:layout_marginLeft="@dimen/records_item_body_weibi_left_margin"
+            android:text="@string/weibi"
+            android:textColor="@color/color_7f7f7f"
+            android:textSize="@dimen/records_item_body_sum_num_text_size" />
+
+        <TextView
+            android:id="@+id/tv_recharge_records_item_body_weibi_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_recharge_records_item_body_sum"
+            android:layout_toRightOf="@id/tv_recharge_records_item_body_weibi"
+            android:text="@string/weibi"
+            android:textColor="@color/color_7f7f7f"
+            android:textSize="@dimen/records_item_body_sum_num_text_size" />
+
+        <TextView
+            android:id="@+id/tv_recharge_records_item_body_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_recharge_records_item_body_sum"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/records_item_time_left_margin"
+            android:text="@string/sum"
+            android:textColor="@color/color_a8a8a9"
+            android:textSize="@dimen/records_item_body_sum_num_text_size" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>提现</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.json-2.4.js"></script>
+
+<script type="text/javascript">
+function GetQueryString(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+	var r = window.location.search.substr(1).match(reg);
+	if (r != null)
+		return decodeURI(r[2]);
+	return null;
+}
+    var userId =GetQueryString("userId");
+	$(function() {
+		$.ajax({
+			type : "post",
+			url : "/service/001-024",
+			data :  {"userId":userId,"channel":"2"},
+			success : function(data) {
+				var json = eval('(' + data + ')');
+				if(json.exeStatus == 1){
+					window.location.href=encodeURI("./cash.html?userId="+userId);
+				}else{
+					window.location.href=encodeURI("./bindPaypal.html?userId="+userId);
+				}
+			}
+		});
+
+	});
+</script>
+</head>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-dispatcher>
+<!-- 
+responseType: 1 常规请求,返回文本内容
+responseType: 2 流请求,返回文件流
+responseType: 3 URL跳转请求
+		   001-*: 用户相关类请求
+		   002-*: 订单相关请求
+		   003-*: 股票池信息相关请求（股票池信息检索等）
+		   004-*: 第三方支付交易相关
+		   005-*: 消息中心
+		  
+
+ -->
+ 	<!--用户注册-->
+ 	
+ 	<request keyId="001-001" des="报名比赛" responseType="3" isRedirect="1" url="/school_activity_apply_success.html"> com.rednovo.ace.activity.handler.activity.UserHandler</request>
+ 	<request keyId="001-002" des="投票" responseType="1" isRedirect="0" url=""> com.rednovo.ace.activity.handler.activity.UserHandler</request>
+ 	<request keyId="001-003" des="验证用户" responseType="1" isRedirect="0" url=""> com.rednovo.ace.activity.handler.activity.UserHandler</request>
+ 	<request keyId="001-004" des="展示金牌数据" responseType="1" isRedirect="0" url=""> com.rednovo.ace.activity.handler.activity.UserHandler</request>
+</web-dispatcher>

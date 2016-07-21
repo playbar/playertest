@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>禁言</title>
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css">
+	<script type="text/javascript" src="/easyui/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//禁言
+		$("#no_speak_btn").click(function(){
+			var userId = $('#userId').val();
+			var showId = $('#showId').val();
+			$("#no_speak_form").form('submit',{
+				url:"../service/001-005",
+				queryParams:{path:"002-018",userId:userId,showId:showId}
+			});	
+		});
+		//取消禁言
+		$("#cancel_speak_btn").click(function(){
+			var userId = $('#userId').val();
+			var showId = $('#showId').val();
+			$("#no_speak_form").form('submit',{
+				url:"../service/001-006",
+				queryParams:{path:"002-018",userId:userId,showId:showId}
+			});	
+		});
+		
+		$("#no_speak_form").form({
+			success:function(res){
+				res = eval("(" + res + ")");
+				if(res.exeStatus == 1){
+					$.messager.alert('提示','操作成功！');
+					$('#userId').textbox('setValue','');
+					$('#showId').textbox('setValue','');
+				}else{
+					$.messager.alert('提示','操作失败！');
+				}
+			}
+		});
+	});
+</script>
+</head>
+
+<body>
+	<div id="no_speak_panel" class="easyui-panel" style="width:100%;padding:2px;background:#fafafa;">   
+    	<form id="no_speak_form" method="POST">
+    		<center><p>
+    		<label for="">&nbsp;&nbsp;用户ID:</label>   
+     			<input id="userId" name="userId" class="easyui-textbox"   data-options="required:false" />&nbsp;&nbsp;
+    		<label for="">&nbsp;&nbsp;房间ID:</label>   
+     			<input id="showId" name="showId" class="easyui-textbox"   data-options="required:false" />&nbsp;&nbsp;
+    		<a id="no_speak_btn" class="easyui-linkbutton" data-options="iconCls:'icon-lock'">禁言</a>&nbsp;&nbsp;
+    		<a id="cancel_speak_btn" class="easyui-linkbutton" data-options="iconCls:'icon-key'">取消禁言</a>
+   			</center> 
+    	</form>
+ 	</div>
+</body>
+</html>

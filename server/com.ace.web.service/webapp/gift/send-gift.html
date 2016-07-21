@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.json-2.4.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+
+		$("#button").click(function() {
+
+			$.ajax({
+				type : "post",
+				url : "../service/001-010",
+				data : $("#frm").serialize(),
+				beforeSend : function(data) {
+					$("#res").html("<font color='red'>请求发送中，请稍后....</font>");
+				},
+				success : function(data) {
+					$("#res").html("<font color='red'>结果：</font><br>" + data);
+				}
+			});
+
+		});
+
+	});
+</script>
+
+</head>
+<body>
+	<h2>
+		<font style="color:#288F53">赠送礼物</font> <a href="../../debug.html">返回</a>
+	</h2>
+	<form name="frm1" id="frm" method="post" action="">
+		<table cellpadding="2" cellspacing="2">
+			<tr>
+				<td style="text-align:right">用户id:</td>
+				<td><input type="text" name="senderId" id="senderId" value=""></td>
+			</tr>
+			<tr>
+				<td style="text-align:right">直播间Id</td>
+				<td><input type="text" name="showId" id="showId" value=""></td>
+			</tr>
+			<tr>
+				<td style="text-align:right">主播ID:</td>
+				<td><input type="text" name="receiverId" id="receiverId" value=""></td>
+			</tr>
+			<tr>
+				<td style="text-align:right">礼物ID:</td>
+				<td><input type="text" name="giftId" id="giftId" value=""></td>
+			</tr>
+			<tr>
+				<td style="text-align:right">礼物数量:</td>
+				<td><select name="giftCnt" id="giftCnt" style="width:150px">
+				<option value="1" selected>1</option>
+				<option value="2">2</option>
+				<option value="5">5</option>
+				<option value="10">10</option>
+				<option value="50">50</option>
+				<option value="100">100</option>
+				<option value="520">520</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align:right"><input type="button" id="button"  value="提交"></td>
+			</tr>
+		</table>
+	</form>
+	<br>
+	<div id="res"></div>
+</body>
+</html>

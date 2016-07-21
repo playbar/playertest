@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>账号管理--加减币记录</title>
+
+<link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css">
+<script type="text/javascript" src="/easyui/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#addCoin_window").panel('close');
+		$("#subtractCoin_window").panel('close');
+		$('#coinHistory-table').datagrid({
+			url : '../../service/001-060',
+			fitColumns : false,
+			pagination : true,
+			pagePosition : 'bottom',
+			rownumbers : true,
+			singleSelect : true,
+			pageNumber : 1,
+			pageSize : 20,
+			pageList : [20,50,70, 100,500, 1000],
+			queryParams: {path: '001-006',channel:'1'},
+			columns : [ [ 
+				{field : 'amount',title : '数量',width : 150},
+				{field : 'createTime',title : '创建时间',width :200},
+				{field : 'desciption',title : '描述',width : 500},
+				{field : 'id',title : 'ID',width : 100},
+				{field : 'relateUserId',title : '关联用户ID',width : 100},
+				{field : 'relateUserName',title : '关联用户名称',width : 100},
+				{field : 'userId',title : '用户ID',width : 100},
+				{field : 'userName',title : '用户名称',width : 100},
+				{field : 'channel',title : '消费渠道',width : 100,
+			    	formatter:function(value, row, index){
+						if(row.channel == 1 ){
+							return '订单';
+						}else if(row.channel == 2){
+							return '系统加钱';
+						}else if(row.channel == 3){
+							return '发送礼物';
+						}else if(row.channel == 4){
+							return '兑换';
+						}else if(row.channel == 5){
+							return '系统减钱';
+						}
+					} 
+			    }
+			] ],
+			toolbar:[{
+				iconCls: 'icon-add',
+				text:'加币',
+				handler:addCoin
+			},'-',{
+				iconCls: 'icon-remove',
+				text:'减币',
+				handler:subtractCoin
+			}]
+		});
+		
+		//查询
+		$("#search_btn").click(function(){
+			var userId = $("#userId").val();
+			var startTime = $('#startTime').datebox('getValue');
+			var endTime = $('#endTime').datebox('getValue');
+			var channel = $('#channel-combobox').combobox('getValue');
+			$("#coinHistory-table").datagrid('reload',{
+				"path" : "001-006",
+				"userId" : userId,
+				"startTime" : startTime,
+				"endTime" : endTime,
+				"channel" : channel
+			});
+		});
+		//加币form表单提交
+		$("#add_Coin_form").form({
+			success:function(data ){
+				var exeStatus = eval('(' + data  + ')');  
+				if(exeStatus.exeStatus == 1){
+					$.messager.alert('提示','加币成功！');
+	    			$('#coinHistory-table').datagrid('reload',{
+	    				"path" : "001-006",
+	    				"channel" : "1"
+	    			});
+	    			$("#add_Coin_form").form('clear');
+	    			$("#addCoin_window").window('close');
+				}else{
+					$.messager.alert('提示','加币失败！');
+				}
+			}
+		});//减币form表单提交
+		$("#subtract_Coin_form").form({
+			success:function(data ){
+				var exeStatus = eval('(' + data  + ')');  
+				if(exeStatus.exeStatus == 1){
+					$.messager.alert('提示','减币成功！');
+	    			$('#coinHistory-table').datagrid('reload',{
+	    				"path" : "001-006",
+	    				"channel" : "1"
+	    			});
+	    			$("#subtract_Coin_form").form('clear');
+	    			$("#subtractCoin_window").window('close');
+				}else{
+					$.messager.alert('提示','减币失败！');
+				}
+			}
+		});
+		//重置
+		$("#add_reset_save_btn").linkbutton({
+			iconCls:'icon-cancel',
+			onClick:function(){
+				$("#add_update_form").form('reset');
+				$("#subtract_Coin_form").form('reset');
+			}
+		});
+		$("#subtract_reset_save_btn").linkbutton({
+			iconCls:'icon-cancel',
+			onClick:function(){
+				$("#subtract_Coin_form").form('reset');
+			}
+		});
+		
+	})
+	
+	function addCoin(){
+		$("#addCoin_window").form('clear');
+		$("#addCoin_window").window('open');
+		$("#add_save_btn").linkbutton({
+			iconCls:'icon-save',
+			onClick:function(){
+				$("#add_Coin_form").form('submit',{
+					queryParams:{path:'001-034'},
+					url:"../../service/001-340"//添加用户的from表单提交
+				});	
+			}
+		}); 
+		$("#add_reset_save_btn").linkbutton({
+			iconCls:'icon-cancel',
+			onClick:function(){
+				$("#add_Coin_form").form('reset');
+			}
+		});
+	}
+	
+	function subtractCoin(){
+		$("#subtract_Coin_form").form('clear');
+		$("#subtract_num").textbox('setValue','-');
+		$("#subtractCoin_window").window('open');
+		$("#subtract_save_btn").linkbutton({
+			iconCls:'icon-save',
+			onClick:function(){
+				$("#subtract_Coin_form").form('submit',{
+					queryParams:{path:'001-034'},
+					url:"../../service/001-340"//添加用户的from表单提交
+				});	
+			}
+		}); 
+		$("#subtract_reset_save_btn").linkbutton({
+			iconCls:'icon-cancel',
+			onClick:function(){
+				$("#subtract_Coin_form").form('reset');
+			}
+		});
+		
+	}
+	
+</script>
+
+</head>
+<body>
+    <div class="easyui-panel" style="width:100%;height:90px;padding:1px;background:#fafafa;">
+    	<center>
+		<p>
+    	<label for="name">&nbsp;&nbsp;用户ID:</label>   
+        	<input id="userId" name="userId" class="easyui-textbox" data-options="required:false" />
+        <label for="name">开始日期:</label>   
+        	<input id="startTime" name="startTime" class="easyui-datebox" ></input>
+        <label for="name">结束日期:</label>   
+        	<input id="endTime" name="endTime" class="easyui-datebox" ></input> 
+        <label for="name">请选择类别:</label>
+        <select id="channel-combobox" class="easyui-combobox" name="channel-combobox" style="width:200px;">   
+			    <option value="1">进账</option>   
+			    <option value="0">出账</option>   
+		</select>
+		<p>
+        <a id="search_btn" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a><br>
+    	</center>	
+    </div>     
+    	
+	<!-- DataGrid 数据展示 -->
+	<table id="coinHistory-table" class="easyui-datagrid" style="width:99%" ></table> 
+
+	<div id="addCoin_window" title="加币页面"  class="easyui-window" data-options="collapsible:false,minimizable:false, maximizable:false,closable:true,draggable:true,modal:true,resizable:false" style="width:500px;height:300px;background:#fafafa;">
+		<form id="add_Coin_form" method="post">
+    		<center><p>
+    		<label for="">&nbsp;&nbsp;加币用户ID:</label>   
+        		<input id="userId" name="userId"  class="easyui-textbox"   data-options="required:false"  ></input>  
+        	<br><p>
+        	<label for="">&nbsp;&nbsp;操作用户ID:</label>   
+        		<input id="relateUserId" name="relateUserId"  class="easyui-textbox"   data-options="required:false"  ></input>  
+        	<br><p>
+        	<label for="">输入加币的数量:</label>   
+        		<input id="num" name="num"  class="easyui-textbox"   data-options="required:false"  />
+        	<br><p>
+        	<a id="add_save_btn" class="easyui-linkbutton" data-options="iconCls:'icon-add'">增加金币</a>
+        	&nbsp;&nbsp;&nbsp;&nbsp;
+			<a id="add_reset_save_btn" >重置</a>
+			</center>
+		</form><p>
+	</div>  
+	
+	<div id="subtractCoin_window" title="减币页面"  class="easyui-window" data-options="collapsible:false,minimizable:false, maximizable:false,closable:true,draggable:true,modal:true,resizable:false"  style="width:500px;height:300px;background:#fafafa;">
+		<form id="subtract_Coin_form" method="post">
+    	<center><p>
+    		<label for="">&nbsp;&nbsp;减币用户ID:</label>   
+        		<input id="userId" name="userId"  class="easyui-textbox"   data-options="required:false"  ></input>  
+        	<br><p>
+        	<label for="">&nbsp;&nbsp;操作用户ID:</label>   
+        		<input id="relateUserId" name="relateUserId"  class="easyui-textbox"   data-options="required:false"  ></input>  
+        	<br><p>
+        	<label for="">输入减币的数量(请注意(-)号):</label>   
+        		<input id="subtract_num" name="num"   class="easyui-textbox"  data-options="required:true"  />
+        	<br><p>
+        	<a id="subtract_save_btn" class="easyui-linkbutton" data-options="iconCls:'icon-remove'">减少金币</a>
+        	&nbsp;&nbsp;&nbsp;&nbsp;
+			<a id="subtract_reset_save_btn" >重置</a>
+		</center>
+		</form><p>
+	</div>  
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>登录</title>
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css">
+	<script type="text/javascript" src="/easyui/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(document).keypress(function(e) { 
+			if(e.which == 13) {  
+				if($("#userName").val() != "" && $("#userPwd").val() != ""){
+					$("#login_form").form('submit',{    
+			   			url:"./service/001-001",
+			   			queryParams:{path:"001-034"}
+			   		});	
+				}else{
+					$.messager.alert('提示','请输入用户名和密码！');
+				}
+		    } 
+		}); 
+		
+		$('#login_window').window({    
+			collapsible:false,  
+			minimizable:false,  
+			maximizable:false,  
+			closable:false,  
+			draggable:false,  
+			resizable:false,	
+		    modal:true   
+		}); 
+		
+		$("#login_btn").click(function(){
+			$("#login_form").form('submit',{    
+				url:"./service/001-001",
+				queryParams:{path:"001-034"}
+			});	
+		});
+		$("#login_form").form({
+			success:function(res){
+				res = eval("(" + res + ")");
+				if(res.exeStatus == 1){
+					var userId = $("#userName").val();
+	    			$("#login_form").form('clear');
+	    			window.location.href="manager.html?id="+userId;
+				}else{
+					$.messager.alert('提示','登录失败！');
+				}
+			}
+		});
+	});
+</script>
+</head>
+
+<body>
+	<div id="login_window" class="easyui-window" data-options="title:'登录'" style="width:30%;height:170px;padding:2px;background:#fafafa;">   
+    	<form id="login_form" method="POST">
+    	<center><p>
+    		<label for="">用户名:</label>   
+     			<input id="userName" name="userName" class="easyui-textbox"	data-options="required:false,type:'text',iconCls:'icon-man'" /><br><p>
+     		<label for="">密&nbsp;&nbsp;&nbsp;码:</label>
+     			<input id="userPwd" name="userPwd" class="easyui-textbox" type="password"	data-options="required:false,type:'password',iconCls:'icon-lock'" /><br><p>
+    		<a id="login_btn" class="easyui-linkbutton" data-options="iconCls:'icon-lock'">登录</a>
+   		</center> 
+   		</form>
+	</div>
+</body>
+</html>

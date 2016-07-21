@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>冻结/解冻</title>
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css">
+	<script type="text/javascript" src="/easyui/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#freeze_btn").click(function(){
+			var userId = $('#userId').val();
+			$("#freeze_form").form('submit',{
+				url:"../service/001-002",
+				queryParams:{path:"001-028",isActive:"0"}
+			});	
+		});
+		$("#cancel_freeze_btn").click(function(){
+			var userId = $('#userId').val();
+			$("#freeze_form").form('submit',{
+				url:"../service/001-002",
+				queryParams:{path:"001-028",isActive:"1"}
+			});	
+		});
+		$("#freeze_form").form({
+			success:function(res){
+				res = eval("(" + res + ")");
+				if(res.exeStatus == 1){
+					$.messager.alert('提示','操作成功！');
+	    			$("#freeze_panel").form('clear');
+				}else{
+					$.messager.alert('提示','操作失败！');
+				}
+			}
+		});
+		
+	});
+	
+	//解冻
+	function operation(userId){
+		$.ajax({
+			type:"post",
+			url:"../service/001-002",
+			data:{"userId":userId,"path":"001-003","isActive":"1"},
+			dataType:"json",
+			success:function(exeStatus){
+				if(exeStatus.exeStatus == 1){
+					$.messager.alert('提示','解冻成功！');
+	    			$("#userId").val("");
+				}else{
+					$.messager.alert('提示','解冻失败！');
+				}
+			}
+		});
+	}
+
+</script>
+</head>
+
+	<div id="freeze_panel" class="easyui-panel" style="width:100%;padding:2px;background:#fafafa;">   
+    	<form id="freeze_form" method="POST">
+    	<center><p>
+       	<label for="">用户ID:</label>   
+        	<input id="userId" name="userId" class="easyui-textbox"   data-options="required:false" />&nbsp;&nbsp;
+       	<a id="freeze_btn" class="easyui-linkbutton" data-options="iconCls:'icon-lock'">冻结</a>&nbsp;&nbsp;
+       	<a id="cancel_freeze_btn" class="easyui-linkbutton" data-options="iconCls:'icon-key'">解冻</a>
+      	</center> 
+       	</form>
+    </div>
+</body>
+</html>

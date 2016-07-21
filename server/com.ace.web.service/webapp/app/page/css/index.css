@@ -1,0 +1,35 @@
+body{background: #fff;font-family: "微软雅黑";}
+.top_box{width: 100%;height: 70px;background: #fff;position: fixed;top:0;z-index: 3;}
+.top{width:1020px;height: 70px;margin: 0 auto;margin-left: -510px;left: 50%;top:0;position: fixed;}
+.top a.logo_ace{float: left;display: inline-block;width: 102px;height: 39px;margin: 15px 120px 15px 20px;}
+.top .nav{float: left;}
+.top .nav li{float: left;font-size: 16px;color: #1c1c1c;margin:20px 0 0 0 }
+.top .nav li a{display: inline-block;padding: 3px 15px;margin:0 10px;}
+.top .nav li a.cur{background: #000;color: #fff;padding: 3px 15px;border-radius: 20px;}
+.banner{background: url(../images/banner.jpg) no-repeat top center;width: 100%;height: 420px;margin-top: 70px;}
+.banner_content{width: 1020px;margin: 0 auto;position: relative;left: 50%;margin-left: -510px;}
+.show_pic{background: url(../images/phone.png) no-repeat;width: 454px;height: 742px;position: absolute;top:-70px;right: 30px;z-index: 1}
+.ewm{background: url(../images/ewm.png) no-repeat;position: absolute;left: 10px;top:90px;width:323px;height: 308px; }
+.ewm_pic{width: 110px;height: 110px;position: absolute;top:178px;left: 20px;}
+.more_show{width: 1020px;margin: 0 auto;margin-top: 300px;overflow: hidden;position: relative;bottom: 100px;}
+.more_show h2,.list_show p i,.contact h2{background: url(../images/text.png) no-repeat;}
+.more_show h2{width: 243px;height: 70px;background-position: -11px -9px;margin: 0 auto;}
+.list_show p{float: left;margin-left: 3px;position: relative;}
+.list_show p.list1{margin-left: -3px;}
+.list_show p img{width: 252px;height: 374px;}
+.list_show p span{position: absolute;display: inline-block;background: url(../images/line.png) no-repeat;bottom: 0;width: 252px;height: 150px;}
+.list_show p i{display: inline-block;width: 244px;height: 132px;position: absolute;bottom: 10px;z-index: 2;left: 0;}
+.list_show p.list1 i{background-position: 0 -640px;}
+.list_show p.list2 i{background-position: 0 -508px;}
+.list_show p.list3 i{background-position: 0 -371px;}
+.list_show p.list4 i{background-position: 0 -238px;}
+.contact{background: #ffd200;width: 100%;height: 400px;clear: both;}
+.contact_box{width:1020px;height: 400px;margin: 0 auto;}
+.contact h2{width: 167px;height: 70px;margin:0px auto;background-position: -46px -120px;position: relative;top:50px;}
+.contact_box div{float: left;width: 120px;height: 100px;border-left: 1px dashed #000;margin-left: 280px;padding-left: 10px;color: #000;margin-top: 100px;}
+.contact_box div.call1{margin-left: 0px;}
+.contact_box a{background: none}
+.contact_box em{display: block;font-style: normal;font-size: 12px;}
+.contact_box i{display: block;font-style: normal;font-size: 12px;}
+.contact_box span{display: block;font-size: 14px;}
+.copyright{font-size: 12px;color: #040404;clear: both;padding-top: 60px;text-align: center;}

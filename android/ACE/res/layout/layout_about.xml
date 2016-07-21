@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_color_ffd200"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/about_img_top_margin"
+        android:src="@drawable/img_ace_icon" />
+
+    <TextView
+        android:id="@+id/tv_about_version_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/about_version_text_top_margin"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/about_version_text_size"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/about_info_height"
+        android:layout_margin="@dimen/about_info_margin"
+        android:background="@drawable/xml_about_info_bg"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/about_info_margin"
+            android:text="@string/official_website"
+            android:textColor="@color/color_black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/about_info_margin"
+            android:text="@string/official_website_info"
+            android:textColor="@color/color_black" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/about_info_height"
+        android:layout_marginLeft="@dimen/about_info_margin"
+        android:layout_marginRight="@dimen/about_info_margin"
+        android:background="@drawable/xml_about_info_bg"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/about_info_margin"
+            android:text="@string/feedback_email"
+            android:textColor="@color/color_black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/about_info_margin"
+            android:text="@string/feedback_email_info"
+            android:textColor="@color/color_black" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/about_ltd_name_bottom_margin"
+            android:text="@string/ltd_name"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/about_ltd_name_text_size" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>报名参赛</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="css/common.css"/>
+	<script type="text/javascript" src="js/uploadImage.js" ></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.json-2.4.js"></script>
+	<style type="text/css">
+		body{
+			/*background-color:red;*/
+		}
+		form {
+			width:290px;
+			margin: 10px auto;
+		}
+
+		input {
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			border:1px solid #ccc;
+			font-size:20px;
+			width:290px;
+			min-height:40px;
+			display:block;
+			margin-bottom:25px;
+			margin-top:5px;
+			outline: none;
+
+			-webkit-border-radius:5px;
+			border-radius:5px;
+		}
+		.title{
+			display: block;
+			top: 1em;
+			width: 100%;
+			font-size: 24px;
+			text-align: center;
+			font-color:#ffffff
+		}
+		.background{
+			background-color: #ffff00;
+		}
+		p{
+			line-height: 25px;
+			text-align: left;
+		}
+		.submitbtn{
+			/*background-image: url(img/submit.png);*/
+
+		}
+
+		.bg1{
+			width: 100%;
+
+		}
+		body{
+			background-image: url(img/school_activity_img/bg.png);
+			background-size: 100%;
+		}
+		.bg{
+			background-image: url(img/school_activity_img/bg_top.png);
+			background-size:100%;
+			width: 100%;
+			position: relative;
+		}
+		.banner{
+			position: absolute;
+			top: 0;
+			max-width: 100%;
+		}
+		.form-style{
+			background-color: #6fefae;
+			margin-left: 1em;
+			margin-right: 1em;
+			border-radius: 0.5em;
+			padding-top: 1em;
+			padding-bottom: 0.2em;
+		}
+		.upload-img{
+			width: 30%;
+			height: 30%;
+			margin:0 auto;
+		}
+		#file{ 
+			position:absolute; 
+			z-index:100; 
+			margin-left:-180px; 
+			font-size:60px;
+			opacity:0;
+			filter:alpha(opacity=0); 
+			margin-top:-5px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="bg">
+		<img src="img/school_activity_img/banner.png">
+	</div>
+
+	<div class="form-style">
+
+		<div class="title">
+			<a>报名参赛</a>
+		</div>
+		<form id="frm" method="post" action="../service/001-001" enctype="multipart/form-data">
+		<!-- <div class="upload-img">
+			<input type="file" accept="image/*;capture=camera">直接调用相机
+			<input type="file" accept="image/*" />调用相机 图片或者相册
+			<div style="margin-top: 1em;">
+				<input type="file" accept="image/*" id="file" name="file" size="1" onchange="selectImage(this);" >
+				<img id = "image" src="img/school_activity_home_img/upload.png" width="100px" height="100px" />
+			</div>	
+		</div>
+
+		<div style="margin: 1em auto;width: 100%;text-align: center;">
+			<a>请务必上传本人正面高清大图</a>
+		</div> -->
+		<div id="res"></div>
+			<!-- 名称 -->	
+			<input type="text" id="userId" onblur="checkUser()" name="userId" placeholder="  用户Id(必填)" required oninvalid="setCustomValidity('必须填写！');" oninput="setCustomValidity('');">
+			<!-- 名称 -->	
+			<input type="text" id="name" name="name" placeholder="  真实姓名(必填)" required oninvalid="setCustomValidity('必须填写！');" oninput="setCustomValidity('');">
+
+			<!-- 学校 -->
+			<input type="text" id="school" name="school" placeholder="  学校(必填)" required oninvalid="setCustomValidity('必须填写！');" oninput="setCustomValidity('');">
+
+			<!-- 微信 -->
+			<input type="text" id="weixin" name="weixin" placeholder="  微信(必填)" required oninvalid="setCustomValidity('必须填写！');" oninput="setCustomValidity('');">
+
+
+			<!--活动id  -->
+			<input type="hidden" id="activityId" name="activityId" value="1">
+			<!-- qq -->
+			<input style = "margin-top:45px;" class = "inp" type="text" id="qq" name="qq" placeholder="  QQ">
+
+			<!-- 专业 -->
+			<input type="text" id="specialty" name="specialty" placeholder="  专业" >
+
+			<!-- 提交 -->
+			<input style = "margin-top:40px;background-color:#ffff00;" class="submitbtn" id="button" name="button" type="submit" value="提交" /> 
+			<p>特殊说明:<br/>本次大赛只针对在校学生，领取奖品时需要通过Ace直播平台官方审核学生身份。</p>
+		</form>
+	</div>
+</body>
+<script type="text/javascript">
+
+	var image = '';
+ 	function checkUser(){
+ 		$.ajax({
+			type : "post",
+			url : "../service/001-003",
+			data : $("#frm").serialize(),
+			/* beforeSend : function(data) {
+				$("#res").html("<font color='red'>请求发送中，请稍后....</font>");
+			}, */
+			success : function(data) {
+				
+				if((data.indexOf("false")) > 0)
+				{
+				$("#res").html("<font color='red'>该用户ID已经报名</font>" );
+				$("#res").show();
+				$("#userId").focus();
+				}else{
+					$("#res").hide();
+				}
+			}
+		});
+ 	}
+	
+	function selectImage(file){
+		if(!file.files || !file.files[0]){
+			return;
+		}
+		var reader = new FileReader();
+		reader.onload = function(evt){
+			document.getElementById('image').src = evt.target.result;
+			image = evt.target.result;
+		}
+		reader.readAsDataURL(file.files[0]);
+	}
+</script>
+</html>

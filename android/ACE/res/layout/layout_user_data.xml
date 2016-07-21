@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_f9f9f9"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_title_bar" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rl_user_data_portrait"
+                    style="@style/my_fragment_item_style"
+                    android:layout_height="@dimen/user_data_protarit_item_height">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/my_fragment_item_margin"
+                        android:text="@string/portrait"
+                        android:textColor="@color/color_19191a"
+                        android:textSize="@dimen/my_fragment_item_text_size" />
+
+                    <ImageView
+                        android:id="@+id/img_user_data_portrait_forward"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/my_fragment_item_margin"
+                        android:src="@drawable/img_forward" />
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/img_user_data_portrait"
+                        android:layout_width="@dimen/user_data_portrait_diameter"
+                        android:layout_height="@dimen/user_data_portrait_diameter"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/my_fragment_item_margin"
+                        android:layout_toLeftOf="@id/img_user_data_portrait_forward"
+                        fresco:roundAsCircle="true"
+                        fresco:roundingBorderColor="@color/color_white"
+                        fresco:roundingBorderWidth="@dimen/my_fragment_portrait_border_width" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/one_px"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/color_e6e6eb" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_user_data_nickname"
+                    style="@style/my_fragment_item_style">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/my_fragment_item_margin"
+                        android:text="@string/nick_name"
+                        android:textColor="@color/color_19191a"
+                        android:textSize="@dimen/my_fragment_item_text_size" />
+
+                    <ImageView
+                        android:id="@+id/img_user_data_nick_name_forward"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/my_fragment_item_margin"
+                        android:src="@drawable/img_forward" />
+
+                    <TextView
+                        android:id="@+id/tv_user_data_nick_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/my_fragment_item_margin"
+                        android:layout_toLeftOf="@id/img_user_data_nick_name_forward"
+                        android:textColor="@color/color_7f7f7f"
+                        android:textSize="@dimen/my_fragment_item_text_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/one_px"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/color_e6e6eb" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_user_data_id"
+                    style="@style/my_fragment_item_style">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/my_fragment_item_margin"
+                        android:text="@string/id"
+                        android:textColor="@color/color_19191a"
+                        android:textSize="@dimen/my_fragment_item_text_size" />
+
+                    <TextView
+                        android:id="@+id/tv_user_data_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/my_fragment_item_margin"
+                        android:textColor="@color/color_7f7f7f"
+                        android:textSize="@dimen/my_fragment_item_text_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/one_px"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/color_e6e6eb" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_user_data_autograph"
+                    style="@style/my_fragment_item_style">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/my_fragment_item_margin"
+                        android:text="@string/autograph"
+                        android:textColor="@color/color_19191a"
+                        android:textSize="@dimen/my_fragment_item_text_size" />
+
+                    <ImageView
+                        android:id="@+id/img_user_data_autograph_forward"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/my_fragment_item_margin"
+                        android:src="@drawable/img_forward" />
+
+                    <TextView
+                        android:id="@+id/tv_user_data_autograph"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/my_fragment_item_margin"
+                        android:layout_toLeftOf="@id/img_user_data_autograph_forward"
+                        android:gravity="right"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:textColor="@color/color_7f7f7f"
+                        android:textSize="@dimen/my_fragment_item_text_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/one_px"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/color_e6e6eb" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_user_data_sex"
+                    style="@style/my_fragment_item_style">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/my_fragment_item_margin"
+                        android:text="@string/sex"
+                        android:textColor="@color/color_19191a"
+                        android:textSize="@dimen/my_fragment_item_text_size" />
+
+                    <ImageView
+                        android:id="@+id/img_user_data_sex_forward"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/my_fragment_item_margin"
+                        android:src="@drawable/img_forward" />
+
+                    <TextView
+                        android:id="@+id/tv_user_data_sex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/my_fragment_item_margin"
+                        android:layout_toLeftOf="@id/img_user_data_sex_forward"
+                        android:textColor="@color/color_7f7f7f"
+                        android:textSize="@dimen/my_fragment_item_text_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/one_px"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/color_e6e6eb" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_user_data_age"
+                    style="@style/my_fragment_item_style"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/my_fragment_item_margin"
+                        android:text="@string/age"
+                        android:textColor="@color/color_19191a"
+                        android:textSize="@dimen/my_fragment_item_text_size" />
+
+                    <ImageView
+                        android:id="@+id/img_user_data_age_forward"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/my_fragment_item_margin"
+                        android:src="@drawable/img_forward" />
+
+                    <TextView
+                        android:id="@+id/tv_user_data_age"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/my_fragment_item_margin"
+                        android:layout_toLeftOf="@id/img_user_data_age_forward"
+                        android:textColor="@color/color_7f7f7f"
+                        android:textSize="@dimen/my_fragment_item_text_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/one_px"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/color_e6e6eb" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_user_data_constellation"
+                    style="@style/my_fragment_item_style"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/my_fragment_item_margin"
+                        android:text="@string/constellation"
+                        android:textColor="@color/color_19191a"
+                        android:textSize="@dimen/my_fragment_item_text_size" />
+
+                    <TextView
+                        android:id="@+id/tv_user_data_constellation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/my_fragment_item_margin"
+                        android:textColor="@color/color_7f7f7f"
+                        android:textSize="@dimen/my_fragment_item_text_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/one_px"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/color_e6e6eb" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_user_data_location"
+                    style="@style/my_fragment_item_style"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/my_fragment_item_margin"
+                        android:text="@string/location"
+                        android:textColor="@color/color_19191a"
+                        android:textSize="@dimen/my_fragment_item_text_size" />
+
+                    <ImageView
+                        android:id="@+id/img_user_data_location_forward"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/my_fragment_item_margin"
+                        android:src="@drawable/img_forward" />
+
+                    <TextView
+                        android:id="@+id/tv_user_data_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/my_fragment_item_margin"
+                        android:layout_toLeftOf="@id/img_user_data_location_forward"
+                        android:textColor="@color/color_7f7f7f"
+                        android:textSize="@dimen/my_fragment_item_text_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/one_px"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/color_e6e6eb" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_user_data_emotion"
+                    style="@style/my_fragment_item_style"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/my_fragment_item_margin"
+                        android:text="@string/emotion"
+                        android:textColor="@color/color_19191a"
+                        android:textSize="@dimen/my_fragment_item_text_size" />
+
+                    <ImageView
+                        android:id="@+id/img_user_data_emotion_forward"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/my_fragment_item_margin"
+                        android:src="@drawable/img_forward" />
+
+                    <TextView
+                        android:id="@+id/tv_user_data_emotion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/my_fragment_item_margin"
+                        android:layout_toLeftOf="@id/img_user_data_emotion_forward"
+                        android:textColor="@color/color_7f7f7f"
+                        android:textSize="@dimen/my_fragment_item_text_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/one_px"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/color_e6e6eb" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_user_data_lable"
+                    style="@style/my_fragment_item_style"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/user_data_lable_item_padding"
+                    android:paddingTop="@dimen/user_data_lable_item_padding"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/my_fragment_item_margin"
+                        android:text="@string/label"
+                        android:textColor="@color/color_19191a"
+                        android:textSize="@dimen/my_fragment_item_text_size" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true">
+
+                        <TextView
+                            android:id="@+id/tv_user_data_label_1"
+                            style="@style/user_data_lable_item_style"
+                            android:layout_marginLeft="@dimen/user_data_lable_item_first_margin" />
+
+                        <TextView
+                            android:id="@+id/tv_user_data_label_2"
+                            style="@style/user_data_lable_item_style"
+                            android:layout_marginLeft="@dimen/user_data_lable_item_margin"
+                            android:layout_toRightOf="@+id/tv_user_data_label_1" />
+
+                        <TextView
+                            android:id="@+id/tv_user_data_label_3"
+                            style="@style/user_data_lable_item_style"
+                            android:layout_marginLeft="@dimen/user_data_lable_item_margin"
+                            android:layout_toRightOf="@+id/tv_user_data_label_2" />
+
+                        <TextView
+                            android:id="@+id/tv_user_data_label_4"
+                            style="@style/user_data_lable_item_style"
+                            android:layout_below="@+id/tv_user_data_label_1"
+                            android:layout_marginLeft="@dimen/user_data_lable_item_first_margin"
+                            android:layout_marginTop="@dimen/user_data_lable_item_column_margin" />
+
+                        <TextView
+                            android:id="@+id/tv_user_data_label_5"
+                            style="@style/user_data_lable_item_style"
+                            android:layout_below="@+id/tv_user_data_label_2"
+                            android:layout_marginLeft="@dimen/user_data_lable_item_margin"
+                            android:layout_marginTop="@dimen/user_data_lable_item_column_margin"
+                            android:layout_toRightOf="@+id/tv_user_data_label_4" />
+
+                        <TextView
+                            android:id="@+id/id_redact_user_label_text6"
+                            style="@style/user_data_lable_item_style"
+                            android:layout_below="@+id/tv_user_data_label_3"
+                            android:layout_marginLeft="@dimen/user_data_lable_item_margin"
+                            android:layout_marginTop="@dimen/user_data_lable_item_column_margin"
+                            android:layout_toRightOf="@+id/tv_user_data_label_5" />
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/my_fragment_item_margin"
+                        android:src="@drawable/img_forward" />
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,68 @@
+﻿@charset "utf-8";
+/* ----------------------------------------
+	* Filename:     mini.css
+	* Description:  For Android / iOS / WP
+	* CssCreate:    2014-11-05 22:02
+	* DesignBy:     CuPlayer.com
+------------------------------------------ */
+html,body {width: 100%}
+body {margin:0; padding:0;  margin-top:0px;font-size:12px; color:#313131;text-align: left; font-family:Verdana, Arial, Helvetica, sans-serif; background:#ffffff; }
+body {background: #fff;width:100%; margin:0 auto;}
+div,ul,li,ol,dl,dt,dd,form,img,p{margin: 0; padding: 0; border: 0; }
+/* icon ------------------------ */
+#icon{width: 100%; height: 8em;text-align: center;line-height: 16px}
+#icon img{height: 45%;}
+#icon p{font-size: 1.2em;color: #59595f;} 
+#icon img{margin-top: 6%}
+
+/* content --------------------- */
+#content{height: 100%;position: relative;}
+#content .video{background-color: #000;}
+/* id --------------------------*/
+#id{margin: 1em;position: relative;}
+#id .content{margin: 0;padding: 0;position: relative;}
+#id .content .left{background-color: #000;width: 4.5em;height: 4.5em;border-radius: 50%;overflow: hidden;display: inline-block;vertical-align:top}
+#id .content .left img{height: 100%;display: inline-block;}
+#id .content .center{color: #acacaf;font-size: 1.2em;line-height: 1.5em;display: inline-block; -ms-display:block;}
+#id .content .rigth{display: inline-block;margin: 0;vertical-align:top;line-height: 0px;position: absolute;top: 0;right: 0;}
+#id .content .rigth p{display: inline;margin: 0;color: #acacaf;}
+#id .content .rigth p img{height: 1.5em;position: relative;top: 0.3em;}
+#id .rom{color: #000;font-size: 1.5em;margin-bottom: 1em;color: #59595f;}
+
+/*
+#id p{font-size: 1.2em;color: #acacaf;}
+#id .rigth{float: right;margin-right: 2em;position: relative;top: -8em;}
+#id .rigth p{display: inline;}
+#id .rigth p img{height: 1.5em;position: relative;top: 0.3em;}
+#id .left .rom{color: #000;font-size: 1.5em;margin-bottom: 1em;}
+#id .left div{background-color: #000;width: 4.5em;height: 4.5em;border-radius: 50%;overflow: hidden;display: block;}
+#id .left div img{height: 100%;}
+#id #romName{position: relative;top: -3.5em;left: 4.6em; font-size: 1.3em;color: #000;}
+#id #romId{position: relative;top: -3em;left: 5em;}
+*/
+/*old---------------------------*/
+#old{background-color: #ffd200;height: 3em;border-radius: 1.5em;text-align: center;line-height: 3em; color: #000;font-size: 1.3em;margin:3em auto;width: 95%;}
+a{text-decoration: none;color: #000;}
+a:hover{color: #000;}
+a:link{
+text-decoration:none;
+}
+a:visited{
+text-decoration:none;
+}
+a:hover{
+text-decoration:none;
+}
+a:active{
+text-decoration:none;
+}
+/*-------false------*/
+#false{height: 40%;overflow: hidden;color: #fff;}
+#false div{text-align: center;margin: 6em 0 auto 0;}
+#content .falseImg{width: 100%;height: 40%;overflow: hidden;position: absolute;top: 0;z-index: -1;}
+#content .falseImg img{width: 100%;opacity: 0.6;}
+#content .di{width: 100%;height: 40%;background-color: #000;position: absolute;top: 0;z-index: -2;}
+/*清除浮动*/
+.clearfix:after {content:"\200B"; display:block; height:0; clear:both;}
+.clearfix{ *zoom:1;}
+a,img,button,input,textarea{-webkit-tap-highlight-color:rgba(255,255,255,0);} 

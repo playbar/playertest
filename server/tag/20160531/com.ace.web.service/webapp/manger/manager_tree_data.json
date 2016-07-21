@@ -1,0 +1,66 @@
+[{    
+    "text":"直播监控", 
+    "url":"",
+    "state":"closed",       
+    "children":[{ 
+        "text":"大厅直播",
+		"url":"lobby/lobbyshow.html"
+    }]   
+},{    
+    "text":"运营管理",
+    "url":"", 
+    "state":"closed",            
+    "children":[{    
+        "text":"大厅Banner",
+		"url":"background/lobbyBanner.html"
+    },{  
+        "text":"礼物管理 ",
+        "url":"background/giftManage.html"   
+    }]    
+},{    
+    "text":"账号管理",
+    "url":"", 
+    "state":"closed",       
+    "children":[{ 
+        "text":"余额查询",
+        "url":"account/sumManage.html"    
+    },{  
+        "text":"订单查询",
+		"url":"account/rechargeOrder.html"
+    },{  
+        "text":"礼物查询 ",
+        "url":"account/giftRecord.html"   
+    },{    
+        "text":"加减币记录",
+		"url":"account/coinHistory.html"
+    }]   
+},{    
+    "text":"设置",
+    "url":"", 
+    "state":"closed",       
+    "children":[{ 
+        "text":"修改密码"    
+    },{    
+        "text":"账户管理"   
+    }]   
+},{    
+    "text":"用户管理",
+    "url":"",
+    "state":"closed",       
+    "children":[{ 
+        "text":"用户管理",
+        "url":"user/userManage.html"    
+        
+    },{    
+        "text":"实名认证",  
+        "url":"user/certify.html"
+    }]   
+},{    
+    "text":"权限管理",
+    "url":""
+},{    
+    "text":"提现管理",
+    "url":"order/cashOrder.html"
+}]  
+
+

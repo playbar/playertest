@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>账号--订单查询</title>
+<link rel="stylesheet" type="text/css"
+	href="/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css"
+	href="/easyui/themes/icon.css">
+
+<script type="text/javascript"
+	src="/easyui/jquery-1.8.3.min.js"></script>
+<script type="text/javascript"
+	src="/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript"
+	src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#orderDemand-table').datagrid({
+			url : '../../service/001-050',
+			fitColumns : false,
+			pagination : true,
+			pagePosition : 'bottom',
+			rownumbers : true,
+			singleSelect : true,
+			pageNumber : 1,
+			pageSize : 20,
+			pageList : [20,50,70, 100,500, 1000],
+			queryParams: {path: '001-005'},
+			columns : [ [ 
+			    {field : 'coinAmount',title : '金币数量',width : 100},
+			    {field : 'createTime',title : '创建时间',width : 150},
+			    {field : 'goodCnt',title : '物品数量',width : 100},
+			    {field : 'goodId',title : '物品ID',width : 100},
+			    {field : 'goodName',title : '物品名称',width : 150},
+			    {field : 'openUserId',title : '操作人ID',width : 100},
+			    {field : 'openUserName',title : '操作人名称',width : 100},
+			    {field : 'orderDes',title : ' 订单描述',width : 500},
+			    {field : 'orderId',title : '订单ID',width : 150},
+			    {field : 'payerId',title : '付款人ID',width : 100},
+			    {field : 'payerName',title : '付款人名称',width : 100},
+			    {field : 'rate',title : '比值',width : 100},
+			    {field : 'receiverId',title : '收款人ID',width : 100},
+			    {field : 'receiveName',title : '收款人名称',width : 100},
+			    {field : 'rmbAmount',title : '人民币数量',width : 150},
+			    {field : 'status',title : '状态',width : 100,
+			    	formatter:function(value, row, index){
+						if(row.orderState == 1){
+							return '已开通订单';
+						}else{
+							return '未开通订单';
+						}
+					}
+			    }
+			] ]
+		});
+		//查看
+		$("#search_btn").click(function(){
+			var userId = $("#userId").val();
+			var startTime = $('#startTime').datebox('getValue');
+			var endTime = $('#endTime').datebox('getValue');
+			$("#orderDemand-table").datagrid('reload',{
+				"path" : "001-005",
+				"userId" : userId,
+				"startTime" : startTime,
+				"endTime" : endTime
+			});
+		});
+		
+	})
+	
+</script>
+
+</head>
+<body>
+    <div class="easyui-panel" style="width:100%;height:60px;padding:2px;background:#fafafa;">  
+    <center>
+		<p>
+    	<label for="email">&nbsp;&nbsp;用户ID:</label>   
+        	<input id="userId" name="userId" class="easyui-textbox" data-options="required:true" /> 
+        <label for="">&nbsp;&nbsp;开始时间:</label>   
+        	<input id="startTime" name="startTime" class="easyui-datebox" data-options="required:true" ></input> 
+        <label for="">&nbsp;&nbsp;结束时间:</label>   
+        	<input id="endTime" name="endTime" class="easyui-datebox"  data-options="required:true" ></input> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		<a id="search_btn" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a><br>
+    </center>
+    </div>     
+	<!-- DataGrid 数据展示 -->
+	<table id="orderDemand-table" class="easyui-datagrid" style="width:100%" ></table> 
+</body>
+</html>

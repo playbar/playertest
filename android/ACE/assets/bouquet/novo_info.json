@@ -1,0 +1,38 @@
+{ 
+"ID":"UP000000",  
+"msg":"test", 
+"code":0, 
+"Skeleton":
+[
+    {
+        "file":"bouquet",
+        "scale":0.5,
+        "posx":400,  
+        "posy":300,
+        "loopcount":40,  
+        "mix":
+        [
+            {
+                "from":"walk",  
+                "to":"jump",  
+                "duration": 0.2 
+            },
+            {
+                "from":"walk",  
+                "to":"jump",  
+                "duration": 0.2    
+            }  
+        ],
+        "addAnimatoin":
+        [
+            {
+                "index":1,
+                "name":"animation",
+                "loop":false
+            }
+            
+        ]  
+    }  
+]
+
+}

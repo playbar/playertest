@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/pulltorefresh_item_height"
+    android:background="@color/color_white"
+    android:minHeight="64dip">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/fresco_anchors_head"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        fresco:fadeDuration="0"
+        fresco:failureImage="@drawable/head_online"
+        fresco:failureImageScaleType="centerInside"
+        fresco:placeholderImage="@drawable/head_online"
+        fresco:placeholderImageScaleType="fitCenter"
+        fresco:roundAsCircle="true"
+        fresco:roundBottomLeft="true"
+        fresco:roundBottomRight="true"
+        fresco:roundTopLeft="true"
+        fresco:roundTopRight="true"
+        fresco:roundingBorderWidth="0dp" />
+
+    <TextView
+        android:id="@+id/tv_anchors_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/fresco_anchors_head"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dip"
+        android:maxEms="8"
+        android:singleLine="true"
+        android:textColor="@color/color_black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_user_signature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_a7a7a8"
+        android:textSize="12sp"
+        android:singleLine="true"
+        android:maxEms="10"
+        android:layout_alignBottom="@id/fresco_anchors_head"
+        android:layout_marginBottom="-12dip"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dip"/>
+</RelativeLayout>

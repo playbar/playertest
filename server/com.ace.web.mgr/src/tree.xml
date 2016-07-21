@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tree>
+	<node id="001" text="用户管理" url="">用户管理
+		<menu id="001001" text="冻结/解冻" url="user/freeze-user.html">冻结/解冻</menu>
+		<menu id="001002" text="系统消息" url="user/system-message.html">系统消息</menu>
+		<menu id="001003" text="警告消息" url="user/warn-message.html">警告消息</menu>
+		<menu id="001004" text="禁播管理" url="user/no-play.html">禁播管理</menu>
+		<menu id="001005" text="禁言管理" url="user/no-speak.html">禁言管理</menu>
+		<menu id="001006" text="下播管理" url="user/down-play.html">下播管理</menu>
+	</node>
+	<node id="005" text="账号管理" url="">账号管理
+		<menu id="005001" text="进出账明细" url="account/coin-history.html">进出账明细</menu>
+		<menu id="005002" text="加减币" url="account/update-coin.html">加减币</menu>
+	</node>
+	<node id="002" text="敏感词管理" url="">敏感词管理
+		<menu id="002001" text="昵称敏感词" url="keyworld/name-keyworld.html">昵称敏感词</menu>
+		<menu id="002002" text="聊天敏感词" url="keyworld/chat-keyworld.html">聊天敏感词</menu>
+	</node>
+	<node id="006" text="订单管理" url="">订单管理
+		<menu id="006001" text="订单明细" url="order/select-order.html">订单明细</menu>
+	</node>
+	<node id="007" text="提现管理" url="">提现管理
+		<menu id="007001" text="提现记录" url="exchange/get-exchange.html">提现记录</menu>
+		<menu id="007002" text="一审" url="exchange/get-exchange-one.html">一审</menu>
+		<menu id="007003" text="二审" url="exchange/get-exchange-two.html">二审</menu>
+		<menu id="007004" text="三审" url="exchange/get-exchange-three.html">三审</menu>
+	</node>
+	<node id="003" text="服务器管理" url="">服务器管理
+		<menu id="003001" text="服务器信息" url="servers/servers-info.html">服务器信息</menu>
+	</node>
+	<node id="004" text="系统管理" url="">系统管理
+		<menu id="004001" text="菜单管理" url="menu/role-menu.html">菜单管理</menu>
+	</node>
+</tree>
+	

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- tabar attr -->
+    <declare-styleable name="MyRadioButton">
+        <attr name="img_normal" format="reference"></attr>
+        <attr name="img_checked" format="reference"></attr>
+        <attr name="bg_img_normal" format="reference"></attr>
+        <attr name="bg_img_checked" format="reference"></attr>
+        <attr name="text" format="reference"></attr>
+        <attr name="text_color_normal" format="reference"></attr>
+        <attr name="text_color_checked" format="reference"></attr>
+        <attr name="bg_color_normal" format="reference"></attr>
+        <attr name="bg_color_checked" format="reference"></attr>
+        <attr name="is_show_img" format="boolean"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="CustomProgressBar">
+        <attr name="progressDrawable" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="GiftCheckButton">
+        <attr name="image_normal" format="reference"></attr>
+        <attr name="image_checked" format="reference"></attr>
+        <attr name="first_text" format="reference"></attr>
+        <attr name="second_text" format="reference"></attr>
+        <attr name="first_text_color_normal" format="reference"></attr>
+        <attr name="first_text_color_checked" format="reference"></attr>
+        <attr name="second_text_color_normal" format="reference"></attr>
+        <attr name="second_text_color_checked" format="reference"></attr>
+        <attr name="bg_normal" format="reference"></attr>
+        <attr name="bg_checked" format="reference"></attr>
+        <attr name="checked" format="boolean"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="commonGiftView">
+        <attr name="order" format="integer"></attr>
+    </declare-styleable>
+</resources>

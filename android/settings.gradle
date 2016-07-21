@@ -1,0 +1,5 @@
+include ':Acelibs'
+include ':ACE'
+include ':ijkmediaplayer'
+include ':drawee'
+include ':beautylibs'

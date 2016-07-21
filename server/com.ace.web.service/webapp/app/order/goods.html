@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>充值</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0,maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="css/recharge.css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.json-2.4.js"></script>
+</head>
+<body>
+	<div id="mask" class="click-mask" onclick="removeMaskClick();"></div>
+	<div>
+		<div class="top">
+			<div class="head">
+				<img src="image/touxiang.png" id="profile">
+				<input type="hidden" id="payerId" />
+				<input type="hidden" id="goodId" />
+			</div>
+			<div class="name">
+				<span id="nickName"></span><br />
+			</div>
+			<div class="switch-account">
+			<span><a href="./index.html">切换账号</a></span>
+			</div>
+		</div>
+		<div class="yellow">
+			<img class="yellow-rect" src="image/yellow-rect.png">
+			<p class="charge-count">充值金额</p>
+		</div>
+		<!-- <div class="rect"></div> -->
+		<div class="charge-money" id='goods'>
+		</div>
+
+		<div class="esq">
+			<p>如充值遇到问题,请联系客服QQ:215179876</p>
+		</div>
+	</div>
+
+	<div id="pay" class="bottom">
+		<p class="pay-money">支付金额</p>
+		<p id="pay-money-id" class="pay-money-num">2元</p>
+		<div class="line"></div>
+		<div class="weixin-pay" onclick="weixinClick();" style="display: none">
+			<img src="image/weinxin.png">
+			<p>微信支付</p>
+			<img class="arrow-img" src="image/arrow.png"
+				style="width: 3%; text-align: right; margin-right: 3em; float: right; margin-top: 1em;">
+		</div>
+		<!-- <div class="line"></div>  -->
+		<div class="zhifubao-pay" onclick="zhifubaoClick();">
+			<img src="image/zhifubao.png">
+			<p>支付宝支付</p>
+			<img src="image/arrow.png"
+				style="width: 3%; text-align: right; margin-right: 3em; float: right; margin-top: 1em;">
+		</div>
+		<div class="line"></div>
+	</div>
+</body>
+<script type="text/javascript">
+	function weixinClick() {
+		alert("weixinClick");
+	}
+	function zhifubaoClick() {
+		var goodId = document.getElementById('goodId').value;
+		var payerId = document.getElementById('payerId').value;
+		$.ajax({
+			type : "post",
+			url : "/service/001-033",
+			data:{"goodId":goodId,"goodCnt":1,"payerId":payerId,"receiverId":payerId,"payChannel":"2"},
+			success : function(res) {
+				var data = eval('(' + res + ')');
+				window.location.href="./pay.jsp?WIDout_trade_no="+data.WIDout_trade_no+"&WIDsubject="+data.WIDsubject+"&WIDtotal_fee="+data.WIDtotal_fee+"&WIDbody="+data.WIDbody+"&channel=h5";
+			}
+		});
+		
+	}
+</script>
+<script type="text/javascript">
+	function GetQueryString(name) {
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		var r = window.location.search.substr(1).match(reg);
+		if (r != null)
+			return decodeURI(r[2]);
+		return null;
+	}
+
+	document.getElementById('payerId').value = GetQueryString("userId");
+	document.getElementById('nickName').innerHTML = GetQueryString("nickName");
+	document.getElementById('profile').src = GetQueryString("profile");
+	var preTarget = null;
+	var dataList
+	$(function() {
+		$.ajax({
+			type : "POST",
+			url : "/service/001-004",
+			success : function(res) {
+				var data = eval('(' + res + ')');
+				dataList = data.goodList;
+				var html="";
+				var size=0;
+				for (var i = 0; i < dataList.length; i++) {
+					if(dataList[i].type != 1)
+					{
+						continue;
+					}	
+					size++;
+					//var goodname = dataList[i].name;
+					//var goodid = dataList[i].id;
+					var goodrmbPrice = dataList[i].rmbPrice;
+					var goodcoinPrice = dataList[i].coinPrice;
+					html+="<div id='index"+i+"' class='charge-s'><p class='money'>"+goodcoinPrice+"币</p><p class='money-cost'>¥"+goodrmbPrice+"</p></div>";
+				}
+				$("#goods").html(html);
+				var row = Math.ceil(size/3)
+				document.getElementById("goods").style.height =7.2*row+"em";
+				//document.getElementById("mask").style.height =7.2*row+12+"em";
+				//preTarget = document.getElementById("index0");
+				//preLine = preTarget.getElementsByTagName("div");
+				for (var i = 0; i < dataList.length; i++) {
+					if(dataList[i].type != 1)
+					{
+						continue;
+					}	
+					var single = document.getElementById("index" + i);
+					single.index = i;
+					single.addEventListener("click", function(evt) {
+						if(preTarget!=null)
+						{
+							preTarget.className = "charge-s";
+						}
+						var target = document.getElementById("index" + this.index);
+						target.className = "charge-s select-color";
+						preTarget = target;
+						//preLine = target.getElementsByTagName('div');
+						num.innerHTML = dataList[this.index].rmbPrice+"元";
+						document.getElementById('goodId').value = dataList[this.index].id;
+						pay.style.display = "block";
+						document.getElementById("mask").style.display = "block";
+					}, false);
+				}
+			}
+		});
+	});
+	var num = document.getElementById("pay-money-id");
+	var pay = document.getElementById("pay");
+	function removeMaskClick() {
+		document.getElementById("mask").style.display = "none";
+		pay.style.display = "none";
+		preTarget.className = "charge-s";
+	}
+	
+</script>
+</html>

@@ -1,0 +1,46 @@
+[{    
+    "text":"用户管理",
+    "url":"",
+    "state":"closed",       
+    "children":[{ 
+        "text":"冻结/解冻",
+        "url":"user/freeze-user.html"    
+    },{ 
+        "text":"系统消息",
+        "url":"user/system-message.html"    
+    },{ 
+        "text":"警告消息",
+        "url":"user/warn-message.html"    
+    },{ 
+        "text":"禁播管理",
+        "url":"user/no-play.html"    
+    },{ 
+        "text":"禁言管理",
+        "url":"user/no-speak.html"    
+    },{ 
+        "text":"下播管理",
+        "url":"user/down-play.html"    
+    },{ 
+        "text":"加减币管理",
+        "url":"user/coin-history.html"    
+    }]   
+},{
+	"text":"敏感词管理",
+    "url":"",
+    "state":"closed",       
+    "children":[{ 
+        "text":"昵称敏感词",
+        "url":"keyworld/name-keyworld.html"    
+    },{ 
+        "text":"聊天敏感词",
+        "url":"keyworld/chat-keyworld.html"    
+    }]
+},{
+	"text":"服务器管理",
+    "url":"",
+    "state":"closed",       
+    "children":[{ 
+        "text":"服务器信息",
+        "url":"servers/servers-info.html"    
+    }]
+}]  

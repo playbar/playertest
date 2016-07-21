@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>直播监控--大厅直播</title>
+<link rel="stylesheet" type="text/css"
+	href="/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css"
+	href="/easyui/themes/icon.css">
+
+<script type="text/javascript"
+	src="/easyui/jquery-1.8.3.min.js"></script>
+<script type="text/javascript"
+	src="/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript"
+	src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#lobbyShow-table').datagrid({
+			url : '../../service/002-040',
+			fitColumns : false,
+			pagination : true,
+			pagePosition : 'bottom',
+			rownumbers : true,
+			singleSelect : true,
+			pageNumber : 1,
+			pageSize : 20,
+			pageList : [20,50,70, 100,500, 1000],
+			queryParams: {path: '002-004'},
+			columns : [ [ 
+				{field : 'userId',title : '主播ID',width : 100},  
+				{field : 'nickName',title : '用户呢称',width : 100},  
+				{field : 'sortCnt',title : '排序',width : 100}, 
+				{field : 'title',title : '标题',width : 200},
+				{field : 'position',title : '主播位置',width : 100},
+				{field : 'createTime',title : '创建时间',width : 100},
+				{field : 'length',title : '时长',width : 100},
+				{field : 'supportCnt',title : '点赞个数',width : 100}, 
+				{field : 'coinCnt',title : '获取礼物金币数',width : 100},
+				{field : 'shareCnt',title : '用户分享次数',width : 100}, 
+			    
+			    {field : 'cc',title : '操作',width : 100,
+					formatter:function(value, row, index){
+						return '<input type="button" onclick="caution()"  value="排序" /> <input type="button" onclick="down()" value="下播" /><br/><input type="button" onclick="warning()" value="警告" /> <input type="button" onclick="sealNumber()" value="封号" /><br/><input type="button" onclick="cancel()" value="取消推荐" />';
+					} 
+				}
+			] ]
+		});
+		
+		$("#search_btn").click(function(){
+			var userId = $("#userId").val();
+			var userName = $("#userName").val();
+			var combobox = $('#recommend-combobox').combobox('getValue');
+			$("#lobbyShow-table").datagrid('reload',{
+				"userId" : userId
+			});
+		});
+		
+		//加载的时候关闭wendow窗口
+		$('#caution-window').window('close');  //排序
+		$('#warning-window').window('close');  //警告
+		$('#down-window').window('close');     //下播
+		$('#sealNumber-window').window('close');  //封号
+		$('#cancel-window').window('close'); //取消推荐
+	})
+	//触发时间打开wendow窗口
+	function caution(){
+		$('#caution-window').window('open');  
+	}
+	function down(){
+		$('#down-window').window('open');  
+	}
+	function warning(){
+		$('#warning-window').window('open');  
+	}
+	function sealNumber(){
+		$('#sealNumber-window').window('open');  
+	}
+	function cancel(){
+		$('#cancel-window').window('open');  
+	}
+	
+	function resize(){
+		$('#caution-window').window('close'); 
+		$('#down-window').window('close'); 
+		$('#warning-window').window('close'); 
+		$('#sealNumber-window').window('close'); 
+		$('#cancel-window').window('close'); 
+		
+	}
+</script>
+
+</head>
+<body>
+   <div class="easyui-panel" style="width:100%;height:90px;padding:2px;background:#fafafa;">   
+      <center>
+	  <p>
+       <label for="name">&nbsp;&nbsp;用户ID:</label>   
+        	<input id="userId" name="userId" class="easyui-textbox"   data-options="required:false" />
+        <label for="email">用户昵称:</label>   
+        	<input id="userName" name="userName"  class="easyui-textbox"   data-options="required:false" />
+        <label for="email">查看是否推荐:</label>
+        <select id="recommend-combobox" class="easyui-combobox" name="state" style="width:200px;">   
+			    <option value="1">推荐</option>   
+			    <option value="2">非推荐</option>   
+		</select>   
+		<p>
+        <a id="search_btn" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a><br>
+    </center>
+    </div>     
+	<!-- DataGrid 数据展示 -->
+	<table id="lobbyShow-table" class="easyui-datagrid" style="width:100%" ></table> 
+	
+	<!--排序 -->
+	<div id="caution-window" class="easyui-window" title="排序 " style="width:500px;height:200px;padding:5px;background: #fafafa;">
+		<center>调整此房间在大厅的显示位置<br>
+		<select id="cc" class="easyui-combobox" name="state" style="width:100px;">   
+			    <option value="1">1</option>   
+			    <option value="2">2</option>   
+		</select><br>
+		<a class="easyui-linkbutton" icon="icon-ok" href="javascript:void(0)" onclick="resize()">确定</a>
+		<a class="easyui-linkbutton" icon="icon-cancel" href="javascript:void(0)" onclick="resize()">关闭</a>
+		</center>
+	</div>
+	
+	<!--下播 -->
+	<div id="down-window" class="easyui-window" title="下播" style="width:500px;height:200px;padding:5px;background: #fafafa;">
+		<center>Ace官方运营提示您,您已被下播</center>
+		<div region="south" border="false" style="text-align:right;height:30px;line-height:30px;">
+		<a class="easyui-linkbutton" icon="icon-ok" href="javascript:void(0)" onclick="resize()">确定</a>
+		<a class="easyui-linkbutton" icon="icon-cancel" href="javascript:void(0)" onclick="resize()">关闭</a>
+		</div>
+	</div>
+	
+	<!--警告 -->
+	<div id="warning-window" class="easyui-window" title="警告"style="width:500px;height:200px;padding:5px;background: #fafafa;">
+		<center>Ace官方运营提示您,请注意直播尺度</center>
+		<div region="south" border="false" style="text-align:right;height:30px;line-height:30px;">
+		<a class="easyui-linkbutton" icon="icon-ok" href="javascript:void(0)" onclick="resize()">确定</a>
+		<a class="easyui-linkbutton" icon="icon-cancel" href="javascript:void(0)" onclick="resize()">关闭</a>
+		</div>
+	</div>
+	
+	<!--封号-->
+	<div id="sealNumber-window" class="easyui-window" title="封号"style="width:500px;height:200px;padding:5px;background: #fafafa;">
+		<center>Ace官方运营提示您,您的账号已被封</center>
+		<div region="south" border="false" style="text-align:right;height:30px;line-height:30px;">
+		<a class="easyui-linkbutton" icon="icon-ok" href="javascript:void(0)" onclick="resize()">确定</a>
+		<a class="easyui-linkbutton" icon="icon-cancel" href="javascript:void(0)" onclick="resize()">关闭</a>
+		</div>
+	</div>
+	
+	<!--取消推荐-->
+	<div id="cancel-window" class="easyui-window" title="取消推荐" style="width:500px;height:200px;padding:5px;background: #fafafa;">
+		<center>Ace官方运营提示您,取消推荐成功</center>
+		<div region="south" border="false" style="text-align:right;height:30px;line-height:30px;">
+		<a class="easyui-linkbutton" icon="icon-ok" href="javascript:void(0)" onclick="resize()">确定</a>
+		<a class="easyui-linkbutton" icon="icon-cancel" href="javascript:void(0)" onclick="resize()">关闭</a>
+		</div>
+	</div>
+	
+  
+</body>
+</html>

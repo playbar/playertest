@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="260dp"
+    android:background="@drawable/gift_big_bg">
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/tv_coins"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:textColor="@color/color_fff100"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_recharge_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="6dip"
+            android:layout_toRightOf="@+id/tv_coins"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:id="@+id/tv_recharge"
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:gravity="center"
+                android:text="@string/recharge"
+                android:textColor="@color/color_fff100"
+                android:textSize="13sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="9dip"
+                android:src="@drawable/gift_dialog_right_arrow" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true">
+
+            <TextView
+                android:id="@+id/tv_send"
+                android:layout_width="58dp"
+                android:layout_height="23dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/fillet_blue"
+                android:gravity="center"
+                android:text="@string/tv_send"
+                android:textColor="@color/color_19191a"
+                android:textSize="13sp" />
+
+            <!-- <TextView
+                 android:id="@+id/tv_num"
+                 android:layout_width="wrap_content"
+                 android:layout_height="20dp"
+                 android:layout_marginTop="0dp"
+                 android:background="@drawable/shape_num_bg"
+                 android:gravity="center"
+                 android:minWidth="20dp"
+                 android:paddingLeft="2dp"
+                 android:paddingRight="2dp"
+                 android:textColor="@color/color_white"
+                 android:textSize="12sp"
+                 android:visibility="gone" />-->
+        </RelativeLayout>
+
+        <!--<TextView
+            android:id="@+id/tv_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/rl_send"
+            android:textColor="@color/color_white"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_countdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/rl_send"
+            android:src="@drawable/count_down_5"
+            android:visibility="gone" />-->
+
+    </RelativeLayout>
+
+    <com.rednovo.ace.widget.live.gift.GiftView
+        android:id="@+id/gv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rl_bottom" />
+
+
+    <RelativeLayout
+        android:id="@+id/rl_circle_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:visibility="gone">
+
+
+        <ImageView
+            android:id="@+id/iv_dount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/count_down_5" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/selector_send_shot" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_countdown_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="5"
+                android:textColor="#9ca2b7"
+                android:textSize="60sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

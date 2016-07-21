@@ -1,0 +1,50 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ACE官网</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/public.css">	
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/charge.css">
+</head>
+<body>
+	<div id="rn-03">
+		<!-- <div class="close"><img src="images/close.png"></div>  -->
+		<div class="charge">
+			<div class="account">
+				<p class="id-desc">请输入充值ID</p>
+				<input class="id-put" id="userId" type="text"></input>
+				<!-- <p class="fail-prompt">该ID账号未注册</p> -->
+				<p class="fail-prompt"  id="failprompt"  style="display: none"><img src="images/failPrompt.png"></p>
+			</div>
+			<div class="charge-desc">请选择充值金额：
+			<span  style="display: none;color: red"  id="res">未选择充值金额！</span></div>
+
+			<div class="charge-money" id="goods"></div>
+
+			<div class="charge-btn" id="startpay">支付宝充值</div>
+		</div>
+		<div class="pay_confirm">
+				<div class="tp">
+					<img src="" id="profile" class="icon">
+					<div>
+					<input type="hidden" id="goodId" />
+						<div class="nick"  id="nickName"></div>
+						<div class="id">ID:<span id="payerId"></span></div>
+					</div>
+				</div>
+				<div class="btm">
+					<div class="num">充值金额：</div>
+					<div class="money" id="money"></div>
+					<div style="width: 100%;margin-top:14%;">
+						<div class="close-btn"><img src="images/closeBtn.png"></div>
+						<div class="qd">确认充值</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/js/jquery.json-2.4.js"></script>
+	<script src="js/charge.js"></script>
+</body>
+</html>

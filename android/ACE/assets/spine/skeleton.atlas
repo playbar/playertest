@@ -1,0 +1,76 @@
+
+skeleton.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+car
+  rotate: false
+  xy: 2, 306
+  size: 473, 204
+  orig: 473, 204
+  offset: 0, 0
+  index: -1
+chassis
+  rotate: false
+  xy: 2, 136
+  size: 451, 168
+  orig: 451, 168
+  offset: 0, 0
+  index: -1
+light
+  rotate: false
+  xy: 477, 302
+  size: 356, 208
+  orig: 356, 208
+  offset: 0, 0
+  index: -1
+ruts
+  rotate: false
+  xy: 2, 59
+  size: 319, 75
+  orig: 319, 75
+  offset: 0, 0
+  index: -1
+x1
+  rotate: false
+  xy: 323, 118
+  size: 55, 16
+  orig: 55, 16
+  offset: 0, 0
+  index: -1
+x2
+  rotate: false
+  xy: 2, 31
+  size: 79, 26
+  orig: 79, 26
+  offset: 0, 0
+  index: -1
+x3
+  rotate: false
+  xy: 835, 479
+  size: 81, 31
+  orig: 81, 31
+  offset: 0, 0
+  index: -1
+x4
+  rotate: false
+  xy: 2, 2
+  size: 70, 27
+  orig: 70, 27
+  offset: 0, 0
+  index: -1
+x5
+  rotate: true
+  xy: 455, 249
+  size: 55, 17
+  orig: 55, 17
+  offset: 0, 0
+  index: -1
+x6
+  rotate: false
+  xy: 835, 470
+  size: 29, 7
+  orig: 29, 7
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/rl_water_layer_behind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="-400dip">
+        <ImageView
+            android:id="@+id/iv_water_four"
+            android:layout_width="match_parent"
+            android:layout_height="350dip"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/water_four" />
+        <ImageView
+            android:id="@+id/iv_water_three"
+            android:layout_width="match_parent"
+            android:layout_height="241dip"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/water_two" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_water_layer_before"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="-400dip"
+        android:visibility="visible">
+        <ImageView
+            android:id="@+id/iv_water_two"
+            android:layout_width="match_parent"
+            android:layout_height="313dip"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/water_three" />
+        <ImageView
+            android:id="@+id/iv_water_one"
+            android:layout_width="match_parent"
+            android:layout_height="173dip"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/water_one" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_boat_body"
+        android:layout_width="match_parent"
+        android:layout_height="400dip"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="30dip"
+        android:visibility="visible">
+        <ImageView
+            android:id="@+id/iv_boat_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dip"
+            android:src="@drawable/boat_body_03"/>
+
+        <ImageView
+            android:id="@+id/iv_boat_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/iv_boat_body"
+            android:layout_marginTop="20dip"
+            android:src="@drawable/boat_shadow"/>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>运营管理--礼物管理</title>
+
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.json-2.4.js"></script>
+
+<link rel="stylesheet" type="text/css"
+	href="/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css"
+	href="/easyui/themes/icon.css">
+
+<script type="text/javascript"
+	src="/easyui/jquery-1.8.3.min.js"></script>
+<script type="text/javascript"
+	src="/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript"
+	src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+	
+<script type="text/javascript">
+	$(function(){
+		//数据的展示
+		$('#giftmanage-table').datagrid({
+			url : '../../service/001-350',
+			fitColumns : false,
+			pagination : true,
+			pagePosition : 'bottom',
+			rownumbers : true,
+			singleSelect : true,
+			pageNumber : 1,
+			pageSize : 20,
+			pageList : [20,50,70,100,500,1000],
+			queryParams: {path: '001-035'},
+			columns : [ [ 
+			    {field : 'id',title : '礼物ID',width : 100},
+			    {field : 'name',title : '礼物名称',width : 100},
+			    {field : 'createTime',title : '创建时间',width : 150},
+			    {field : 'pic',title : '礼物图片地址',width : 300,
+			    	formatter:function(value,row,index){
+						 return '<img src="'+row.pic+'" style="height:50px" />';
+					}		
+			    },
+			    {field : 'type',title : '礼物类型',width : 100,
+		    		formatter:function(value, row, index){
+		    			if(row.type == 0){
+		    				return '普通礼物';
+		    			}else if(row.type == 1){
+		    				return '超级礼物';
+		    			}
+		    			return '';
+		    			}
+		   		 }, 
+			    {field : 'schemaId',title : 'schemaId',width : 100},
+			    {field : 'sendPrice',title : '赠送价格',width : 100},
+			    {field : 'sortId',title : '排序ID',width : 100}, 
+			    {field : 'status',title : '礼物状态',width : 100,
+			    	formatter:function(value, row, index){
+			    		if(row.status == 1 ){
+							return '已上架';
+						}else if(row.status == 0){
+							return '已下架';
+						}else{
+							return '待上架';
+						}
+					} 
+			    },
+			    {field : 'transformPrice',title : '转换价格',width : 100}, 
+			    {field : 'operation',title : '操作',width : 150,
+					formatter:function(value, row, index){
+						if(row.status == 1 ){
+							return '<input type="button" onclick="updaeGiftmanage('+row.id+')" value="修改" />	&nbsp;&nbsp;&nbsp;	<input type="button" value="下架" onclick="downGiftmanage('+row.id+')"/>';
+						}else if(row.status == 0){
+							return '<input type="button" onclick="updaeGiftmanage('+row.id+')" value="修改" />	&nbsp;&nbsp;&nbsp;	<input type="button" value="上架" onclick="upGiftmanage('+row.id+','+row.status+')"/>';
+						}else{
+							return '<input type="button" onclick="updaeGiftmanage('+row.id+')" value="修改" />	&nbsp;&nbsp;&nbsp;	<input type="button" value="上架" onclick="upGiftmanage('+row.id+','+row.status+')"/>';
+						}
+					} 
+				}
+			]],
+			toolbar:[{
+				iconCls: 'icon-add',
+				text:'添加礼物',
+				handler:addgiftmanage
+			}]
+		});
+		
+		$('#add_update_panel').window({
+			closed:true,
+			onClose:function(){
+				$("#add_update_panel").form('clear');
+			}
+		});
+		$('#add_update_panel').window({ 
+			title:"新增礼物",
+		    collapsible:false,
+		    minimizable:false,
+		    maximizable:false,
+		    closable:true,
+		    draggable:true,
+		    modal:true,
+		    width:600
+		}); 
+		
+		$("#add_update_form").form({
+			success:function(res){
+				res = eval("(" + res + ")");
+				if(res.exeStatus == 1){
+					$.messager.alert('提示','操作成功！');
+	    			$('#giftmanage-table').datagrid('reload');
+	    			$("#add_update_panel").form('clear');//清空添加信息表单里的内容
+	    			$("#add_update_panel").window('close');//关闭这个添加框
+				}else{
+					$.messager.alert('提示','操作失败！');
+				}
+			}
+		});
+		
+		$("#search_btn").click(function(){
+			var status = $('#status-combobox').combobox('getValue');
+			$("#giftmanage-table").datagrid('reload',{
+				"path" : "001-035",
+				"status" : status
+			});
+		});
+		
+		$("#reset_save_btn").linkbutton({
+			iconCls:'icon-cancel',
+			onClick:function(){
+				$("#add_update_form").form('reset');
+			}
+		});
+	})
+	
+	//添加礼物
+	function addgiftmanage(){
+		$("#add_update_panel").form('clear');
+		$("#pic").textbox('setValue','http://172.16.1.155/images/g/i/f/t/20160509022221113335517555-profile.png');
+		$('#add_update_panel').window('open');
+		$("#save_btn").linkbutton({
+			iconCls:'icon-save',
+			onClick:function(){
+				$("#add_update_form").form('submit',{
+					url:"../../service/001-310",
+					queryParams:{path:"001-031"}
+				});	
+			}
+		}); 
+		$("#reset_save_btn").linkbutton({
+			iconCls:'icon-cancel',
+			onClick:function(){
+				$("#add_update_form").form('reset');
+			}
+		});
+	}
+	//修改礼物
+	function updaeGiftmanage(giftId){
+		$("#add_update_panel").form('clear');
+		$.ajax({
+	        type:"POST",
+	        url:"../../service/001-330",
+	        data:{"id":giftId,"path":"001-033"},
+	        dataType:"json",
+	        success:function(gift){
+	        	$('#add_update_panel').window('open');
+	        	$("#id").textbox('setValue',gift.gift.id);
+	        	$("#name").textbox('setValue',gift.gift.name);
+	        	$("#sendPrice").textbox('setValue',gift.gift.sendPrice);
+	        	$("#transformPrice").textbox('setValue',gift.gift.transformPrice);
+	        	$("#isCombined").textbox('setValue',gift.gift.isCombined);
+	        	$("#pic").textbox('setValue',gift.gift.pic);
+	        	$("#sortId").combobox('select',gift.gift.sortId);
+	        	$("#status").combobox('select',gift.gift.status);
+	        	$("#type").combobox('select',gift.gift.type);
+		    }
+		});
+		$("#save_btn").linkbutton({
+			iconCls:'icon-save',
+			onClick:function(){
+				$("#add_update_form").form('submit',{
+					url:"../../service/001-310",
+					queryParams:{path:"001-031"}
+				});	
+			}
+		}); 
+	}
+	//上架
+	function upGiftmanage(giftId,giftStatus){
+		$.messager.confirm('确认','您确定要上架吗？',function(r){
+		    if (r){    
+		    	$.ajax({
+			        type:"POST",
+			        url:"../../service/001-320",
+			        data:{"id":giftId,"status":"1","path":"001-032"},
+			        dataType:"json",
+			        success:function(exeStatus){
+			        	if(exeStatus.exeStatus == 1){
+			        		$.messager.alert('提示','上架成功！');
+			        		if(giftStatus == 0){
+				        		$('#giftmanage-table').datagrid('reload',{
+				        			"path" : "001-035",
+					   				"status" : "0"
+					   			});
+				       		}else{
+				       			$('#giftmanage-table').datagrid('reload',{
+				       				"path" : "001-035",
+				    				"status" : "2"
+				    			});
+			        		}
+			        	}else{
+			        		$.messager.alert('提示','上架失败！');
+			        	}
+			        }
+			   });  
+		    }    
+		}); 
+	}
+	//下架
+	function downGiftmanage(giftId){
+		$.messager.confirm('确认','您确定要下架吗？',function(r){
+		    if (r){    
+		    	$.ajax({
+			        type:"POST",
+			        url:"../../service/001-320",
+			        data:{"id":giftId,"status":"0","path":"001-032"},
+			        dataType:"json",
+			        success:function(exeStatus){
+			        	if(exeStatus.exeStatus == 1){
+			        		$.messager.alert('提示','下架成功！');
+			        		$('#giftmanage-table').datagrid('reload',{
+			    				"path" : "001-035",
+			    				"status" : "1"
+			    			});
+			        	}else{
+			        		$.messager.alert('提示','下架失败！');
+			        	}
+			        }
+			   });  
+		    }    
+		}); 
+	}
+</script>
+</head>
+<body>
+	  
+    <div class="easyui-panel" style="width:100%;height:70px;padding:2px;background:#fafafa;">
+    	<center>
+		<p>
+			<label for="">&nbsp;&nbsp;礼物状态:</label>
+			<select id="status-combobox" name="status" class="easyui-combobox" style="width:100px;">  
+				<option value="1">已上架</option>   
+		    	<option value="0">已下架</option> 
+		    	<option value="2">待上架</option>  
+			</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		<a id="search_btn" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a><br>  
+   		</center>
+    </div>     
+     
+	<!-- DataGrid 数据展示 -->
+	<table id="giftmanage-table" class="easyui-datagrid" style="width:100%"></table>
+	<br>
+	
+	<!-- 一个隐藏的dialog里加入form表单 -->
+	<div id="add_update_panel"  style="width:500px;height:400px;">
+	<form id="add_update_form" method="POST">
+		<center>
+		<p>
+		<label for="">ID：</label>
+			<input id="id" name="id" class="easyui-textbox" data-options="required:false,readonly:true" />
+		<br>
+		<p>
+		<label for="">礼物名称	：</label>
+			<input id="name" name="name" class="easyui-textbox" data-options="required:false" />
+		<br>
+		<p>
+		<label for="">赠送价格：</label>
+			<input id="sendPrice" name="sendPrice" class="easyui-textbox" data-options="required:false" />
+		<br>
+		<p>
+		<label for="">转换价格：</label>
+			<input id="transformPrice" name="transformPrice" class="easyui-textbox" data-options="required:false" />
+		<br>
+		<p>
+		<label for="">是否组合礼物(预留)：</label>
+			<input id="isCombined" name="isCombined" class="easyui-textbox" data-options="required:false" />
+		<br><p>
+		<label for="">礼物类型：</label>
+			<select id="type" class="easyui-combobox" name="type" style="width:200px;">   
+					<option value="0">普通礼物</option>   
+					<option value="1">超级礼物</option>    
+			</select>
+		<br><p>
+		<label for="">状态：</label>
+			<select id="status" name="status" class="easyui-combobox"  style="width:200px;">   
+				<option value="0">已下架</option>    
+				<option value="1">已上架</option>  
+				<option value="2">待上架</option>  
+			</select>
+		<br><p>
+		<label for="">排序ID：</label>
+			<select id="sortId" class="easyui-combobox" name="sortId" style="width:200px;">   
+					<option value="1">1</option>   
+					<option value="2">2</option>   
+					<option value="3">3</option>   
+					<option value="4">4</option>   
+					<option value="5">5</option>   
+			</select>
+		<br><p>
+		<label for="">礼物图片：</label>
+			<input name="pic" id="pic"  class="easyui-textbox" style="width:300px;">
+		<br><p>
+		<a id="save_btn" >保存</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a id="reset_save_btn" >重置</a>
+		</center>
+	</form>
+	</div>
+	 
+</body>
+</html>

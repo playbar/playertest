@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>绑定支付宝</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0,maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="css/bindPaypal.css" />
+</head>
+<body>
+	<div class="title">
+		<div class="rect">
+			<p>请绑定支付宝，确保信息准确无误。</p>
+		</div>
+		<div class="account-info">
+			<!-- <div class="line"></div> -->
+			<p style="float: left;">支付宝账号</p>
+			<input id="weChatId" class="input-money" type="text" style="margin-left: 1em;" placeholder="请输入支付宝账号(必填)" required />
+			<div class="line"></div>
+
+			<p style="float: left;">姓名</p>
+			<input id="userName" class="input-money" type="text" style="margin-left: 4em;" placeholder="请输入姓名(必填)" required />
+			<div class="line"></div>
+
+			<p style="float: left;">手机号</p>
+			<input id="mobileId" size="11" maxlength="11" oninput="this.value=this.value.replace(/\D/g,'')" class="input-money" type="text" style="margin-left: 3em;" placeholder="请输入手机号(必填)" required />
+			<div class="line"></div>
+
+			<p style="float: left;">验证码</p>
+			<input id="verifyCode" class="input-money" type="text" placeholder="输入验证码" required style="width: 24%;margin-left: 3em;" />
+			<div class="verify">
+				<p>获取验证码</p>
+			</div>
+			<div class="line"></div>
+		</div>
+		<div class="fail-prompt" ><p id="res"></p></div>
+		<div id="cash-btn" class="cash-btn">
+			<p>绑定</p>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.json-2.4.js"></script>
+<script type="text/javascript" src="js/bindPaypal.js"></script>
+</html>

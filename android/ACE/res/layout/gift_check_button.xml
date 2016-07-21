@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rb_container"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_bg"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/gift_checked_bg2"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/iv_bg2"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/fillet_white"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/rl_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            fresco:fadeDuration="300"
+            fresco:placeholderImageScaleType="fitCenter" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_first"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_image"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="12sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_first"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/gift_coin" />
+
+        <TextView
+            android:id="@+id/tv_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/iv_icon"
+            android:gravity="center_vertical"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

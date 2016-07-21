@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>服务器管理</title>
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css">
+	<script type="text/javascript" src="/easyui/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//数据的展示
+		$('#servers-table').datagrid({
+			url : '../service/001-012',
+			fitColumns : true,
+			pagination : true,
+			singleSelect : true,
+			striped:true,
+			pageNumber : 1,
+			pageSize : 20,
+			pageList : [10,20,30],
+			queryParams: {path: '009-004'},
+			columns : [ [ 
+			    {field : 'id',title : 'ID',width : 100,align:'center'},
+			    {field : 'ip',title : 'IP',width : 100,align:'center'},
+			    {field : 'port',title : '端口号',width : 200,align:'center'},
+			    {field : 'status',title : '状态',width : 200,align:'center', 
+			    	formatter:function(value, row, index){
+			    		if(row.status == 1 ){
+							return '启动';
+						}else if(row.status == 0){
+							return '未启动';
+						}
+					} 
+			    },
+			    {field : 'description',title : '描述',width : 200,align:'center'}, 
+			    {field : 'operation',title : '操作',width : 200,align:'center',
+					formatter:function(value, row, index){
+						if(row.status == 0 ){
+							//<input type="button" onclick="startServers('+row.id+')" value="启动" />&nbsp;&nbsp;&nbsp;
+							return '<input type="button" onclick="updateServers('+row.id+','+row.ip+','+row.port+','+row.status+','+row.description+')" value="修改" />&nbsp;&nbsp;&nbsp;<input type="button" onclick="deleteServers('+row.id+')" value="刪除" />';
+						}else{
+							//<input type="button" onclick="stopServers('+row.id+')" value="停止" />&nbsp;&nbsp;&nbsp;
+							return '<input type="button" onclick="updateServers('+row.id+','+row.ip+','+row.port+','+row.status+','+row.description+')" value="修改" />&nbsp;&nbsp;&nbsp;<input type="button" onclick="deleteServers('+row.id+')" value="刪除" />';
+						}
+					} 
+				}
+			]],
+			toolbar:[{
+				iconCls: 'icon-add',
+				text:'添加服务器',
+				handler:addservers
+			}]
+		});
+		
+		$('#add_update_panel').window({
+			closed:true,
+			onClose:function(){
+				$("#add_update_panel").form('clear');
+			}
+		});
+		$('#add_update_panel').window({ 
+			title:"服务器",
+		    collapsible:false,
+		    minimizable:false,
+		    maximizable:false,
+		    closable:true,
+		    draggable:true,
+		    modal:true,
+		    width:600
+		}); 
+		
+		$("#add_update_form").form({
+			success:function(res){
+				res = eval("(" + res + ")");
+				if(res.exeStatus == 1){
+					$.messager.alert('提示','操作成功！');
+	    			$('#servers-table').datagrid('reload');
+	    			$("#add_update_panel").form('clear');
+	    			$("#add_update_panel").window('close');
+				}else{
+					$.messager.alert('提示','操作失败！');
+				}
+			}
+		});
+		
+		$("#search_btn").click(function(){
+			var status = $('#status-combobox').combobox('getValue');
+			$("#servers-table").datagrid('reload',{
+				"path" : "",
+				"status" : status
+			});
+		});
+		
+		$("#reset_save_btn").linkbutton({
+			iconCls:'icon-cancel',
+			onClick:function(){
+				$("#add_update_form").form('reset');
+			}
+		});
+	})
+	
+	//启动
+	function startServers(serversId){
+		$.ajax({
+	        type:"POST",
+	        url:"",
+	        data:{"id":serversId,"path":"","status":"1"},
+	        dataType:"json",
+	        success:function(res){
+	        	if(exeStatus.exeStatus == 1){
+	        		$.messager.alert('提示','启动成功！');
+	        		if(giftStatus == 0){
+		        		$('#servers-table').datagrid('reload',{
+		        			"path" : "",
+			   				"status" : "1"
+			   			});
+		       		}else{
+		       			$('#servers-table').datagrid('reload',{
+		       				"path" : "",
+		    				"status" : "0"
+		    			});
+	        		}
+	        	}else{
+	        		$.messager.alert('提示','启动失败！');
+	        	}
+		    }
+		});
+	}
+	
+	//停止
+	function stopServers(serversId){
+		$.ajax({
+	        type:"POST",
+	        url:"",
+	        data:{"id":serversId,"path":"","status":"0"},
+	        dataType:"json",
+	        success:function(res){
+	        	if(exeStatus.exeStatus == 1){
+	        		$.messager.alert('提示','停止成功！');
+	        		if(giftStatus == 0){
+		        		$('#servers-table').datagrid('reload',{
+		        			"path" : "",
+			   				"status" : "0"
+			   			});
+		       		}else{
+		       			$('#servers-table').datagrid('reload',{
+		       				"path" : "",
+		    				"status" : "1"
+		    			});
+	        		}
+	        	}else{
+	        		$.messager.alert('提示','停止失败！');
+	        	}
+		    }
+		});
+	}
+	
+	//添加服务器
+	function addservers(){
+		$("#add_update_panel").form('clear');
+		$("#id-div").hide();
+		$('#add_update_panel').window('open');
+		$("#save_btn").linkbutton({
+			iconCls:'icon-save',
+			onClick:function(){
+				$("#add_update_form").form('submit',{
+					url:"../../service/001-013",
+					queryParams:{path:"009-005"}
+				});	
+			}
+		}); 
+		$("#reset_save_btn").linkbutton({
+			iconCls:'icon-cancel',
+			onClick:function(){
+				$("#add_update_form").form('reset');
+			}
+		});
+	}
+	
+	//修改服务器
+	function updateServers(id,ip,port,status,description){
+		$("#add_update_panel").form('clear');
+		$("#id-div").show();
+       	$('#add_update_panel').window('open');
+       	$("#id").textbox('setValue',id);
+       	$("#ip").textbox('setValue',ip);
+       	$("#port").textbox('setValue',port);
+       	$("#status").combobox('select',status);
+       	$("#description").textbox('setValue',description);
+		$("#save_btn").linkbutton({
+			iconCls:'icon-save',
+			onClick:function(){
+				$("#add_update_form").form('submit',{
+					url:"../../service/001-013",
+					queryParams:{path:"009-005"}
+				});	
+			}
+		}); 
+	}
+	
+	//删除
+	function deleteServers(serversId){
+		$.ajax({
+	        type:"POST",
+	        url:"../service/001-014",
+	        data:{"id":serversId,"path":"009-005"},
+	        dataType:"json",
+	        success:function(exeStatus){
+	        	if(exeStatus.exeStatus == 1){
+	        		$.messager.alert('提示','操作成功！');
+	        		if(giftStatus == 0){
+		        		$('#servers-table').datagrid('reload',{
+		        			"path" : "",
+			   				"status" : "1"
+			   			});
+		       		}else{
+		       			$('#servers-table').datagrid('reload',{
+		       				"path" : "",
+		    				"status" : "0"
+		    			});
+	        		}
+	        	}else{
+	        		$.messager.alert('提示','操作失败！');
+	        	}
+		    }
+		});
+	}
+</script>
+</head>
+<body>
+	  
+    <div class="easyui-panel" style="width:100%;height:70px;padding:2px;background:#fafafa;">
+    	<center>
+		<p>
+			<label for="">服务器状态:</label>
+			<select id="status-combobox" name="status" class="easyui-combobox" style="width:100px;">  
+				<option value="1">已启动</option>   
+		    	<option value="0">未启动</option> 
+			</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		<a id="search_btn" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a><br>  
+   		</center>
+    </div><p>    
+     
+	<table id="servers-table" class="easyui-datagrid" style="width:100%"></table>
+	<br>
+	
+	<div id="add_update_panel"  style="width:500px;height:300px;">
+	<form id="add_update_form" method="POST">
+		<center>
+		<p><p><div id="id-div">
+		<label for="">ID：</label>
+			<input id="id" name="id" class="easyui-textbox" data-options="required:false,readonly:true" />
+		<br>
+		<p></div>
+		<label for="">IP：</label>
+			<input id="ip" name="ip" class="easyui-textbox" data-options="required:false" />
+		<br>
+		<p>
+		<label for="">端口号：</label>
+			<input id="port" name="port" class="easyui-textbox" data-options="required:false" />
+		<br><p>
+		<label for="">服务器类型：</label>
+			<select id="status" class="easyui-combobox" name="status" style="width:200px;">   
+					<option value="0">未启动</option>   
+					<option value="1">启动</option>    
+			</select>
+		<br><p>
+		<label for="">描述：</label>
+			<input name="description" id="description"  class="easyui-textbox" style="width:300px;">
+		<br><p>
+		<a id="save_btn" >保存</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a id="reset_save_btn" >重置</a>
+		</center>
+	</form>
+	</div>
+	 
+</body>
+</html>

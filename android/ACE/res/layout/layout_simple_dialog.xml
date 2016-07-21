@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/simple_dialog_width"
+    android:layout_height="@dimen/simple_dialog_height"
+    android:background="@drawable/dialog_white_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_simple_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="请选择"
+        android:textColor="@color/color_19191a"
+        android:textSize="@dimen/simple_dialog_text_size" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_px"
+        android:background="@color/color_e6e6eb"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_simeple_dialog_left"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/simple_dialog_button_height"
+            android:layout_weight="1"
+            android:background="@drawable/xml_simple_dialog_left_btn_bg"
+            android:text="@string/text_cancel"
+            android:textColor="@color/color_0090ff" />
+        <View
+            android:layout_width="@dimen/one_px"
+            android:layout_height="@dimen/simple_dialog_button_height"
+            android:background="@color/color_e6e6eb"/>
+        <Button
+            android:id="@+id/btn_simple_dialog_right"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/simple_dialog_button_height"
+            android:layout_weight="1"
+            android:background="@drawable/xml_simple_dialog_right_btn_bg"
+            android:text="@string/tv_sure"
+            android:textColor="@color/color_0090ff" />
+    </LinearLayout>
+</LinearLayout>

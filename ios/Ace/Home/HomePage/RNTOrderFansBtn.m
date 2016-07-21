@@ -1,0 +1,84 @@
+//
+//  RNTOrderFansBtn.m
+//  Ace
+//
+//  Created by 靳峰 on 16/2/28.
+//  Copyright © 2016年 RNT. All rights reserved.
+//
+
+#import "RNTOrderFansBtn.h"
+
+@interface RNTOrderFansBtn ()
+
+//订阅
+@property(nonatomic,strong) UILabel *orderLab;
+
+@end
+
+@implementation RNTOrderFansBtn
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self setSubviews];
+    }
+    return self;
+}
+
+//重写被选中的方法
+-(void)setSelected:(BOOL)selected
+{
+    [super setSelected:selected];
+    self.triangle.hidden = !selected;
+    if (selected) {
+        self.count.textColor = RNTMainColor;
+        self.orderLab.textColor = RNTMainColor;
+    }else{
+        self.count.textColor = RNTColor_16(0xffffff);
+        self.orderLab.textColor = RNTColor_16(0xffffff);
+    }
+}
+
+
+#pragma mark - 布局子控件
+-(void)setSubviews
+{
+    
+    //订阅数
+    UILabel *orderCount = [[UILabel alloc] init];
+    orderCount.font = [UIFont systemFontOfSize:24];
+    orderCount.text = @"678";
+    self.count = orderCount;
+    [orderCount sizeToFit];
+    [self addSubview:orderCount];
+    [self.count  mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(self);
+        make.top.mas_equalTo(self).offset(10);
+    }];
+    
+    //订阅lab
+    UILabel *orderLab = [[UILabel alloc] init];
+    orderLab.font = [UIFont systemFontOfSize:15];
+    orderLab.text = @"订阅";
+    [orderLab sizeToFit];
+    self.orderLab = orderLab;
+    [self addSubview:orderLab];
+    [self.orderLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(self.count );
+        make.top.mas_equalTo(self.count.mas_bottom);
+    }];
+
+    //白色三角
+    UIImageView *triangle = [[UIImageView alloc] init];
+    triangle.image = [UIImage imageNamed:@"homePage_back"];
+    [triangle sizeToFit];
+    self.triangle = triangle;
+    [self addSubview:triangle];
+    [self.triangle mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(self );
+        make.bottom.mas_equalTo(self);
+    }];
+
+}
+@end

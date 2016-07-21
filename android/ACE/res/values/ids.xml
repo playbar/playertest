@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="layout_fragment" type="id">false</item>
+    <item name="fragment_hall" type="id">false</item>
+    <item name="fragment_my" type="id">false</item>
+    <item name="img_room" type="id">false</item>
+    <item name="tb_navigationBar" type="id">false</item>
+    <item name="rd_hall" type="id">false</item>
+    <item name="rd_my" type="id">false</item>
+    <item name="loading_view" type="id">false</item>
+    <item name="fragment_container" type="id">false</item>
+
+</resources>

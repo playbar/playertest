@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#00000000">
+
+    <com.rednovo.ace.widget.MTextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:linksClickable="true"
+        android:paddingBottom="3dp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/color_white"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/tv_content_normal"
+        style="@style/txtChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:includeFontPadding="false"
+        android:linksClickable="true"
+        android:paddingBottom="3dp"
+        android:paddingLeft="10dp"
+        android:textSize="17sp" />
+</LinearLayout>

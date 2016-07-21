@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true">
+
+    <FrameLayout
+        android:id="@id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <fragment
+            android:id="@id/fragment_my"
+            class="com.rednovo.ace.ui.fragment.MyFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:layout="@layout/layout_my_fragment" />
+
+        <fragment
+            android:id="@id/fragment_hall"
+            class="com.rednovo.ace.ui.fragment.HallFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:layout="@layout/fragment_hall_layout" />
+
+
+    </FrameLayout>
+
+    <include
+        layout="@layout/layout_tab_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/fragment_container"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp">
+
+        <ImageView
+            android:id="@+id/img_room"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img_tab_bar_live"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside" />
+
+        <!--<ImageView
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            android:src="@drawable/img_video" />-->
+    </RelativeLayout>
+
+</RelativeLayout>

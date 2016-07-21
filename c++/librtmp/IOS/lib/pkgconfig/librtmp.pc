@@ -1,0 +1,11 @@
+prefix=/Users/wanglei/Downloads/ljj/ijkplayer/librtmp
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: librtmp
+Description: RTMP implementation
+Version: v2.4
+Libs: -L${libdir} -lrtmp -lz
+Libs.private: 
+Cflags: -I${includedir}

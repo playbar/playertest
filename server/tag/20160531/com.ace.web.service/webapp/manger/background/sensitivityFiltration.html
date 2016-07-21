@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>运营--敏感词记录</title>
+
+<link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css">
+<script type="text/javascript" src="/easyui/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#dg').datagrid({
+			//url : '../../service/001----',
+			url : 'sensitivityFiltration.json',
+			fitColumns : true,
+			pagination : true,
+			pagePosition : 'bottom',
+			rownumbers : true,
+			singleSelect : true,
+			pageNumber : 1,
+			pageSize : 20,
+			pageList : [20,50,70, 100,500, 1000],
+			columns : [ [ {
+				field : 'id',
+				title : '编号',
+				width : 300
+			},{
+				field : 'title',
+				title : '敏感词',
+				width : 300
+			}
+			]],
+			toolbar:[{
+				iconCls: 'icon-add',
+				text:'添加敏感词',
+				handler:addSensitivity
+			}]
+		});
+		
+		$('#add_update_panel').window({
+			closed:true,
+			onClose:function(){
+				$("#add_update_panel").form('clear');
+			}
+		});
+		$('#add_update_panel').window({ 
+			title:"新增礼物",
+		    collapsible:false,
+		    minimizable:false,
+		    maximizable:false,
+		    closable:true,
+		    draggable:true,
+		    modal:true,
+		    width:600
+		}); 
+		
+
+		$("#add_update_form").form({
+			success:function(res){
+				res = eval("(" + res + ")");
+				if(res.success){
+					$.messager.alert('提示','保存成功！');
+	    			$('#giftmanage-table').datagrid('reload');
+	    			$("#add_update_panel").form('clear');//清空添加信息表单里的内容
+	    			$("#add_update_panel").window('close');//关闭这个添加框
+				}else{
+					alert(res.msg);
+				}
+			}
+		});
+		
+	})
+	
+	function addSensitivity(){
+		$("#add_update_panel").form('clear');
+		$('#add_update_panel').window('open');
+		$("#save_btn").linkbutton({
+			iconCls:'icon-save',
+			onClick:function(){
+				$("#add_update_form").form('submit',{
+					url:""//添加用户的from表单提交
+				});	
+			}
+		}); 
+		$("#reset_save_btn").linkbutton({
+			iconCls:'icon-cancel',
+			onClick:function(){
+				$("#add_update_form").form('reset');
+			}
+		});	
+	}
+</script>
+
+</head>
+<body>
+	<!-- DataGrid 数据展示 -->
+	<table id="dg" class="easyui-datagrid" style="width:100%" ></table><br> 
+	
+	<!-- 一个隐藏的dialog里加入form表单 -->
+	<div id="add_update_panel"  style="width:500px;height:350px;">
+	<form id="add_update_form" method="POST">
+		<center><p>
+		<label for="">编号：</label>
+			<input id="" name="" class="easyui-textbox" data-options="required:false" />
+		<br><p>
+		<label for="">敏感词：</label>
+			<input id="" name="" class="easyui-textbox" data-options="required:false" />
+		<br><p>
+		<a id="save_btn" >保存</a>
+		<a id="reset_save_btn" >重置</a>
+		</center>
+	</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>数据统计--注册用户数</title>
+
+<link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css">
+<script type="text/javascript" src="/easyui/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#dg').datagrid({
+			url : 'registerStatistics.json',
+			fitColumns : true,
+			pagination : true,
+			pagePosition : 'bottom',
+			rownumbers : true,
+			singleSelect : true,
+			pageNumber : 1,
+			pageSize : 20,
+			pageList : [20,50,70, 100,500, 1000],
+			columns : [ [ {
+				field : 'date',
+				title : '日期',
+				width : 100
+			},
+			{
+				field : 'add',
+				title : '新增注册用户',
+				width : 100
+			}
+			] ]
+		});
+		
+		$('#win').window({    
+		    width:400,    
+		    height:200,    
+		    modal:true   
+		});
+		//加载的时候关闭wendow窗口
+		$('#win').window('close');  
+	})
+	//触发时间打开wendow窗口
+	function caution(){
+		$('#win').window('open');  
+	}
+</script>
+
+</head>
+<body>
+	
+	<form id="ff" method="post">   
+    	<div class="easyui-panel" style="width:100%;height:30px;padding:0px;background:#fafafa;">
+    		<label for="name">&nbsp;&nbsp;日期:</label>   
+        	<input id="start" name="start" type="text" class="easyui-datebox" required="required"></input>  
+			至
+			<input id="end" name="end" type="text" class="easyui-datebox" required="required"></input> 
+        	<label for="name">条件:</label>   
+        	<select id="condition" class="easyui-combobox" name="condition" style="width:200px;">
+			    <option value="1" selected>日</option>   
+			    <option value="2">周</option>   
+			    <option value="3">月</option>
+			    <option value="-1">总</option> 
+			</select>
+        	<input type="submit" value="查找" />
+    	</div>     
+	</form>
+	<!-- DataGrid 数据展示 -->
+	<table id="dg" class="easyui-datagrid" style="width:100%" ></table> 
+	<!-- 定义一个隐藏的wind警告框 -->
+	<div id="win" style="text-align:center">
+		<h1>警告</h1>
+		请注意你的尺度
+	</div>  
+
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:background="@color/color_f9f9f9"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title_bar" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.rednovo.libs.widget.pulltorefresh.library.PullToRefreshListView2
+            android:id="@+id/ptrl_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="@color/color_white"
+            android:divider="@color/transparent"
+            android:dividerHeight="0dip"
+            android:fadingEdge="none"
+            android:fastScrollEnabled="false"
+            android:listSelector="@color/transparent"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            android:smoothScrollbar="true"
+            android:visibility="visible"
+            ptr:ptrMode="both"
+            ptr:ptrShowIndicator="false" />
+        <LinearLayout
+            android:id="@+id/ll_ptrf_none"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_white"
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/img_ptrf_none"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_no_content_bg"
+                android:scaleType="center" />
+            <TextView
+                android:id="@+id/tv_ptrf_none"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/no_content_message_top_margin"
+                android:textSize="@dimen/no_content_message_text_size"
+                android:textColor="@color/color_a8a8a9"/>
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

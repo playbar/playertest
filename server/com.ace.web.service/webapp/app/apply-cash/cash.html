@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>提现</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0,maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="css/cash.css"/>
+</head>
+<body>
+	<div>
+		<div class="title">
+			<div class="gold-info">
+				<!-- <div class="line"></div> -->
+				<p>我的A豆<span style="color: #f84812;margin-left: 1.9em;" id="income"></span></p>
+				<div class="line"></div>
+				<p>可提现<span style="color: #f84812;margin-left: 2.5em;"  id="rmb" ></span><span style="color: #f84812;margin-left: 0em;">元</span></p>
+				<!-- <div class="line"></div> -->
+			</div>
+			<div class="rect"></div>
+			<div class="account-info">
+				<!-- <div class="line"></div> -->
+				<p>提现账户<span id="weChatId" style="margin-left: 1.5em;"></span></p>
+				<div class="line"></div>
+
+				<p style="float: left;">提现金额</p>
+				<input id="rmbAmount" size="5" maxlength="5" class="input-money" type="text"  style="margin-left: 1.7em;" placeholder="只可提取100的整数倍" required />
+				<div class="line"></div>
+
+				<p>手机号<span style="margin-left: 2.4em;" id="mobileId" ></span></p>
+				<div class="line"></div>
+
+				<p style="float: left;">验证码</p>
+				<input id="verifyCode" class="input-money" type="text"  style="margin-left: 2.9em;" placeholder="输入验证码" required style="width: 24%;" />
+				<div class="verify"><p>获取验证码</p></div>
+				<div class="line"></div>
+
+			</div>
+		</div>
+		<div class="fail-prompt"><p  id="res"></p></div>
+		<div id="cash-btn" class="cash-btn">
+			<p>申请提现</p>
+		</div>
+		<div class="rule" id="doc">提现规则</div>
+	</body>
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/js/jquery.json-2.4.js"></script>
+	<script type="text/javascript" src="js/cash.js"></script>
+	</html>

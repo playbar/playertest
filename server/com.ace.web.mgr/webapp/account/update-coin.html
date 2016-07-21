@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>账号管理--加减币记录</title>
+
+<link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css">
+<script type="text/javascript" src="/easyui/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#add_coin_btn").click(function(){
+			$("#coin_form").form('submit',{
+				queryParams:{path:'001-032'},
+				url:"../service/001-016"
+			});	
+		});
+		
+		$("#subtract_coin_btn").click(function(){
+			var num = $('#num').val();
+			var number = "-"+num;
+			$("#num").textbox('setValue',number);
+			$("#coin_form").form('submit',{
+				queryParams:{path:'001-032'},
+				url:"../service/001-016"
+			});	
+		});
+		
+		$("#coin_form").form({
+			success:function(data ){
+				var exeStatus = eval('(' + data  + ')');  
+				if(exeStatus.exeStatus == 1){
+					$.messager.alert('提示','操作成功！');
+					$('#userId').textbox('setValue','');
+					$('#num').numberbox('setValue','');
+				}else{
+					$.messager.alert('提示','操作失败！');
+				}
+			}
+		});
+	});
+	
+</script>
+
+</head>
+<body>
+    <div class="easyui-panel" style="width:100%;height:90px;padding:1px;background:#fafafa;">
+    <form id="coin_form" method="POST">
+    	<center>
+		<p>
+    	<label for="name">用户ID:</label>   
+        	<input id="userId" name="userId" class="easyui-textbox" data-options="required:false" />
+        <label for="">数&nbsp;量:</label>   
+        		<input id="num" name="num"  class="easyui-numberbox"  data-options="required:false"  />
+        <a id="add_coin_btn" class="easyui-linkbutton" data-options="iconCls:'icon-add'">加币</a>&nbsp;
+        <a id="subtract_coin_btn" class="easyui-linkbutton" data-options="iconCls:'icon-remove'">减币</a>
+		<p>
+    	</center>	
+    </form>	
+    </div>
+</body>
+</html>

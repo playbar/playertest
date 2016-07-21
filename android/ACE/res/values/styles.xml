@@ -1,0 +1,147 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="@android:style/Theme">
+        <item name="android:windowBackground">@color/color_white</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="NoSplitMotionEvents" parent="AppTheme">
+        <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:splitMotionEvents">false</item>
+    </style>
+
+    <style name="TranslucentTheme" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="LaunchTheme" parent="@style/AppTheme">
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+    </style>
+
+
+    <style name="my_fragment_middle_button_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@drawable/xml_my_fragment_middle_button_bg</item>
+    </style>
+
+    <style name="user_data_lable_item_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/user_data_lable_item_height</item>
+        <item name="android:background">@drawable/xml_user_data_lable_item_bg</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_e3c73d</item>
+        <item name="android:textSize">@dimen/user_data_lable_item_text_size</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="my_fragment_item_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/my_fragment_item_height</item>
+        <item name="android:background">@drawable/xml_my_fragment_item_bg</item>
+    </style>
+
+    <style name="windowAnimation">
+        <item name="android:activityOpenEnterAnimation">@null</item>
+        <item name="android:activityOpenExitAnimation">@null</item>
+        <item name="android:activityCloseEnterAnimation">@null</item>
+        <item name="android:activityCloseExitAnimation">@null</item>
+        <item name="android:taskOpenEnterAnimation">@null</item>
+        <item name="android:taskOpenExitAnimation">@null</item>
+        <item name="android:taskCloseEnterAnimation">@null</item>
+        <item name="android:taskCloseExitAnimation">@null</item>
+        <item name="android:taskToFrontEnterAnimation">@null</item>
+        <item name="android:taskToFrontExitAnimation">@null</item>
+        <item name="android:taskToBackEnterAnimation">@null</item>
+        <item name="android:taskToBackExitAnimation">@null</item>
+    </style>
+
+    <style name="BaseDilaogTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="BaseNoParentDilaogTheme">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="dialogBottomWindowAnim" mce_bogus="1" parent="BaseDilaogTheme">
+        <item name="android:windowEnterAnimation">@anim/anim_in_from_bottom</item>
+        <item name="android:windowExitAnimation">@anim/anim_out_from_bottom</item>
+    </style>
+
+    <style name="txtChat">
+        <item name="android:shadowColor">#ff000000</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+
+    <style name="RoomAppTheme" parent="@style/AppTheme">
+        <item name="android:launchMode">singleTask</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:keepScreenOn">true</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="android:label">@string/app_name</item>
+        <item name="android:screenOrientation">portrait</item>
+    </style>
+
+    <style name="RoomLiveTheme" parent="@style/AppTheme">
+        <item name="android:launchMode">singleTask</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:keepScreenOn">true</item>
+        <item name="android:windowSoftInputMode">stateHidden|adjustResize</item>
+        <item name="android:label">@string/live_room</item>
+        <item name="android:screenOrientation">portrait</item>
+    </style>
+
+    <!--@android:style/Theme.NoTitleBar-->
+    <style name="GuideTheme" parent="@android:style/Theme.NoTitleBar">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="animation_translucent_translate" parent="@android:style/Animation.Translucent">
+        <item name="android:windowEnterAnimation">@anim/anim_alpha_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_alpha_out</item>
+    </style>
+
+    <style name="AceWebTheme" parent="AppTheme">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+</resources>

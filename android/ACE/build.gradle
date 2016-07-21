@@ -1,0 +1,166 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'com.github.dcendents.android-maven'
+//apply plugin: 'com.jfrog.bintray'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: '*.jar')
+    compile project(':Acelibs')
+//    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta1'
+//    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta1'
+}
+
+def releaseTime() {
+    return new Date().format("YYYY-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion '23.0.2'
+
+    defaultConfig {
+        applicationId "com.rednovo.ace"
+        minSdkVersion 11
+        targetSdkVersion 19
+        versionCode 5
+        versionName "1.0.3"
+
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+//    dexOptions {
+//        javaMaxHeapSize "4gz"
+//        preDexLibraries = false
+//        incremental true
+//    }
+
+    //lint检测
+    lintOptions {
+        disable 'InvalidPackage'
+        abortOnError false
+    }
+
+
+//    signingConfigs {
+//        release {
+//            storeFile file("/Users/Dk/code/ACE/ACE/ace.keystore")
+//            storePassword "ace2016"
+//            keyAlias "ace"
+//            keyPassword "ace2016"
+//        }
+//    }
+
+    buildTypes {
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+//            versionNameSuffix "-debug"
+//            minifyEnabled false
+//            zipAlignEnabled false
+//            shrinkResources false
+            //signingConfig signingConfigs.release
+        }
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+
+            //混淆开关
+            minifyEnabled true
+            //是否zip对齐
+            zipAlignEnabled true
+            //是否打开debuggable开关
+            debuggable false
+            //是否打开jniDebuggable开关
+            jniDebuggable false
+            //混淆配置文件
+            proguardFiles '/Users/Dk/code/ACE/ACE/proguard.cfg'
+
+            //签名配置
+            //signingConfig signingConfigs.release
+
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        // 输出apk名称为ace_v1.0_xxx-xx-xx_xxx.apk
+                        def fileName = "ace_v${defaultConfig.versionName}_${releaseTime()}_${variant.productFlavors[0].name}.apk"
+                        output.outputFile = new File(outputFile.parent, fileName)
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    // 友盟多渠道打包
+    productFlavors {
+        "1000" {}
+        "1001" {}
+        "1002" {}
+        "1003" {}
+        "1004" {}
+        "1005" {}
+        "1006" {}
+        "1007" {}
+        "1008" {}
+        "1009" {}
+        "1010" {}
+        "1011" {}
+        "1012" {}
+        "1013" {}
+        "1014" {}
+        "1015" {}
+        "1016" {}
+        "1017" {}
+        "1018" {}
+        "1019" {}
+        "1020" {}
+        "9999" {}
+//        xiaomi {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
+//        }
+    }
+
+    //批量修改打包
+    productFlavors.all { flavor ->
+        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+            jniLibs.srcDirs = ['libs']
+        }
+        // Move the tests to tests/java, tests/res, etc...
+        instrumentTest.setRoot('tests')
+
+        // Move the build types to build-types/<type>
+        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
+        // This moves them out of them default location under src/<type>/... which would
+        // conflict with src/ being used by the main source set.
+        // Adding new build types or product flavors should be accompanied
+        // by a similar customization.
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+}

@@ -1,0 +1,20 @@
+
+bouquet.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/bouquet
+  rotate: false
+  xy: 2, 152
+  size: 750, 670
+  orig: 750, 670
+  offset: 0, 0
+  index: -1
+image/star
+  rotate: false
+  xy: 2, 2
+  size: 149, 148
+  orig: 149, 148
+  offset: 0, 0
+  index: -1

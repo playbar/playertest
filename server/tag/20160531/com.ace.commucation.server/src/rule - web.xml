@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<web-dispatcher>
+	<!-- responseType: 1 常规请求,返回文本内容 responseType: 2 流请求,返回文件流 responseType: 
+		3 URL跳转请求 -->
+
+	<!--用户相关 -->
+	<request keyId="001-001" des="获取用户信息">{"basicData","userId"}</request>
+	<response>{"exeStatus","errCode","user":{user}}</response>
+
+	<request keyId="001-002" des="账户余额">{"basicData","userId"}</request>
+	<response>{"exeStatus","errCode","balance"}</response>
+
+	<request keyId="001-003" des="等级列表">{"basicData","userId"}</request>
+	<response>{"exeStatus","errCode","rankList":[{rank}]}</response>
+
+	<request keyId="001-004" des="充值列表">{"basicData"}</request>
+	<response>{"exeStatus","errCode","orderOptions":[{option}]}</response>
+
+	<request keyId="001-005" des="充值明细">{"basicData","userId","starTime","endTime","page","pageSize"}</request>
+	<response>{"exeStatus","errCode","payList":{[detail]...}}</response>
+	
+	<request keyId="001-006" des="消费明细">{"basicData","userId","starTime","endTime","page","pageSize"}</request>
+	<response>{"exeStatus","errCode","consumeList":{[consume]...}}</response>
+
+
+	<!--房间操作 -->
+
+	<request keyId="002-002" des="开播">{"basicData","userId","title","position","pic"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+
+	<request keyId="002-005" des="观众列表">{"basicData","showId"}</request>
+	<response>{"exeStatus","errCode","memberList":[{user}...]}</response>
+
+	<request keyId="002-004" des="直播列表">{"basicData","userId(可选)"}</request>
+	<response>{"exeStatus","errCode","showList":[{show}...]}</response>
+
+	<request keyId="002-011" des="分享">{"basicData","userId","showId","channel"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	
+
+	<!-- 关系相关-->
+	<request keyId="003-001" des="订阅">{"basicData","userId","starId"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="003-002" des="举报">{"basicData","userId","starId"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="003-003" des="建议">{"basicData","userId","suggest"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="003-004" des="粉丝列表">{"basicData","userId"}</request>
+	<response>{"exeStatus","errCode","fans":[{user}...]}</response>
+
+	<request keyId="003-005" des="订阅列表">{"basicData","userId"}</request>
+	<response>{"exeStatus","errCode","subscribe":[{user}...]}</response>
+
+
+</web-dispatcher>

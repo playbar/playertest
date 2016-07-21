@@ -1,0 +1,163 @@
+
+body{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #fbfbfb;
+    /*background-color: #ff0000;*/
+    /*position: absolute;*/
+    
+    
+    
+}
+
+table,tr,th,td{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+tr{
+    height: 78px;
+}
+td{
+    height: 114px;
+}
+th{
+
+    text-align: left;
+}
+.container{
+    width: 100%;
+    color: #666;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 2em;
+    margin: 0;
+}
+th,td,.border-bottom{
+    border-bottom: solid #e6e6eb 1px;
+}
+p,a{
+    display: inline-block;
+    /*border: solid red 1px;*/
+    margin: 0;
+    padding: 0;
+}
+.leftTxt{
+    margin-left: 70px;
+    float: left;
+}
+.rightTxt{
+    margin-right: 40px;
+    float: right;
+}
+.colorGray{
+    color: #c8c8c8;
+}
+.text{
+    line-height: 45px;
+    display: inline-block;
+    /*border: solid red 1px;*/
+}
+.bar{
+    background-color: #fff;
+    width: 100%;
+    /* border: solid red 1px;*/
+
+
+}
+.round{
+    width: 20px;
+    height: 20px;
+    margin-left: 22px;
+    background-color: #0090ff;
+    border: solid #afdbfc 7px;
+    display: inline-block;
+    vertical-align:-23%;
+    border-radius: 50%;
+
+    -webkit-border-radius: 50%;
+    -o-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+}
+.thTxt{
+    margin-left: 16px;
+
+}
+.font-size18{
+    font-size: 18px;
+}
+.font-size30{
+    font-size: 30px;
+}
+.width100{
+    width: 100%;
+}
+.width50{
+    width: 49.7%;
+}
+.margin-right70{
+    margin-right: 70px;
+}
+.margin-left265{
+    position: absolute;
+    right: 15em;
+}
+.margin-left200{
+    position: absolute;
+    right: 10em;
+}
+.floatLeft{
+    float: left;
+    padding: 0;
+}
+.floatRight{
+    float: right;
+    padding: 0;
+}
+.height100{
+    height: 100px;
+}
+.clear{clear:both;}
+.text-align-center{
+    text-align: center;
+}
+.link{
+    height: 93px;
+    padding: 0;
+    font-weight: bold;
+}
+.margin-top25{
+    margin-top: 25px;
+}
+.testborder{
+    border: solid #0090ff 1px;
+}
+.border-right{
+    border-right: solid #c9c9ce 1px;
+}
+.border-left{
+    border-left: solid #c9c9ce 1px;
+}
+.margin-left50{
+    margin-left: 50px;
+}
+.margin-right50{
+    margin-right: 50px;
+}
+
+.color-gold{
+    color: #ffd201;
+    border-bottom: solid #ffd201 2px;
+}
+a{
+    color: #7d7d7d;
+    text-decoration:none;
+}
+.pic-box{
+    position: absolute;
+    vertical-align: middle;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}

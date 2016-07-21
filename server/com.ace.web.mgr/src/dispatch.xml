@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-dispatcher>
+<!-- 
+responseType: 1 常规请求,返回文本内容
+responseType: 2 流请求,返回文件流
+responseType: 3 URL跳转请求
+		   001-*: 用户相关类请求
+		   002-*: 订单相关请求
+		   003-*: 股票池信息相关请求（股票池信息检索等）
+		   004-*: 第三方支付交易相关
+		   005-*: 消息中心
+		  
+
+ -->
+ 	<!--用户-->
+ 	<request keyId="001-001" des="登陆ACE" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-002" des="冻结，解冻" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-003" des="禁播" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-004" des="下播" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-005" des="禁言" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-006" des="取消禁言" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-007" des="发送系统消息" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-008" des="发送警告消息" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-009" des="敏感词" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-010" des="添加敏感词" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-011" des="删除敏感词" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-012" des="服务器列表" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-013" des="添加服务器" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-014" des="删除服务器" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-015" des="加减币记录" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-016" des="加币/减币" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-017" des="获取菜单列表" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-018" des="获取用户菜单" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-019" des="获取用户菜单" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-020" des="订单查询" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-021" des="提现记录" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-022" des="审核状态记录" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	<request keyId="001-023" des="修改提现记录状态" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.jsonData.UserJsonHandler</request>
+	
+</web-dispatcher>

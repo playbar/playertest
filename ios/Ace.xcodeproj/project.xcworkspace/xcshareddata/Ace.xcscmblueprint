@@ -1,0 +1,35 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "49d41097-88b9-4eca-b132-b645dcf4ecf0++5713",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "49d41097-88b9-4eca-b132-b645dcf4ecf0++309" : {
+
+    },
+    "49d41097-88b9-4eca-b132-b645dcf4ecf0++5713" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "49d41097-88b9-4eca-b132-b645dcf4ecf0++309" : 0,
+    "49d41097-88b9-4eca-b132-b645dcf4ecf0++5713" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E731F83E-2219-4F8B-83E3-6E9FF2CC2FE4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "49d41097-88b9-4eca-b132-b645dcf4ecf0++309" : "Ace_GPUImage\/",
+    "49d41097-88b9-4eca-b132-b645dcf4ecf0++5713" : "Ace_GPUImage_Cocos\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Ace",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Ace.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/172.16.150.20",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "49d41097-88b9-4eca-b132-b645dcf4ecf0++309"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/172.16.150.20",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "49d41097-88b9-4eca-b132-b645dcf4ecf0++5713"
+    }
+  ]
+}

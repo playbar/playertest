@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>订单管理</title>
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css">
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/js/jquery.json-2.4.js"></script>
+	<script type="text/javascript" src="/easyui/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#cashOrder-table').datagrid({
+			fitColumns : false,
+			pagination : false,
+			rownumbers : true,
+			singleSelect : true,
+			columns : [ [
+				{field : 'payerId',title : '付款ID',halign:'center',width : 60},
+				{field : 'receiverId',title : '接收ID',halign:'center',width : 60},
+				{field : 'orderId',title : '订单ID',halign:'center',width : 200},
+				{field : 'goodName',title : '礼物名称',halign:'center',width : 90},
+				{field : 'goodCnt',title : '礼物数量',halign:'center',width : 60},
+				{field : 'coinAmount',title : '微币(个)',halign:'center',width : 80},
+				{field : 'rmbAmount',title : '人民币(元)',halign:'center',width : 80},
+				{field : 'payChannel',title : '支付方式',halign:'center',width : 80,
+					formatter:function(value, row, index){
+						if(row.payChannel == 1){
+							return '微信';
+						} else if(row.status == 2){
+							return '阿里';
+						} else if(row.status == 3){
+							return '苹果';
+						} else{
+							return '米大师';
+						}
+					} 	
+				},
+				{field : 'orderChannel',title : '代理商',halign:'center',width : 60},
+				{field : 'channel',title : '渠道号',halign:'center',width : 60},
+				{field : 'status',title : '状态',halign:'center',width : 60,
+					formatter:function(value, row, index){
+						if(row.status == 1){
+							return '<font style="color: red">待开通<font>';
+						}
+						if(row.status == 2){
+							return '<font style="color: green">已开通';
+						}
+					} 
+				},
+				{field : 'createTime',title : '创建时间',halign:'center',width : 120},
+				{field : 'orderDes',title : '订单描述',halign:'center',width : 360}
+			]]
+		});
+		
+		$("#search_btn").click(function(){
+			var userId = $('#userId').numberbox('getValue');
+			var startTime = $('#startTime').datebox('getValue');
+			var endTime = $('#endTime').datebox('getValue');
+			var combobox = $('#check-combobox').combobox('getValue');
+			$('#cashOrder-table').datagrid({
+				url : '../service/001-020',
+				queryParams:{
+					"path" : "001-037",
+					"userId" : userId,
+					"startTime" : startTime,
+					"endTime" : endTime,
+					"status" : combobox
+				}	
+			});
+		});
+	})
+	
+</script>
+
+</head>
+<body>
+	<div class="easyui-panel" style="width:99%;height:90px;padding:2px;background:#fafafa;">  
+       <center><p><font ></font>
+       <label for="">&nbsp;&nbsp;用户ID:</label>   
+        	<input id="userId" name="userId"  class="easyui-numberbox" ></input> 
+        <label for="">&nbsp;&nbsp;时间:</label>   
+        	<input id="startTime" name="startTime"  class="easyui-datebox" ></input> 
+        <label for=""> 至 </label>   
+        	<input id="endTime" name="endTime"  class="easyui-datebox" ></input> 
+		<label for="">&nbsp;&nbsp;状态:</label>
+		<select id="check-combobox" class="easyui-combobox" name="dept" style="width:100px;">   
+			<option value="">全部</option>   
+		   	<option value="1">待开通</option>   
+		   	<option value="2">已开通</option> 
+		</select> 
+		<p>
+        <a id="search_btn" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a><br>
+  		</center> 
+    </div>     
+	<!-- DataGrid 数据展示 -->
+	<table id="cashOrder-table" class="easyui-datagrid" style="width:99%" ></table> 
+</body>
+</html>

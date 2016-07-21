@@ -1,0 +1,101 @@
+@charset "utf-8";
+/*公共样式 start*/
+body,div,h1,p,h2,header,ul,li,dl,dt,dd,ol,nav,input,footer{ margin:0; padding:0;}
+body{ color:#000;font-family:"黑体" "微软雅黑" Arial, Helvetica, sans-serif;background:#fff;}
+body,html{ height:100%;-webkit-touch-callout: none;-webkit-user-select:none;}
+@media screen and (max-width:479px){
+	body{font-size:10px;-webkit-text-size-adjust: none;}
+	input{font-size:10px;}
+	.top dt img{width: 100%;}
+	.top p img{width: 40%;padding-right: 0.5em;}
+}
+@media screen and (min-width:320px) and (max-width:360px){
+	body{font-size:8px;-webkit-text-size-adjust: none;}
+	input{font-size:8px;}
+}
+	
+@media screen and (min-width:480px) and (max-width:639px){
+	body{font-size:15px;-webkit-text-size-adjust: none;}
+	input{font-size:15px;}
+}
+@media screen and (min-width:640px) and (max-width:719px){
+	body{font-size:20px;-webkit-text-size-adjust: none;}
+	input{font-size:20px;}
+}
+@media screen and (min-width:720px){
+	body{font-size:22.5px;-webkit-text-size-adjust: none;}
+	input{font-size:22.5px;}
+}
+h1,h2,h3,h4,h5,h6{ margin:0; padding:0;font-size:100%; font-weight:normal;}
+ul,li{ list-style:none;}
+html{-webkit-text-size-adjust:none;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}
+img{border:none;  vertical-align:middle; width:100%;}
+.clearfix:after {content:"\200B"; display:block; height:0; clear:both;}
+.clearfix{ *zoom:1;}
+input{ font-family:Arial, Helvetica, sans-serif;}
+a{ text-decoration:none; color:#fff;}
+a:hover{ text-decoration:none;}
+/*自定义样式*/
+.charge-record{
+	width: 100%;
+}
+.title{
+	position: relative;
+	background-color: #eee;
+	height: 4em;
+	color: #949494;
+	line-height: 4em;
+	margin-top: -0.1em;
+}
+.title p{
+	position: absolute;
+	font-size: 1.6em;
+}
+.title p:nth-child(1){
+	left: 1em;
+}
+.title p:nth-child(2){
+	text-align: right;
+	right: 1em;
+}
+.list-single{
+	position: relative;
+	margin-top: 1em;
+	line-height: 2.4em;
+}
+.list-single p:nth-child(1)
+{
+	font-size: 1.8em;
+	margin-left: 0.8em;
+}
+.list-single p:nth-child(2)
+{
+	position: absolute;;
+	text-align: right;;
+	right: 1em;
+	font-size: 1.8em;
+	top: 0;
+}
+.list-single p:nth-child(3)
+{
+	font-size: 1.6em;
+	color: #949494;
+	margin-left: 0.9em;
+}
+.list-single p:nth-child(4)
+{
+	font-size: 1.4em;
+	color: #949494;
+	margin-left: 1em;
+	margin-top: -0.5em;
+}
+.line{
+	width: 96%;
+	height: 1px;
+	background-color: #eeeeee;
+	margin-top: 0.8em;
+	margin-left: 1em;
+	position: relative;
+	z-index: 99;
+}

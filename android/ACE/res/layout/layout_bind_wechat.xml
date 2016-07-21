@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_eeeeee"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/img_bind_wechat_icon" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="@string/bind_wechat_withdrawals"
+        android:textColor="@color/color_666666" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_px"
+        android:layout_marginTop="30dp"
+        android:background="@color/color_666666" />
+
+    <EditText
+        android:id="@+id/et_wechat_num"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/regist_edit_height"
+        android:background="@color/color_white"
+        android:hint="@string/please_input_wechat"
+        android:inputType="text"
+        android:maxLength="20"
+        android:paddingLeft="15dp"
+        android:textColorHint="@color/color_a8a8a9"
+        android:textSize="@dimen/regist_edit_text_size" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_px"
+        android:background="@color/color_666666" />
+
+    <EditText
+        android:id="@+id/et_wechat_num_again"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/regist_edit_height"
+        android:background="@color/color_white"
+        android:hint="@string/please_input_wechat_again"
+        android:inputType="text"
+        android:maxLength="20"
+        android:paddingLeft="15dp"
+        android:textColorHint="@color/color_a8a8a9"
+        android:textSize="@dimen/regist_edit_text_size" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_px"
+        android:background="@color/color_666666" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_px"
+        android:layout_marginTop="10dp"
+        android:background="@color/color_666666" />
+
+    <EditText
+        android:id="@+id/et_bind_phone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/regist_edit_height"
+        android:background="@color/color_white"
+        android:hint="@string/please_input_phone_num"
+        android:inputType="number"
+        android:maxLength="11"
+        android:paddingLeft="15dp"
+        android:textColorHint="@color/color_a8a8a9"
+        android:textSize="@dimen/regist_edit_text_size" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_px"
+        android:background="@color/color_666666" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/regist_edit_height">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp">
+
+            <Button
+                android:id="@+id/btn_withdrawal_get_identifying_code"
+                android:layout_width="@dimen/regist_get_identifying_code_btn_width"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/regist_get_identifying_code_btn_margin"
+                android:layout_marginTop="@dimen/regist_get_identifying_code_btn_margin"
+                android:background="@drawable/xml_btn_get_identifying_code_bg"
+                android:text="@string/get_identifying_code"
+                android:textColor="@color/color_cbe2ff" />
+
+            <EditText
+                android:id="@+id/et_withdrawal_identifying_code"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/regist_get_identifying_code_edit_left_margin"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/please_edit_identifying_code"
+                android:inputType="number"
+                android:maxLength="6"
+                android:textColorHint="@color/color_a8a8a9"
+                android:textSize="@dimen/regist_edit_text_size" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one_px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/color_cccccc" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_bind_wechat"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/get_back_password_btn_height"
+        android:layout_marginLeft="@dimen/get_back_password_btn_left_right_margin"
+        android:layout_marginRight="@dimen/get_back_password_btn_left_right_margin"
+        android:layout_marginTop="@dimen/regist_over_btn_top_margin"
+        android:background="@drawable/xml_yellow_long_btn_bg"
+        android:text="@string/bind"
+        android:textSize="@dimen/get_back_password_btn_text_size" />
+</LinearLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_eeeeee"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <RelativeLayout
+        android:id="@+id/rl_account_manager_change_password"
+        style="@style/my_fragment_item_style">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/my_fragment_item_margin"
+            android:text="@string/change_password"
+            android:textColor="@color/color_19191a"
+            android:textSize="@dimen/my_fragment_item_text_size" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/my_fragment_item_margin"
+            android:src="@drawable/img_forward" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one_px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/color_e6e6eb" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_account_manager_bind_phone"
+        style="@style/my_fragment_item_style"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/my_fragment_item_margin"
+            android:text="@string/bind_phone"
+            android:textColor="@color/color_19191a"
+            android:textSize="@dimen/my_fragment_item_text_size" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/my_fragment_item_margin"
+            android:src="@drawable/img_forward" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one_px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/color_e6e6eb" />
+    </RelativeLayout>
+</LinearLayout>

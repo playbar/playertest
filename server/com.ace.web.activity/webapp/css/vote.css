@@ -1,0 +1,138 @@
+@charset "utf-8";
+/*公共样式 start*/
+body,div,h1,p,h2,header,ul,li,dl,dt,dd,ol,nav,input,footer{ margin:0; padding:0;}
+body{ color:#000;font-family:"黑体" "微软雅黑" Arial, Helvetica, sans-serif;background:#dedede;}
+body,html{ height:100%;-webkit-touch-callout: none;-webkit-user-select:none;}
+@media screen and (max-width:479px){
+	body{font-size:10px;-webkit-text-size-adjust: none;}
+	input{font-size:10px;}
+	.top dt img{width: 100%;}
+	.top p img{width: 40%;padding-right: 0.5em;}
+}
+@media screen and (min-width:480px) and (max-width:639px){
+	body{font-size:15px;-webkit-text-size-adjust: none;}
+	input{font-size:15px;}
+}
+@media screen and (min-width:640px) and (max-width:719px){
+	body{font-size:20px;-webkit-text-size-adjust: none;}
+	input{font-size:20px;}
+}
+@media screen and (min-width:720px){
+	body{font-size:22.5px;-webkit-text-size-adjust: none;}
+	input{font-size:22.5px;}
+}
+h1,h2,h3,h4,h5,h6{ margin:0; padding:0;font-size:100%; font-weight:normal;}
+ul,li{ list-style:none;}
+html{-webkit-text-size-adjust:none;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}
+img{border:none;  vertical-align:middle; width:100%;}
+.clearfix:after {content:"\200B"; display:block; height:0; clear:both;}
+.clearfix{ *zoom:1;}
+input{ font-family:Arial, Helvetica, sans-serif;}
+a{ text-decoration:none; color:#fff;}
+a:hover{ text-decoration:none;}
+
+
+/*自定义样式*/
+.title{
+	position: relative;
+	background-color: #202020;
+	width: 100%;
+	height: 4em;
+}
+.title p{
+	position: absolute;
+}
+.rect{
+	width: 1em;
+	top: 0.7em;
+	left: 2em;
+}
+.title_info{
+	top: 0.3em;
+	font-size: 2.5em;
+	color: #fff;
+	left: 2em;
+}
+.find{
+	position: relative;
+	background-color: #2f2f2f;
+	width: 100%;
+	height: 5em;
+}
+.find_input{
+	position: absolute;
+	top: 15%;
+	left: 4%;
+	width: 76%;
+	height: 60%;
+}
+.find_icon{
+	position: absolute;
+	top: 15%;
+	right: 5%;
+	width: 3em;
+}
+.waterfull{
+	width: 100%;
+	/*height: 20em;*/
+	background-color: #000;
+}
+.waterfull_l{
+	float: left;
+	position: relative;
+	width: 45.5%;
+	margin-top: 3%;
+	margin-left: 3%;
+	padding-bottom: 10%;
+}
+.waterfull_r{
+	float: right;
+	position: relative;
+	width: 45.5%;
+	margin-top: 3%;
+	margin-right:3%;
+
+}
+/*.waterfull_l p{
+	position: absolute;
+	background-size: 100%;
+}
+.waterfull_r p{
+	position: absolute;
+}*/
+.head{
+	background-image: url(../image/black_bg.png);	
+}
+.score{
+	position: absolute;
+	color: #fff;
+	font-size: 1.2em;
+	bottom: 20%;
+	left: 8%;
+	z-index: 999;
+
+}
+.vote_btn{
+	width: 30%;
+	position: absolute;
+	color: #fff;
+	bottom: 18%;
+	right: 0;
+	z-index: 2000;
+
+}
+.name{
+	position: absolute;
+	color: #2d2d2d;
+	font-size: 1.6em;
+	bottom: 7%;
+	font-weight: bold;
+}
+.school{
+	position: absolute;
+	color: #fff;
+	font-size: 1.2em;
+	bottom: -1%;
+	color: #b6b6b6;
+}

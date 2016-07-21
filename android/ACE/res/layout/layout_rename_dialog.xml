@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dialog_width"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/xml_rename_dialog_bg">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/rename_dialog_margin"
+        android:text="@string/rename"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/rename_dialog_title_text_size" />
+
+    <EditText
+        android:id="@+id/et_rename_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rename_dialog_edit_height"
+        android:layout_marginLeft="@dimen/rename_dialog_margin"
+        android:layout_marginRight="@dimen/rename_dialog_margin"
+        android:layout_marginTop="@dimen/rename_dialog_margin"
+        android:paddingLeft="10dp"
+        android:maxLines="1"
+        android:maxLength="8"
+        android:textSize="@dimen/rename_dialog_edit_text_size"
+        android:textColor="@color/color_7f7f7f"
+        android:background="@color/color_eeeeee"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/rename_dialog_margin"
+        android:layout_marginLeft="@dimen/rename_dialog_margin"
+        android:layout_marginRight="@dimen/rename_dialog_margin"
+        android:layout_marginTop="@dimen/rename_dialog_margin"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_rename_dialog_cancel"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/rename_dialog_button_height"
+            android:layout_marginRight="@dimen/rename_dialog_button_magin"
+            android:layout_weight="1"
+            android:background="@drawable/xml_yellow_long_btn_bg"
+            android:text="@string/text_cancel" />
+
+        <Button
+            android:id="@+id/btn_rename_dialog_sure"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/rename_dialog_button_height"
+            android:layout_weight="1"
+            android:background="@drawable/xml_yellow_long_btn_bg"
+            android:text="@string/tv_sure" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>名称敏感词</title>
+
+<link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css">
+
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.json-2.4.js"></script>
+
+<script type="text/javascript" src="/easyui/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+</head>
+<script type="text/javascript">
+	$(function(){
+		$.ajax({
+			type:"POST",
+			url:"../service/001-009",
+			data:{"path":"009-005","type":"name"},
+			success:function(res){
+				var data = eval('(' + res + ')');
+				var dataList =data.keywordlist;
+				$("#dataTab").html('');
+				for(var i = 0 ; i < dataList.length; i){
+					var codeHtmlTR = "<tr>";
+					for(var j = 0 ; j < 6; j++){
+						if(i < dataList.length){	
+							codeHtmlTR += "</label><td width='10%' style='border-right-style: hidden;border-bottom-style: hidden;'><center><input type='checkbox' name='checkbox'  id='"+dataList[i]+"' value='"+dataList[i]+"'/><label for='"+dataList[i]+"'>"+dataList[i]+"</label></td>";
+							i++;
+						}else{
+							codeHtmlTR += "<td width='10%' style='border-right-style: hidden;border-bottom-style: hidden;'></td>";
+						}
+					}
+					codeHtmlTR += "</tr>";
+					$("#dataTab").append(codeHtmlTR);
+				}
+			}
+		});
+		$("#insert_btn").click(function(){
+			var value = $("#txt").val();
+			if(value.indexOf("^")>=0){
+				$.messager.alert('提示','不可以含有关键字 ^！');
+			}else{
+				$("#add_form").form('submit',{
+					url:"../service/001-010",
+					queryParams:{path:"009-004",type:"name",methed:"add"}
+				});	
+			}
+		});
+		$("#add_form").form({
+			success:function(res){
+				res = eval("(" + res + ")");
+				if(res.exeStatus == 1){
+	    			$("#add_form").form('clear');
+	    			window.location.reload();
+				}else{
+					$.messager.alert('提示','操作失败！');
+				}
+			}
+		});
+		
+		$("#delete_btn").click(function(){
+			var keys = getCheckedIds();
+			if( keys.length < 1){
+				$.messager.alert('提示','请选择要删除的信息！');
+			}else{
+				$.messager.confirm('确认','确定删除选中的信息吗?',function(r){
+					 $.ajax({
+						type:"POST",
+						url:"../service/001-011",
+						data:{"keys":keys,"path":"009-004","type":"name","methed":"del"},
+						dataType:"json",
+						success:function(res){
+							if(res.exeStatus == 1){
+				    			window.location.reload();
+				        	}else{
+				        		$.messager.alert('提示','删除失败！');
+				        	}
+						}
+					});
+				});
+			}
+		});
+	});
+	function getCheckedIds(){
+		var ids = "";
+		$("input[name='checkbox']:checked").each(function(){
+			if (this.checked) {
+				ids += this.value + "^";
+			}
+		});
+		return ids;
+	}
+</script>
+
+<body>
+	<div id="easyui-panel" class="easyui-panel" style="width:100%;hepadding:2px;background:#fafafa;">   
+		<center><p>
+		<form id="add_form" method="POST">
+       		<label for="">输入关键字:</label>   
+        		<input id="txt" name="txt" class="easyui-textbox"   data-options="required:false" />
+       		<a id="insert_btn" class="easyui-linkbutton" data-options="iconCls:'icon-save'">添加</a>
+       		<a id="delete_btn" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'">删除</a>
+       	</form>
+       	</center><p>
+		<table id="dataTab"  width="95%" border="1" bordercolor="#95B8E7" style="border-left-style: hidden;border-top-style: hidden;"  align="center" cellpadding="1" cellspacing="0">
+		</table><p><p>
+	</div>
+</body>
+</html>

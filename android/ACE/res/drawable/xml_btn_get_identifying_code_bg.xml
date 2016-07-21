@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false" android:state_enabled="true">
+        <shape>
+            <corners android:radius="@dimen/get_back_password_identifying_code_corners_radius" />
+            <solid android:color="@color/color_0091ff" />
+        </shape>
+    </item>
+    <item android:state_pressed="true" android:state_enabled="true">
+        <shape>
+            <corners android:radius="@dimen/get_back_password_identifying_code_corners_radius" />
+            <solid android:color="@color/color_800091ff" />
+        </shape>
+    </item>
+    <item android:state_enabled="false">
+        <shape>
+            <corners android:radius="@dimen/get_back_password_identifying_code_corners_radius" />
+            <solid android:color="@color/color_7f7f7f" />
+        </shape>
+    </item>
+
+</selector>

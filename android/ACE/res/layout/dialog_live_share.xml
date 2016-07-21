@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="104dp"
+    android:background="@drawable/share_black_bg"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/rl_weixin"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/iv_weixin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/selector_weixi" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_weixin"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="@string/tv_weixin"
+            android:textColor="@drawable/selector_share_text_yellow"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_friends"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/iv_friends"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/selector_friends" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_friends"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="@string/tv_friends"
+            android:textColor="@drawable/selector_share_text_yellow"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_qq"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/iv_qq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/selector_qq" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_qq"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="@string/tv_qq"
+            android:textColor="@drawable/selector_share_text_yellow"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_qqzone"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/iv_qqzone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/selector_qqzone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_qqzone"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="@string/tv_qqzone"
+            android:textColor="@drawable/selector_share_text_yellow"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_sina"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/iv_sina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/selector_sina" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_sina"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="@string/tv_sina"
+            android:textColor="@drawable/selector_share_text_yellow"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

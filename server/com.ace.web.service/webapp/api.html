@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- responseType: 1 常规请求,返回文本内容 responseType: 2 流请求,返回文件流 responseType: 
+		3 URL跳转请求 -->
+
+	<!--用户相关 -->
+	&lt;request keyId="001-001" des="获取用户信息"&gt;{"basicData","userId"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode","user":{user}}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="001-002" des="账户余额"&gt;{"basicData","userId"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode","balance"}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="001-003" des="等级列表"&gt;{"basicData","userId"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode","rankList":[{rank}]}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="001-004" des="充值列表"&gt;{"basicData"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode","orderOptions":[{option}]}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="001-005" des="充值明细"&gt;{"basicData","userId","starTime","endTime","page","pageSize"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode","payList":{[detail]...}}&lt;/response&gt;</br>
+	</br>
+	&lt;request keyId="001-006" des="消费明细"&gt;{"basicData","userId","starTime","endTime","page","pageSize"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode","consumeList":{[consume]...}}&lt;/response&gt;</br>
+</br>
+</br>
+
+	<!--房间操作 -->
+
+	&lt;request keyId="002-001" des="进入房间"&gt;{"basicData","userId(可选)","showId"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode"}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="002-002" des="开播"&gt;{"basicData","userId","title","position"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode"}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="002-003" des="图像/直播封面"&gt;{"basicData","pic","type"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode"}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="002-004" des="直播列表"&gt;{"basicData","userId(可选)"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode","showList":[{show}...]}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="002-004" des="房间初始化数据接口"&gt;{"basicData","showId"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode","showList":[{show}...]}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="002-005" des="观众列表"&gt;{"basicData","showId"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode","memberList":[{user}...]}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="002-006" des="退出房间"&gt;{"basicData","userId(可选)","showId"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode"}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="002-007" des="踢人"&gt;{"basicData","starId","userId","showId"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode"}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="002-008" des="礼物列表"&gt;{"basicData"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode","giftList":{[gift]...}}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="002-009" des="发送消息"&gt;{"basicData","senderId","chatMode","showId","receiverId","txt"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode"}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="002-010" des="送礼物"&gt;{"basicData","senderId","receiverId","showId","giftId","cnt"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode"}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="002-011" des="分享"&gt;{"basicData","userId","showId","channel"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode"}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="002-012" des="直播实时数据(结束时展示)"&gt;{"basicData","showId"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode","coins","members","supports","length","fans"}&lt;/response&gt;</br>
+</br>
+</br>
+	<!-- 关系相关-->
+	&lt;request keyId="003-001" des="订阅"&gt;{"basicData","userId","starId"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode"}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="003-002" des="举报"&gt;{"basicData","userId","starId"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode"}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="003-003" des="建议"&gt;{"basicData","userId","suggest"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode"}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="003-004" des="粉丝列表"&gt;{"basicData","userId"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode","fans":[{user}...]}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="003-005" des="订阅列表"&gt;{"basicData","userId"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode","subscribe":[{user}...]}&lt;/response&gt;</br>
+</br>
+</br>
+
+	<!-- 广播数据 -->
+	&lt;request keyId="004-001" des="聊天消息"&gt;{}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode","msgList":[{msg}...]}&lt;/response&gt;</br></br>
+</br>
+	&lt;request keyId="004-002" des="用户进出直播间"&gt;{}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode","userList":[{user}...],"type":"1,进入房间,2,退出房间"}&lt;/response&gt;</br>
+</br>
+   	&lt;request keyId="004-003" des="直播间动态数据"&gt;{}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode","memberCnt","totalSupportCnt","supportCnt"}&lt;/response&gt;</br>
+    </br>
+	&lt;request keyId="004-004" des="广播礼物数据"&gt;{}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode","showId","giftDetail":[{}...]}&lt;/response&gt;</br>
+</br>
+</br>
+
+	<!-- 内部使用接口 -->
+	&lt;request keyId="009-001" des="连接测试"&gt;{"basicData}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode"}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="009-002" des="广播消息"&gt;{"msg"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode","msgId"}&lt;/response&gt;</br>
+</br>
+	&lt;request keyId="009-003" des="广播自我"&gt;{"msg"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode","msgId"}&lt;/response&gt;</br>
+	</br>
+	&lt;request keyId="009-004" des="心跳"&gt;{"msg"}&lt;/request&gt;</br>
+	&lt;response&gt;{"exeStatus","errCode","msgId"}&lt;/response&gt;</br>
+
+</body>
+</html>

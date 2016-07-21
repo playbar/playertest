@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:id="@+id/ll_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/rl_anchor"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/fillet_trans_half"
+                android:paddingRight="20dp">
+
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rectangle_yellow" />
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/iv_anchor"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="8dp"
+                    fresco:fadeDuration="300"
+                    fresco:placeholderImage="@drawable/ic_launcher"
+                    fresco:placeholderImageScaleType="fitCenter"
+                    fresco:roundAsCircle="true" />
+
+                <LinearLayout
+                    android:id="@+id/ll_anchor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="6dp"
+                    android:layout_toRightOf="@+id/iv_anchor"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_anchorName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:maxEms="6"
+                        android:singleLine="true"
+                        android:textColor="@color/color_white"
+                        android:textSize="15sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:id="@+id/iv_person"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/icon_person" />
+
+                        <TextView
+                            android:id="@+id/tv_audience"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="3dp"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:textColor="@color/color_white"
+                            android:textSize="10sp" />
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="10dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/color_white" />
+
+
+                        <ImageView
+                            android:id="@+id/iv_heart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/icon_heart" />
+
+                        <TextView
+                            android:id="@+id/tv_collect"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="3dp"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:textColor="@color/color_white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_follow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/ll_anchor"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:src="@drawable/add_follow" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="@string/hall_subscribe_text"
+                        android:textColor="@color/color_ffd200"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/h_recyclerview"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:scrollbars="none" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ticket_bg">
+
+            <TextView
+                android:id="@+id/tv_ticket_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:text="@string/ticket_txt"
+                android:textColor="@color/color_ffd200"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_ticket_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toRightOf="@id/tv_ticket_txt"
+                android:singleLine="true"
+                android:text="0"
+                android:textColor="@color/color_white"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <com.rednovo.ace.widget.live.CustomRootLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ListView
+                android:id="@+id/list_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/chat_audience_height"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="80dp"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:listSelector="#00000000"
+                android:overScrollMode="never"
+                android:scrollbars="none" />
+
+            <TextView
+                android:id="@+id/tv_enter_room"
+                style="@style/txtChat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/list_view"
+                android:layout_marginRight="80dp"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                android:textColor="@color/color_4df5ff"
+                android:textSize="17sp" />
+
+
+            <include
+                android:id="@+id/ll_gift_layout"
+                layout="@layout/layout_common_gift"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/tv_enter_room"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="160dip" />
+
+            <com.rednovo.ace.widget.parise.VoteSurface
+                android:id="@+id/vs_parise_view"
+                android:layout_width="150dip"
+                android:layout_height="300dip"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="@color/transparent" />
+
+            <LinearLayout
+                android:id="@+id/ll_warm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/warn_big_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_warm"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingTop="10dp"
+                    android:textColor="@color/color_ffd200"
+                    android:textSize="18sp" />
+
+                <RelativeLayout
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/warn_s_bg">
+
+                    <ImageView
+                        android:id="@+id/iv_close_warm"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:src="@drawable/iv_warn_close" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_input"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:layout_alignParentBottom="true"
+            android:clickable="true"
+            android:paddingBottom="8dp"
+            android:paddingTop="3dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/iv_emoji"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:paddingBottom="5dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:src="@drawable/selector_emoji_iv" />
+
+            <TextView
+                android:id="@+id/tv_send"
+                android:layout_width="56dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/fillet_blue"
+                android:gravity="center"
+                android:text="@string/tv_send"
+                android:textColor="@color/color_white"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/et"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/tv_send"
+                android:layout_toRightOf="@+id/iv_emoji"
+                android:background="@drawable/live_intput"
+                android:maxLength="50"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:singleLine="true" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_btns"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp">
+
+            <ImageView
+                android:id="@+id/iv_chat"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/selector_talk"
+                android:scaleType="centerInside" />
+
+            <RelativeLayout
+                android:id="@+id/rl_voice"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/iv_chat"
+                android:visibility="gone">
+
+                <CheckBox
+                    android:id="@+id/cb_voice"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/selector_volume"
+                    android:button="@null" />
+            </RelativeLayout>
+
+
+            <ImageView
+                android:id="@+id/iv_camera"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/rl_voice"
+                android:scaleType="centerInside"
+                android:src="@drawable/selector_flip"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/rl_flicker"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/iv_camera"
+                android:visibility="gone">
+
+                <CheckBox
+                    android:id="@+id/cb_flicker"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/selector_flicker"
+                    android:button="@null" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/iv_gift"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/selector_gift" />
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="8dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/selector_close" />
+
+            <ImageView
+                android:id="@+id/iv_share"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/iv_close"
+                android:scaleType="centerInside"
+                android:src="@drawable/selector_share" />
+
+
+            <CheckBox
+                android:id="@+id/cb_skincare"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/iv_close"
+                android:background="@drawable/selector_skin_care"
+                android:button="@null"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <com.rednovo.ace.widget.live.PanelLayout
+            android:id="@+id/panel_root"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/emoji_height"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.rednovo.libs.widget.emoji.ExpressionPanel
+                android:id="@+id/view_emoji"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/emoji_height"
+                android:background="#f6f5f5" />
+        </com.rednovo.ace.widget.live.PanelLayout>
+
+
+    </com.rednovo.ace.widget.live.CustomRootLayout>
+
+</RelativeLayout>

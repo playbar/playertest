@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>充值登录</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0,maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="css/recharge_login.css" />
+<style type="text/css">
+		.login-fail{
+			width: 100%;
+			text-align: center;
+			color: #ff2323;
+			font-size: 1em;
+		}
+		.login-id input{
+			border-style:none;
+			width: 80%;
+			height: 2em;
+			font-size: 1.4em;
+			line-height: normal;
+			line-height: 22px;
+			outline:none;
+			margin-top: 5%;
+			background-color:#eeeeee;	
+			margin-left: 10%;
+		}
+		.login{
+			background-color: #fed130;
+			width: 80%;
+			height: 3em;
+			margin: 2em auto;
+			margin-bottom: 1em;
+			border-radius: 2em;
+			position: relative;
+			line-height: 3em;
+		}
+		.login p{
+			text-align: center;
+			font-size: 1.4em;
+			position: absolute;
+			width: 100%;
+		}
+	</style>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.json-2.4.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		$("#button").click(function() {
+			$.ajax({
+				type : "post",
+				url : "/service/001-001",
+				data : "starId="+$("#userId").val(),
+				success : function(data) {
+					var json = eval('(' + data + ')');
+					if(json.exeStatus == 0){
+						$("#res").show();
+					}else{
+						window.location.href=encodeURI("./goods.html?userId="+json.user.userId+"&nickName="+json.user.nickName+"&profile="+json.user.profile);
+					}
+				}
+			});
+
+		});
+
+	});
+</script>
+</head>
+<body>
+
+	<div class="login-id">
+		<input type="text" placeholder="请输入充值ID" required id="userId" />
+	</div>
+	<div class="login" id="button">
+		<p>确认</p>
+	</div>
+	<div class="login-fail" style="display: none" id="res">
+		<p>ID账号输入有误，请重新确认后再次输入</p>
+	</div>
+</body>
+</html>

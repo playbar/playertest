@@ -1,0 +1,245 @@
+/*自定义*/
+.charge {
+	width: 800px;
+	height: 300px;
+	margin: 100px 100px;
+	position: relative;
+}
+.charge-desc {
+	width: 100%;
+	font-size: 1.4em;
+	top: 3em;
+	position: absolute;
+}
+.charge-money{
+	width: 100%;
+	position: absolute;
+	top: 6em;
+}
+.single-charge {
+	width: 47%;
+	height: 34px;
+	border: solid 1px #CCCCCC;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	margin-top: 14px;
+	font-size: 1.2em;
+	position: relative;
+	background-color: #ffffff;
+	float: left;
+	margin-right: 20px;
+}
+.charge-num{
+	position: absolute;
+	left: 2em;
+	line-height: 34px;
+}
+.charge-select {
+	width: 18px;
+	height: 18px;
+	border: solid 1px #99999c;
+	border-radius: 25px;
+	-moz-border-radius: 25px;
+	-ms-border-radius: 25px;
+	position: absolute;
+	right: 2em;
+	top: 0.5em;
+}
+.charge-select img {
+	position: absolute;
+	display: none;
+}
+.charge-cost{
+	position: absolute;
+	right: 4em;
+	line-height: 34px;
+}
+.charge-btn{
+	margin-top: 18em;
+	cursor:pointer;
+	margin-right:35%;
+	float:right;
+	background-color: #ffd201;
+	font-size: 1.4em;
+	text-align: center;
+	width: 30%;
+	height: 36px;
+	line-height: 33px;
+	/*border-radius: 8px;*/
+	color: #000;
+	letter-spacing:2px;
+	margin-bottom: 5em;
+}
+.charge-btn p{
+	text-align: center;
+	font-size:1.4em;
+	line-height: 2em;
+	
+}
+.account{
+	position: relative;
+	font-size: 1.2em;
+	/*margin-top: 100px;*/
+}
+.id-desc{
+	position: absolute;
+	font-size: 1.2em;
+}
+.id-put{
+	position: absolute;
+	left: 7em;
+	width: 50%;
+	font-size: 1.2em;
+	border:1px solid #eee;
+	height: 2em;
+	padding-left: 0.5em;
+	margin-top: -0.3em;
+	background-color: #fff;
+}
+.fail-prompt{
+	position: absolute;
+	font-size: 1.2em;
+	color: #FF1A00;;
+	left: 67%;
+}
+.single-charge-select{
+	background-color: #ffd201;
+}
+.single-charge-select p img{
+	display: block;
+}
+/*确认框的样式*/
+.tp{
+	border-top-left-radius:14px;
+	border-top-right-radius: 14px;
+	height: 222px;
+	background-color: #fff;
+}
+.pay_confirm{
+	width: 305px;
+	height: 435px;
+	margin: 0% auto;
+	position: absolute;
+	border: solid 1px #ccc;
+	box-shadow: 5px 5px 10px #ccc;
+	display: none;
+	top: 2em;
+	left: 33%;
+}
+.icon{
+	width: 40%;
+	margin: 10% 0 5% 30%;
+	border-radius:65px;
+}
+.nick{
+	color:#555;
+	width:100%;
+	text-align:center;
+	font-size: 1.4em;
+}
+.id{
+	color:#555;width:100%;
+	text-align:center;
+	font-size: 1.4em;
+}
+.btm{
+	background-color: #F8F7F7;
+	border-bottom-left-radius: 14px;
+	border-bottom-right-radius: 14px;
+	height:213px;
+}
+.money{
+	font-size:3.1em;
+	color:#D37C78;
+	line-height: 40px;
+	text-align: center;
+}
+.num{
+	font-size: 1.4em;
+	color: #555;
+	text-align: center;
+	line-height: 62px;
+}
+.qx{
+	cursor:pointer;
+	margin-left:10%;
+	float:left;
+	background-color: #D37C78;
+	font-size: 1.3em;
+	text-align: center;
+	width: 32%;height: 36px;
+	line-height: 33px;
+	border:solid 1px #D37C78;
+	border-radius: 4em;
+	color: #fff;
+	letter-spacing:5px;
+}
+.qd{
+	cursor:pointer;
+	margin-right:10%;
+	float:right;
+	background-color: #0090FF;
+	font-size: 1.3em;
+	text-align: center;
+	width: 80%;
+	height: 36px;
+	line-height: 33px;
+	/*border:solid 1px #0090FF;*/
+	border-radius: 55px;
+	color: #fff;
+	letter-spacing:5px;
+}
+.close-btn{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor:pointer;
+}
+.charge-title{
+	/*margin: 0em auto 0em auto;*/
+	text-align: center;
+	padding-top: 4em;
+	padding-bottom: 4em;
+	margin-top: -5em;
+}
+#rn-03{
+	position: fixed;
+	top: 10em;
+	z-index: 996;
+	width: 1000px;
+	height:500px;
+	background-color: #fafafa;
+	left: 50%;
+	margin-left: -500px;
+	/*display: none;*/
+	/*border:1px solid #000;*/
+}
+.close{
+	position: absolute;
+	float: right;
+	right: 30px;
+	top: 30px;
+	cursor:pointer;
+}
+
+.charge-tab{
+	background-color: #fed130;
+	width: 88px;
+	height: 36px;
+	margin: 1.5em auto;
+	margin-bottom: 1em;
+	border-radius: 2px;
+	position: relative;
+	line-height: 3em;
+	float: right;
+	right: 10em;
+	cursor:pointer;
+}
+.charge-tab p{
+	text-align: center;
+	font-size: 16px;
+	position: absolute;
+	width: 100%;
+	color: #000;
+}

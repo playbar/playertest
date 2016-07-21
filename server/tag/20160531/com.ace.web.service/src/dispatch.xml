@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-dispatcher>
+<!-- 
+responseType: 1 常规请求,返回文本内容
+responseType: 2 流请求,返回文件流
+responseType: 3 URL跳转请求
+		   001-*: 用户相关类请求
+		   002-*: 订单相关请求
+		   003-*: 股票池信息相关请求（股票池信息检索等）
+		   004-*: 第三方支付交易相关
+		   005-*: 消息中心
+		  
+
+ -->
+ 	<!--用户注册-->
+ 	<request keyId="001-001" des="获取用户资料" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.account.UserHandler</request>
+ 	<request keyId="001-002" des="获取账户余额" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.account.AccountHandler</request>
+ 	<request keyId="001-004" des="获取充值列表" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.order.OrderHandler</request>
+ 	<request keyId="001-005" des="充值明细" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.order.OrderHandler</request>
+ 	<request keyId="001-006" des="账户明细插叙" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.account.AccountHandler</request>
+ 	<request keyId="001-007" des="新建用户" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.account.UserHandler</request>
+ 	
+ 	<request keyId="001-008" des="新建订单" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.order.OrderHandler</request>
+ 	<request keyId="001-009" des="开通订单" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.order.OrderHandler </request>
+ 	<request keyId="001-010" des="送礼物" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.gift.GiftHandler</request>
+ 	<request keyId="001-011" des="兑点明细查询" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.account.AccountHandler</request>
+ 	<request keyId="001-012" des="礼物进出账明细" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.gift.GiftHandler</request>
+ 	<request keyId="001-013" des="登录" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.account.UserHandler</request>
+ 	<request keyId="001-014" des="礼物列表" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.gift.GiftHandler</request>
+ 	<request keyId="001-015" des="修改用户图像" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.account.UserHandler</request>
+ 	<request keyId="001-016" des="修改密码" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.account.UserHandler</request>
+ 	<request keyId="001-017" des="修改昵称" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.account.UserHandler</request>
+ 	<request keyId="001-018" des="修改签名" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.account.UserHandler</request>
+ 	<request keyId="001-019" des="兑点余额" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.account.ExchangeHandler</request>
+ 	<request keyId="001-020" des="苹果支付回调" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.order.OrderHandler</request>
+ 	<request keyId="001-021" des="用户检索" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.account.UserHandler</request>
+ 	<request keyId="001-022" des="找回密码" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.account.UserHandler</request>
+ 	<request keyId="001-023" des="修改性别" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.account.UserHandler</request>
+ 	<request keyId="001-024" des="获取兑点绑卡信息" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.account.ExchangeHandler</request>
+ 	<request keyId="001-025" des="兑点绑卡" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.account.ExchangeHandler</request>
+ 	<request keyId="001-026" des="兑点申请" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.account.ExchangeHandler</request>
+ 	<request keyId="001-027" des="更新推送设备" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.account.UserHandler</request>
+ 	<request keyId="001-029" des="订阅的直播" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.show.ShowHandler</request>
+	<request keyId="001-044" des="微信回调接口" responseType="5" isRedirect="0" url="">com.rednovo.ace.handler.order.OrderHandler</request>
+
+ 
+ 	<request keyId="002-002" des="开播" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.show.ShowHandler</request>
+ 	<request keyId="002-005" des="获取观众列表" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.show.ShowHandler</request>
+ 	<request keyId="002-004" des="获取直播列表" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.show.ShowHandler</request>
+ 	<request keyId="002-011" des="分享" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.show.ShowHandler</request>
+ 	<request keyId="002-014" des="删除直播数据库数据" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.show.ShowHandler</request>
+ 	<request keyId="002-015" des="删除直播所有数据" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.show.ShowHandler</request>
+ 	<request keyId="002-016" des="直播清算" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.show.ShowHandler</request>
+	<request keyId="002-017" des="应用宝直播列表" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.show.ShowHandler</request>
+	<request keyId="002-018" des="用户禁言" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.show.ShowHandler</request>
+	<request keyId="002-019" des="获取分享模板" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.show.ShowHandler</request>
+	
+	
+ 	<request keyId="003-001" des="订阅" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.relation.RelationHanlder</request>
+ 	<request keyId="003-002" des="举报" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.relation.RelationHanlder</request>
+ 	<request keyId="003-003" des="建议" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.relation.RelationHanlder</request>
+ 	<request keyId="003-004" des="粉丝列表" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.relation.RelationHanlder</request>
+ 	<request keyId="003-005" des="订阅列表" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.relation.RelationHanlder</request>
+ 	<request keyId="003-006" des="取消订阅" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.relation.RelationHanlder</request>
+ 
+ 
+ 	<request keyId="008-001" des="获取服务器列表" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.sys.SystemHandler</request>
+ 	<request keyId="008-002" des="创建订单" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.midas.MidasHandler</request>
+ 	<request keyId="008-003" des="腾讯回调" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.midas.MidasHandler</request>
+ 	
+ 	<request keyId="009-001" des="总控" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.sys.SystemHandler</request>
+ 	<request keyId="009-002" des="广告位" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.sys.SystemHandler</request>
+ 	<request keyId="009-003" des="短息" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.sys.SystemHandler</request>
+ 	<request keyId="009-004" des="设置敏感词" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.sys.SystemHandler</request>
+
+	
+	
+</web-dispatcher>

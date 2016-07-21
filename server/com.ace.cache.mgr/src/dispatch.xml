@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-dispatcher>
+<!-- 
+responseType: 1 常规请求,返回文本内容
+responseType: 2 流请求,返回文件流
+responseType: 3 URL跳转请求
+		   001-*: 用户相关类请求
+		
+		  
+
+ -->
+ 	<!-- type 1.警告  2.分享  4.系统消息  5.关注 -->
+ 	<request keyId="001-001" des="发送各种公屏消息" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.cache.CacheHandle</request>
+ 	<request keyId="001-002" des="冻结用户" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.cache.CacheHandle</request>
+ 	<request keyId="001-003" des="禁播主播" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.cache.CacheHandle</request>
+ 	<request keyId="001-004" des="lengthshare" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.cache.CacheHandle</request>
+ 	
+	<!-- 系统消息  -->
+	<request keyId="009-004" des="设置敏感词" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.sys.SystemHandler</request>
+ 	<request keyId="009-005" des="获取敏感词" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.sys.SystemHandler</request>
+	
+</web-dispatcher>

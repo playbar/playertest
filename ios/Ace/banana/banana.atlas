@@ -1,0 +1,48 @@
+
+banana.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/body
+  rotate: false
+  xy: 2, 2
+  size: 133, 239
+  orig: 133, 239
+  offset: 0, 0
+  index: -1
+image/cap
+  rotate: true
+  xy: 137, 8
+  size: 113, 97
+  orig: 113, 97
+  offset: 0, 0
+  index: -1
+image/face
+  rotate: false
+  xy: 137, 123
+  size: 105, 118
+  orig: 105, 118
+  offset: 0, 0
+  index: -1
+image/hand
+  rotate: false
+  xy: 290, 189
+  size: 23, 52
+  orig: 23, 52
+  offset: 0, 0
+  index: -1
+image/left-leg
+  rotate: false
+  xy: 244, 135
+  size: 42, 50
+  orig: 42, 50
+  offset: 0, 0
+  index: -1
+image/up
+  rotate: false
+  xy: 244, 187
+  size: 44, 54
+  orig: 44, 54
+  offset: 0, 0
+  index: -1

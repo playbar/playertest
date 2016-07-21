@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>下播</title>
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css">
+	<script type="text/javascript" src="/easyui/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//下播
+		$("#down_play_btn").click(function(){
+			var userId = $('#userId').val();
+			$("#down_play_form").form('submit',{
+				url:"../service/001-004",
+				queryParams:{path:"001-003",userId:userId,type:"1"}
+			});	
+		});
+		$("#down_play_form").form({
+			success:function(res){
+				res = eval("(" + res + ")");
+				if(res.exeStatus == 1){
+					$.messager.alert('提示','下播成功！');
+	    			$("#down_play_form").form('clear');//清空添加信息表单里的内容
+				}else{
+					$.messager.alert('提示','下播失败！');
+				}
+			}
+		});
+	});
+</script>
+</head>
+
+<body>
+	<div id="down_play_panel" class="easyui-panel"  style="width:100%;padding:2px;background:#fafafa;">   
+    	<form id="down_play_form" method="POST">
+    	<center><p>
+    		<label for="">用户ID:</label>   
+     			<input id="userId" name="userId" class="easyui-textbox"	data-options="required:false" />&nbsp;&nbsp;
+    		<a id="down_play_btn" class="easyui-linkbutton" data-options="iconCls:'icon-lock'">下播</a>
+   		</center> 
+   		</form>
+	</div>
+</body>
+</html>

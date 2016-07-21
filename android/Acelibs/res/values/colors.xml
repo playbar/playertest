@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="default_color_ffd200">#ffd200</color>
+
+    <drawable name="transparent">#00000000</drawable>
+    <color name="color_white">#ffffff</color>
+    <color name="color_black">#000000</color>
+    <color name="color_fbfbfb">#fbfbfb</color>
+    <color name="color_bfbfbf">#bfbfbf</color>
+
+</resources>

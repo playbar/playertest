@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:focusable="true"
+    android:clickable="true"
+    android:layout_gravity="bottom|center">
+
+    <!--@drawable/img_tab_bar_bg -->
+    <com.rednovo.ace.widget.tabbar.NavigationBar
+        android:id="@id/tb_navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="52dip"
+        android:background="@color/color_ffffff"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <com.rednovo.ace.widget.tabbar.TabRadioButton
+            android:id="@id/rd_hall"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            app:is_show_img="true"
+            app:img_normal="@drawable/img_tab_bar_home_pressed"
+            app:img_checked="@drawable/img_tab_bar_home_normal"/>
+
+        <View
+            android:layout_width="65.0dip"
+            android:layout_height="1dip"
+            android:visibility="invisible" />
+
+        <com.rednovo.ace.widget.tabbar.TabRadioButton
+            android:id="@id/rd_my"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            app:is_show_img="true"
+            app:img_normal="@drawable/img_tab_bar_my_pressed"
+            app:img_checked="@drawable/img_tab_bar_my_normal" />
+    </com.rednovo.ace.widget.tabbar.NavigationBar>
+
+</RelativeLayout>

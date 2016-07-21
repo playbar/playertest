@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp">
+
+    <com.rednovo.ace.widget.live.gift.GiftCheckButton
+        android:id="@+id/gift_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:first_text_color_checked="@color/color_white"
+        app:first_text_color_normal="@color/color_white"
+        app:second_text_color_checked="@color/color_fff100"
+        app:second_text_color_normal="@color/color_fff100" />
+
+</RelativeLayout>

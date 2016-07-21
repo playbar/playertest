@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fl_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/live_fuzzy_bg">
+
+        <SurfaceView
+            android:id="@+id/surfaceview_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/rl_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="true"
+            android:fitsSystemWindows="true">
+
+
+            <ScrollView
+                android:id="@+id/scrollView_id"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerHorizontal="true"
+                android:fillViewport="false"
+                android:scrollbars="none">
+                <!--android:layout_below="@id/rl_title"-->
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="152dp">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_edit_photo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/img_shoot_bg"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <RelativeLayout
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="3dp"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:orientation="vertical">
+
+
+                            <com.facebook.drawee.view.SimpleDraweeView
+                                android:id="@+id/img_photo"
+                                android:layout_width="110dp"
+                                android:layout_height="110dp"
+                                fresco:failureImage="@drawable/home_page_placeholder_img"
+                                fresco:placeholderImage="@drawable/img_upload_conver_default" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:background="@drawable/img_title_bg"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:gravity="center"
+                                android:text="@string/text_adjust_cover"
+                                android:textSize="16sp" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <EditText
+                        android:id="@+id/et_live_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@null"
+                        android:gravity="center"
+                        android:hint="@string/hint_live_name"
+                        android:maxLength="10"
+                        android:paddingBottom="15dp"
+                        android:paddingTop="18dp"
+                        android:singleLine="true"
+                        android:textColor="@color/color_white"
+                        android:textColorHint="@color/color_80ffffff"
+                        android:textSize="16sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@color/color_80ffffff" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:id="@+id/iv_weixin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/selector_weixi_outlive" />
+
+                        <ImageView
+                            android:id="@+id/iv_friends"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:src="@drawable/selector_friends_outlive" />
+
+                        <ImageView
+                            android:id="@+id/iv_qq"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:src="@drawable/selector_qq_outlive" />
+
+                        <ImageView
+                            android:id="@+id/iv_qqzone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:src="@drawable/selector_qqzone_outlive" />
+
+                        <ImageView
+                            android:id="@+id/iv_sina"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:src="@drawable/selector_sina_outlive" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btn_start"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/selector_live_end"
+                        android:gravity="center"
+                        android:padding="1dp"
+                        android:text="@string/text_start_live"
+                        android:textColor="@color/color_19191a"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tv_empty"
+                        android:layout_width="match_parent"
+                        android:layout_height="12dp" />
+                </LinearLayout>
+            </ScrollView>
+
+            <RelativeLayout
+                android:id="@+id/rl_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/img_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:src="@drawable/icon_switch"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/img_finsh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:src="@drawable/icon_close" />
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </FrameLayout>
+
+</merge>

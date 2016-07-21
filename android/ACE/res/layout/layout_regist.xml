@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_eeeeee"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_f9f9f9"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_title_bar" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/regist_edit_height"
+            android:layout_marginTop="@dimen/regist_phone_num_edit_top_margin">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_px"
+                android:layout_alignParentTop="true"
+                android:background="@color/color_e6e6eb" />
+
+            <ImageView
+                android:id="@+id/img_regist_user"
+                android:layout_width="@dimen/login_edit_img_width"
+                android:layout_height="@dimen/login_edit_img_width"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/regist_edit_left_margin"
+                android:src="@drawable/img_user_name" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/regist_edit_left_margin"
+                android:layout_toRightOf="@id/img_regist_user">
+                <EditText
+                    android:id="@+id/et_regist_phone_num"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="@string/please_input_phone_num"
+                    android:inputType="number"
+                    android:maxLength="11"
+                    android:textColorHint="@color/color_a8a8a9"
+                    android:textSize="@dimen/regist_edit_text_size" />
+                <ImageView
+                    android:id="@+id/img_clean_input"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
+                    android:visibility="invisible"
+                    android:src="@drawable/img_clean_input_btn_bg"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/regist_edit_left_margin"
+                android:background="@color/color_e6e6eb" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/regist_edit_height"
+            android:layout_marginTop="@dimen/regist_identifying_code_edit_top_margin">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_px"
+                android:layout_alignParentTop="true"
+                android:background="@color/color_e6e6eb" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/regist_edit_left_margin"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_regist_get_identifying_code"
+                    android:layout_width="@dimen/regist_get_identifying_code_btn_width"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/regist_get_identifying_code_btn_margin"
+                    android:layout_marginTop="@dimen/regist_get_identifying_code_btn_margin"
+                    android:background="@drawable/xml_btn_get_identifying_code_bg"
+                    android:text="@string/get_identifying_code"
+                    android:textColor="@color/color_cbe2ff" />
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/regist_get_identifying_code_edit_left_margin"
+                    android:layout_weight="1">
+                    <EditText
+                        android:id="@+id/et_regist_identifying_code"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="@string/please_edit_identifying_code"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:textColorHint="@color/color_a8a8a9"
+                        android:textSize="@dimen/regist_edit_text_size" />
+                    <ImageView
+                        android:id="@+id/img_clean_input_identify"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
+                        android:visibility="invisible"
+                        android:src="@drawable/img_clean_input_btn_bg"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_px"
+                android:layout_alignParentBottom="true"
+                android:background="@color/color_e6e6eb" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/regist_edit_height">
+
+            <ImageView
+                android:id="@+id/img_regist_password"
+                android:layout_width="@dimen/login_edit_img_width"
+                android:layout_height="@dimen/login_edit_img_width"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/regist_edit_left_margin"
+                android:src="@drawable/img_password" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/regist_edit_left_margin"
+                android:layout_toRightOf="@id/img_regist_password">
+                <EditText
+                    android:id="@+id/et_regist_password"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/please_edit_password"
+                    android:inputType="textPassword"
+                    android:maxLength="18"
+                    android:textColorHint="@color/color_a8a8a9"
+                    android:textSize="@dimen/regist_edit_text_size" />
+                <ImageView
+                    android:id="@+id/img_clean_input_password"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
+                    android:visibility="invisible"
+                    android:src="@drawable/img_clean_input_btn_bg"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_px"
+                android:layout_alignParentBottom="true"
+                android:background="@color/color_e6e6eb" />
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/btn_regist_regist"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/get_back_password_btn_height"
+            android:layout_marginLeft="@dimen/get_back_password_btn_left_right_margin"
+            android:layout_marginRight="@dimen/get_back_password_btn_left_right_margin"
+            android:layout_marginTop="@dimen/regist_over_btn_top_margin"
+            android:background="@drawable/xml_yellow_long_btn_bg"
+            android:text="@string/complete"
+            android:textSize="@dimen/get_back_password_btn_text_size" />
+    </LinearLayout>
+</ScrollView>

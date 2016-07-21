@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>校园活动</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0,maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="css/common.css"/>
+	<style type="text/css">
+		.btnStyle{
+			position: absolute; 
+			top: 0;width: 30%;
+		}
+	</style>
+</head>
+<body>
+	<div style="width: 100%;">
+		<!-- <img src="img/school_activity_home_img/home1.jpg"> -->
+		<img style="position: absolute;top: 0;z-index: -100;" src="img/school_activity_home_img/home.jpg">
+
+		<div>
+			<img style="width: 30%;margin-left: 35%;margin-top: 86%;"src="img/school_activity_home_img/baomingBtn.png" onclick="onBaoMingHandler();">
+		</div>
+		<div>
+			<img style="width: 30%;margin-left: 35%;margin-top: 1.3em;"src="img/school_activity_home_img/details.png" onclick="onDetailsHandler();">
+		</div>		
+	</div>
+	
+</body>
+<script type="text/javascript">
+	function onBaoMingHandler()
+	{
+		//报名
+		window.location.href="school_activity_apply_play.html"; 
+	}
+	function onDetailsHandler()
+	{
+		//详情
+		window.location.href="school_activity_details.html"; 
+	}
+</script>
+</html>

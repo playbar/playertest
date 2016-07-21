@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/landscape_holder"
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/transparent" />
+
+        <ImageView
+            android:id="@+id/iv_flower_bouquet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/landscape_holder"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-260dip"
+            android:src="@drawable/flower_bouquet" />
+
+        <View
+            android:id="@+id/vertical_holder"
+            android:layout_width="1dip"
+            android:layout_height="1dip"
+            android:layout_centerInParent="true"
+            android:background="#000000" />
+
+        <com.rednovo.ace.widget.gift.StartView
+            android:id="@+id/start_first"
+            android:layout_width="75dip"
+            android:layout_height="74dip"
+            android:layout_above="@id/vertical_holder"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-20dip"
+            android:src="@drawable/flower_start" />
+
+        <com.rednovo.ace.widget.gift.StartView
+            android:id="@+id/start_second"
+            android:layout_width="85dip"
+            android:layout_height="85dip"
+            android:layout_below="@id/vertical_holder"
+            android:layout_marginTop="-20dip"
+            android:layout_toLeftOf="@id/vertical_holder"
+            android:layout_marginRight="26dip"
+            android:src="@drawable/flower_start" />
+
+        <com.rednovo.ace.widget.gift.StartView
+            android:id="@+id/start_third"
+            android:layout_width="100dip"
+            android:layout_height="98dip"
+            android:layout_below="@id/vertical_holder"
+            android:layout_marginTop="-20dip"
+            android:layout_toRightOf="@id/vertical_holder"
+            android:src="@drawable/flower_start" />
+
+        <com.rednovo.ace.widget.gift.StartView
+            android:id="@+id/start_fourth"
+            android:layout_width="75dip"
+            android:layout_height="74dip"
+            android:layout_alignRight="@id/start_third"
+            android:layout_below="@id/vertical_holder"
+            android:layout_marginRight="-40dip"
+            android:src="@drawable/flower_start" />
+
+        <com.rednovo.ace.widget.gift.StartView
+            android:id="@+id/start_fifth"
+            android:layout_width="120dip"
+            android:layout_height="119dip"
+            android:src="@drawable/flower_start"
+            android:layout_below="@id/vertical_holder"
+            android:layout_marginTop="10dip"
+            android:layout_centerHorizontal="true"/>
+
+        <com.rednovo.ace.widget.gift.StartView
+            android:id="@+id/start_sixth"
+            android:layout_width="105dip"
+            android:layout_height="104dip"
+            android:layout_toLeftOf="@id/start_second"
+            android:layout_marginRight="-95dip"
+            android:layout_marginTop="10dip"
+            android:layout_below="@id/start_second"
+            android:src="@drawable/flower_start" />
+
+        <com.rednovo.ace.widget.gift.StartView
+            android:id="@+id/start_seventh"
+            android:layout_width="115dip"
+            android:layout_height="115dip"
+            android:layout_toRightOf="@id/vertical_holder"
+            android:layout_below="@id/start_third"
+            android:layout_marginLeft="50dip"
+            android:src="@drawable/flower_start" />
+
+        <com.rednovo.ace.widget.gift.StartView
+            android:id="@+id/start_eighth"
+            android:layout_width="80dip"
+            android:layout_height="80dip"
+            android:layout_below="@id/start_fifth"
+            android:layout_marginTop="20dip"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/flower_start" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,3 @@
+
+
+datetimebox.js是针对datagrid时使用列属性editor的param中的type的值，加上此js便可以使用type:'datetimebox'

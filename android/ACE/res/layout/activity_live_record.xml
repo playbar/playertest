@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/v_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_whole"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.opengl.GLSurfaceView
+            android:id="@+id/recoder_surfaceview_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+
+    <!-- 特殊礼物 -->
+    <com.rednovo.ace.widget.gift.SpeciaGiftContainer
+        android:id="@+id/specia_gift_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"/>
+
+    <com.rednovo.ace.widget.live.LiveView
+        android:id="@+id/live_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <com.rednovo.ace.widget.live.EnterRoomAnimView
+        android:id="@+id/rl_room_anim_view_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true" />
+
+
+    <com.rednovo.ace.widget.live.CloseLiveView
+        android:id="@+id/live_end_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+    <com.rednovo.ace.widget.live.Cocos2dxAnimationLayout
+        android:id="@+id/cocos2d_animation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</FrameLayout>

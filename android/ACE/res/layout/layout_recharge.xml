@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/default_color_ffd200">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="@dimen/title_img_width"
+            android:layout_height="@dimen/title_img_width"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/xml_back_btn_bg" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:maxEms="8"
+            android:singleLine="true"
+            android:textColor="@color/color_black"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:id="@+id/iv_option"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/img_option" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="true"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/default_color_ffd200">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/img_recharge_portrait"
+                    android:layout_width="@dimen/recharge_portrait_diameter"
+                    android:layout_height="@dimen/recharge_portrait_diameter"
+                    android:layout_marginBottom="18dp"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginTop="18dp"
+                    fresco:placeholderImage="@drawable/ic_launcher"
+                    fresco:roundAsCircle="true"
+                    fresco:roundingBorderColor="@color/color_white"
+                    fresco:roundingBorderWidth="@dimen/my_fragment_portrait_border_width" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@id/img_recharge_portrait">
+
+                    <TextView
+                        android:id="@+id/tv_recharge_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/my_fragment_name_left_margin"
+                        android:text="xx"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/recharge_name_text_size" />
+
+                    <TextView
+                        android:id="@+id/tv_recharge_balance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/tv_recharge_name"
+                        android:layout_below="@id/tv_recharge_name"
+                        android:layout_marginTop="@dimen/recharge_balance_top_margin"
+                        android:text="@string/recharge_balance"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/recharge_balance_text_size" />
+
+                    <TextView
+                        android:id="@+id/tv_recharge_balance_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/tv_recharge_balance"
+                        android:layout_toRightOf="@id/tv_recharge_balance"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/color_ff5b18"
+                        android:textSize="18sp" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <com.rednovo.ace.widget.FreeGridView
+                android:id="@+id/gv_recharge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/recharge_item_margin"
+                android:layout_marginRight="@dimen/recharge_item_margin"
+                android:layout_marginTop="@dimen/recharge_item_margin"
+                android:horizontalSpacing="@dimen/recharge_item_margin"
+                android:listSelector="@color/transparent"
+                android:numColumns="2"
+                android:overScrollMode="never"
+                android:scrollbars="none"
+                android:verticalSpacing="@dimen/recharge_item_margin"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="50dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="9dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="4dp"
+                        android:layout_height="15dp"
+                        android:layout_marginBottom="13dp"
+                        android:layout_marginTop="13dp"
+                        android:background="@color/color_ffd700" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="@string/recharge_type"
+                        android:textColor="@color/color_99000000"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_recharge_alipay"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/xml_recharge_btn_bg"
+                        android:text="@string/alipay_recharge" />
+
+                    <Button
+                        android:id="@+id/btn_recharge_wechat"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="9dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/xml_recharge_btn_bg"
+                        android:text="@string/wechat_recharge" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/recharge_explain"
+                    android:textColor="@color/color_66000000" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

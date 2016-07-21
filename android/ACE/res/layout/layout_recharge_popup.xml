@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/img_recharge_popup_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_consumption_records"
+        android:layout_width="85dp"
+        android:layout_height="42dp"
+        android:gravity="center"
+        android:text="@string/consumption_records"
+        android:textColor="@color/color_333333"
+        android:background="@drawable/xml_recharge_popup_option_bg"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="59dp"
+        android:layout_height="@dimen/one_px"
+        android:background="@color/color_888888" />
+
+    <TextView
+        android:id="@+id/tv_recharge_records"
+        android:layout_width="85dp"
+        android:layout_height="42dp"
+        android:gravity="center"
+        android:text="@string/recharge_records"
+        android:textColor="@color/color_333333"
+        android:background="@drawable/xml_recharge_popup_option_bg"
+        android:textSize="16sp" />
+</LinearLayout>

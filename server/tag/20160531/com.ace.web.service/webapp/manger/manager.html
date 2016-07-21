@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css">
+
+<script type="text/javascript"
+	src="/easyui/jquery-1.8.3.min.js"></script>
+<script type="text/javascript"
+	src="/easyui/jquery.min.js"></script>
+<script type="text/javascript"
+	src="/easyui/jquery.easyui.min.js"></script>
+
+<script type="text/javascript"
+	src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+	
+<script type="text/javascript">
+	$(function(){
+		$('#tt').tree({    
+	    	url:'manager_tree_data.json',
+	    	onClick: function(node){
+	    		if(node.url != ""){
+	    			if($('#mytabs').tabs('exists',node.text)){
+		    			$('#mytabs').tabs('select',node.text)
+		    		}else{
+		    			$('#mytabs').tabs('add',{    
+			    		    title:node.text,    
+			    		    closable:true,
+			    		    cache : false,
+			    		    content : '<iframe name="'+node.text+'"id="'+node.text+'"src="'+node.url+'" width="100%" height="100%" frameborder="0" scrolling="auto" ></iframe>' 
+			    		});  
+		    		}
+	    		}
+	    		$('#tt').tree('expand', node.target);
+	    	}
+		});  
+	})
+</script>
+
+<body class="easyui-layout">   
+    <div data-options="region:'north',title:'ACE LOGO',split:true" style="height:100px;"></div>   
+    <div data-options="region:'west',title:'ACE后台管理平台',split:true" style="width:160px;">
+    	<ul id="tt" class="easyui-tree"></ul>  
+    </div>   
+    <div data-options="region:'center',title:'平台内容展示'" style="padding:5px;background:#eee;">
+    	<div id="mytabs" class="easyui-tabs" data-options="fit:true"></div> 
+    </div>   
+</body>  
+
+</html>

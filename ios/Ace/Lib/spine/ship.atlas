@@ -1,0 +1,48 @@
+
+ship.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/shadow
+  rotate: false
+  xy: 1637, 1697
+  size: 351, 171
+  orig: 351, 171
+  offset: 0, 0
+  index: -1
+image/ship
+  rotate: false
+  xy: 2, 2
+  size: 725, 359
+  orig: 725, 359
+  offset: 0, 0
+  index: -1
+image/x1
+  rotate: true
+  xy: 1341, 531
+  size: 1337, 294
+  orig: 1337, 294
+  offset: 0, 0
+  index: -1
+image/x2
+  rotate: false
+  xy: 2, 363
+  size: 1337, 404
+  orig: 1337, 404
+  offset: 0, 0
+  index: -1
+image/x3
+  rotate: false
+  xy: 2, 769
+  size: 1337, 519
+  orig: 1337, 519
+  offset: 0, 0
+  index: -1
+image/x4
+  rotate: false
+  xy: 2, 1290
+  size: 1337, 578
+  orig: 1337, 578
+  offset: 0, 0
+  index: -1

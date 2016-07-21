@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>实名认证</title>
+
+<link rel="stylesheet" type="text/css"href="/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css"href="/easyui/themes/icon.css">
+<script type="text/javascript"src="/easyui/jquery-1.8.3.min.js"></script>
+<script type="text/javascript"src="/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript"src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+		//数据的展示
+		$('#certify-table').datagrid({
+			url : '../../service/001-420',
+			fitColumns : false,
+			pagination : true,
+			pagePosition : 'bottom',
+			rownumbers : true,
+			singleSelect : true,
+			pageNumber : 1,
+			pageSize : 20,
+			pageList : [20,50,70, 100,500, 1000],
+			queryParams: {path: '001-042'},
+			columns : [ [ 
+				{field : 'id',title : 'ID',width : 100},
+				{field : 'userId',title : '用户ID',width : 100},
+				{field : 'name',title : '真实姓名',width : 150},
+				{field : 'phone',title : '手机号',width : 150},
+				{field : 'cardId',title : '证件号码',width : 150},
+				{field : 'cardType',title : '证件类型',width : 150},
+				{field : 'bankId',title : '银行卡号',width : 200},
+				{field : 'bankName',title : '银行名称',width : 150},
+				{field : 'bankProvince',title : '开卡省份',width : 150},
+				{field : 'bankCity',title : '开卡所在城市',width : 150},
+				{field : 'bankAddress',title : '开卡详细地址',width : 150},
+				{field : 'frontImg',title : '正面图片地址',width : 200,
+					formatter:function(value,row,index){
+						 return '<img src="'+row.frontImg+'" style="height:50px" />';
+					}	
+				},
+				{field : 'backImg',title : '背面图片地址',width : 200,
+					formatter:function(value,row,index){
+						 return '<img src="'+row.backImg+'" style="height:50px" />';
+					}	
+				},
+				{field : 'status',title : '状态',width : 100,
+					formatter:function(value, row, index){
+			    		if(row.status == 0){
+			    			return '审核中';
+			    		}else if(row.status == 1){
+			    			return '审核成功';
+			    		}else{
+			    			return '审核失败';
+			    		}
+			    	}
+			   	},
+				{field : 'operation',title : '操作',width : 200,
+					formatter:function(value, row, index){
+						var userId = row.userId;
+			    		if(row.status == 0){
+							return '<input type="button" value="审核成功" onclick="checkSucceed('+userId+')"/> &nbsp;&nbsp;&nbsp; <input type="button" value="审核失败" onclick="checkDefeated('+userId+')"/>';
+			    		}
+			    	}
+			   	}
+			]]
+		});
+		
+		$("#search_btn").click(function(){
+			var status = $('#status-combobox').combobox('getValue');
+			var userId = $("#userId").val();
+			$("#certify-table").datagrid('reload',{
+				"path" : "001-042",
+				"userId" : userId,
+				"status" : status
+			});
+		});
+	})
+	
+	//审核成功
+	function checkSucceed(userId){
+		$.messager.confirm('确认','您确定审核成功吗？',function(r){
+		    if (r){    
+		    	$.ajax({
+			        type:"POST",
+			        url:"../../service/001-410",
+			        data:{"userId":userId,"status":"1","path":"001-041"},
+			        dataType:"json",
+			        success:function(exeStatus){
+			        	if(exeStatus.exeStatus == 1){
+			        		$('#certify-table').datagrid('reload',{
+			    				"path" : "001-042",
+			    				"status" : "0"
+			    			});
+			        		$.messager.alert('提示','审核成功,操作成功！');
+			        	}else{
+			        		$.messager.alert('提示','审核成功,操作失败！');
+			        	}
+			        }
+			   });  
+		    }    
+		}); 
+	}
+	//审核失败
+	function checkDefeated(userId){
+		$.messager.confirm('确认','您确定审核失败吗？',function(r){
+		    if (r){    
+		    	$.ajax({
+			        type:"POST",
+			        url:"../../service/001-410",
+			        data:{"userId":userId,"status":"2","path":"001-041"},
+			        dataType:"json",
+			        success:function(exeStatus){
+			        	if(exeStatus.exeStatus == 1){
+			        		$.messager.alert('提示','审核失败,操作成功！');
+			        		$('#certify-table').datagrid('reload',{
+			    				"path" : "001-042",
+			    				"status" : "0"
+			    			});
+			        	}else{
+			        		$.messager.alert('提示','审核失败,操作失败！');
+			        	}
+			        }
+			   });  
+		    }    
+		}); 
+	}
+	
+</script>
+
+</head>
+<body>
+	<div class="easyui-panel" class="easyui-panel" style="width:100%;height:90px;padding:2px;background:#fafafa;">
+		<center>
+		<p>
+		<label for="">用户ID：</label>
+			<input id="userId" name="userId" class="easyui-textbox"/>
+		<label for="">&nbsp;&nbsp;认证状态：</label>
+        <select id="status-combobox" class="easyui-combobox" name="status-combobox" style="width:200px;">   
+			    <option value="0">审核中</option>   
+			    <option value="1">审核成功</option>  
+			    <option value="2">审核失败</option>   
+		</select>
+        <p>
+        <a id="search_btn" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a><br>
+    	</center>	
+    </div>  
+	<!-- DataGrid 数据展示 -->
+	<table id="certify-table" class="easyui-datagrid" style="width:100%"></table>
+	
+</body>
+</html>

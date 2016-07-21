@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>账号管理--金额明细</title>
+
+<link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css">
+<script type="text/javascript" src="/easyui/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#logicType").hide();
+		$("#logicType-go").hide();
+		$("#show-span").hide();
+		$('#coinHistory-table').datagrid({
+			url : '../service/001-015',
+			fitColumns : false,
+			pagination : false,
+			pagePosition : 'bottom',
+			rownumbers : true,
+			singleSelect : true,
+			pageNumber : 1,
+			pageSize : 10000,
+			pageList : [20,50,70, 100,500, 1000],
+			queryParams: {path: '001-006',channel:'1'},
+			columns : [ [ 
+				{field : 'id',title : 'ID',width : 100},
+				{field : 'userId',title : '用户ID',width : 100},
+				{field : 'userName',title : '用户名称',width : 100},
+				{field : 'relateUserId',title : '关联用户ID',width : 100},
+				{field : 'relateUserName',title : '关联用户名称',width : 100},
+				{field : 'createTime',title : '创建时间',width :200},
+				{field : 'amount',title : '数量',width : 150},
+				{field : 'desciption',title : '描述',width : 500},
+				{field : 'channel',title : '业务类型',width : 100,
+			    	formatter:function(value, row, index){
+						if(row.channel == 1 ){
+							return '订单';
+						}else if(row.channel == 2){
+							return '系统加币';
+						}else if(row.channel == 3){
+							return '发送礼物';
+						}else if(row.channel == 4){
+							return '兑换';
+						}else if(row.channel == 5){
+							return '系统减币';
+						}
+					} 
+			    }
+			] ],
+			onLoadSuccess: function(){
+				$("#show-span").show();
+				var rows = $('#coinHistory-table').datagrid('getRows')//获取当前的数据行
+		        var total = 0;
+		        for (var i = 0; i < rows.length; i++) {
+		            total += rows[i]['amount'];
+		        }
+				$("#span").html(total);
+			}
+		});
+		
+		$('#channel-combobox').combobox({
+			onSelect:function(){
+				if($('#channel-combobox').combobox('getValue') == 1){
+					$("#channel").append($("#logicType").show());
+					$("#logicType-go").hide();
+				}
+				if($('#channel-combobox').combobox('getValue') == 0){
+					$("#channel").append($("#logicType-go").show());
+					$("#logicType").hide();
+				}
+			}
+		});
+		//查询
+		$("#search_btn").click(function(){
+			var userId = $("#userId").val();
+			var startTime = $('#startTime').datebox('getValue');
+			var endTime = $('#endTime').datebox('getValue');
+			var channel = $('#channel-combobox').combobox('getValue');
+			if(channel == 1){
+				var logicType = $('#logicType-combobox').combobox('getValue');
+			}else{
+				var logicType = $('#logicType-combobox-go').combobox('getValue');
+			}
+			if(channel == 1 || channel == 0 ){
+				$("#coinHistory-table").datagrid('reload',{
+					"path" : "001-006",
+					"userId" : userId,
+					"startTime" : startTime,
+					"endTime" : endTime,
+					"channel" : channel,
+					"logicType" : logicType
+				});
+			}else{
+				$.messager.alert('提示','请选择类别！');
+			}
+		});
+	});
+</script>
+
+</head>
+<body>
+    <div class="easyui-panel" style="width:100%;height:90px;padding:1px;background:#fafafa;">
+		<p>
+		<div style="float:left">
+		<div id="channel" style="width:350px;float:left;height: 20px;">
+		<label for="name">类别:</label>
+		<select id="channel-combobox" class="easyui-combobox" name="channel-combobox" style="width:100px;">   
+			   <option>请选择</option>
+			   <option value="1">进账</option>   
+			   <option value="0">出账</option>   
+		</select>
+		</div>
+		<div id="logicType" style="width:200px;float:right">
+			<label for="name">业务类型:</label>
+			<select id="logicType-combobox" class="easyui-combobox" name="channel-combobox" style="width:100px;">   
+				    <option value="1">订单</option>   
+				    <option value="2">系统加币</option>   
+				   	<option value="6">提现</option> 
+			</select>
+		</div>
+		<div id="logicType-go" style="width:200px;float:right">
+			<label for="name">业务类型:</label>
+			<select id="logicType-combobox-go" class="easyui-combobox" name="channel-combobox" style="width:100px;">   
+				    <option value="3">送礼物</option>  
+				    <option value="4">兑换</option>  
+				    <option value="5">系统减币</option>  
+			</select>
+		</div>
+		</div>
+		<p>
+		<p><br>
+		<div style="float:left"><div style="width:200px;float:left"></div>
+    	<label for="name">用户ID:</label>   
+        	<input id="userId" name="userId" class="easyui-textbox" data-options="required:false" />&nbsp;&nbsp;
+        <label for="name">开始日期:</label>   
+        	<input id="startTime" name="startTime" class="easyui-datebox" ></input>&nbsp;&nbsp;
+        <label for="name">结束日期:</label>   
+        	<input id="endTime" name="endTime" class="easyui-datebox" ></input>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a id="search_btn" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a><br>
+    	</div><center>
+    	</center><p><br>
+    	<div id="show-span" style="float:right">
+    		<label for="">小计(元):</label><span id="span" style="color: red"></span>
+    	</div>
+    </div><p>     
+	<table id="coinHistory-table" class="easyui-datagrid" style="width:100%" ></table> 
+</body>
+</html>

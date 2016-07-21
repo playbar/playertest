@@ -1,0 +1,300 @@
+<resources>
+
+    <string name="app_name">Acelibs</string>
+
+    <string name="pull_to_refresh_pull_label">下拉刷新&#8230;</string>
+    <string name="pull_to_refresh_release_label">松开进行更新&#8230;</string>
+    <string name="pull_to_refresh_refreshing_label">正在努力刷新..&#8230;</string>
+
+    <!-- Just use standard Pull Down String when pulling up. These can be set for languages which require it -->
+    <string name="pull_to_refresh_from_bottom_pull_label">下拉加载更多&#8230;</string>
+    <string name="pull_to_refresh_from_bottom_release_label">松开加载更多&#8230;</string>
+    <string name="pull_to_refresh_from_bottom_refreshing_label">加载中..</string>
+
+    <!--表情用-->
+    <string-array name="array_expression">
+        <item>[呲牙]</item>
+        <item>[吐舌]</item>
+        <item>[冷汗]</item>
+        <item>[偷笑]</item>
+        <item>[再见]</item>
+        <item>[敲打]</item>
+        <item>[擦汗]</item>
+        <item>[猪头]</item>
+        <item>[玫瑰]</item>
+        <item>[大哭]</item>
+        <item>[流泪]</item>
+        <item>[嘘]</item>
+        <item>[酷]</item>
+        <item>[疯了]</item>
+        <item>[委屈]</item>
+        <item>[便便]</item>
+        <item>[炸弹]</item>
+        <item>[菜刀]</item>
+        <item>[愉快]</item>
+        <item>[色]</item>
+        <item>[害羞]</item>
+        <item>[得意]</item>
+        <item>[吐]</item>
+        <item>[微笑]</item>
+        <item>[发怒]</item>
+        <item>[尴尬]</item>
+        <item>[惊恐]</item>
+        <item>[流汗]</item>
+        <item>[爱心]</item>
+        <item>[嘴唇]</item>
+        <item>[白眼]</item>
+        <item>[傲慢]</item>
+        <item>[难过]</item>
+        <item>[惊讶]</item>
+        <item>[疑问]</item>
+        <item>[瞌睡]</item>
+        <item>[亲亲]</item>
+        <item>[憨笑]</item>
+        <item>[爱情]</item>
+        <item>[衰]</item>
+        <item>[撇嘴]</item>
+        <item>[阴险]</item>
+        <item>[加油]</item>
+        <item>[吓]</item>
+        <item>[右哼哼]</item>
+        <item>[拥抱]</item>
+        <item>[坏笑]</item>
+        <item>[飞吻]</item>
+        <item>[鄙视]</item>
+        <item>[晕]</item>
+        <item>[大兵]</item>
+        <item>[可怜]</item>
+        <item>[强]</item>
+        <item>[弱]</item>
+        <item>[握手]</item>
+        <item>[胜利]</item>
+        <item>[抱拳]</item>
+        <item>[凋谢]</item>
+        <item>[饭]</item>
+        <item>[蛋糕]</item>
+        <item>[西瓜]</item>
+        <item>[啤酒]</item>
+        <item>[瓢虫]</item>
+        <item>[勾引]</item>
+        <item>[OK]</item>
+        <item>[爱你]</item>
+        <item>[咖啡]</item>
+        <item>[月亮]</item>
+        <item>[刀]</item>
+        <item>[发抖]</item>
+        <item>[差劲]</item>
+        <item>[拳头]</item>
+        <item>[心碎]</item>
+        <item>[太阳]</item>
+        <item>[礼物]</item>
+        <item>[足球]</item>
+        <item>[骷髅]</item>
+        <item>[投降]</item>
+        <item>[闪电]</item>
+        <item>[馋]</item>
+        <item>[困]</item>
+        <item>[咒骂]</item>
+        <item>[折磨]</item>
+        <item>[抠鼻]</item>
+        <item>[鼓掌]</item>
+        <item>[糗大了]</item>
+        <item>[左哼哼]</item>
+        <item>[哈欠]</item>
+        <item>[快哭了]</item>
+        <item>[惊吓]</item>
+        <item>[篮球]</item>
+        <item>[乒乓球]</item>
+        <item>[NO]</item>
+        <item>[跳跳]</item>
+        <item>[怄火]</item>
+        <item>[转圈]</item>
+        <item>[磕头]</item>
+        <item>[回头]</item>
+        <item>[跳绳]</item>
+        <item>[激动]</item>
+        <item>[乱舞]</item>
+        <item>[献吻]</item>
+        <item>[左太极]</item>
+        <item>[右太极]</item>
+        <item>[闭嘴]</item>
+        <item>[招财猫]</item>
+        <item>[喜]</item>
+        <item>[鞭炮]</item>
+        <item>[灯笼]</item>
+        <item>[发财]</item>
+        <item>[麦克风]</item>
+        <item>[购物]</item>
+        <item>[邮件]</item>
+        <item>[帅]</item>
+        <item>[喝彩]</item>
+        <item>[蜡烛]</item>
+        <item>[怒]</item>
+        <item>[棒棒糖]</item>
+        <item>[奶瓶]</item>
+        <item>[面条]</item>
+        <item>[香蕉]</item>
+        <item>[飞机]</item>
+        <item>[汽车]</item>
+        <item>[火车头]</item>
+        <item>[火车]</item>
+        <item>[火车尾]</item>
+        <item>[云]</item>
+        <item>[下雨]</item>
+        <item>[钱]</item>
+        <item>[熊猫]</item>
+        <item>[灯泡]</item>
+        <item>[风车]</item>
+        <item>[闹钟]</item>
+        <item>[雨伞]</item>
+        <item>[气球]</item>
+        <item>[钻戒]</item>
+        <item>[沙发]</item>
+        <item>[卫生纸]</item>
+        <item>[药]</item>
+        <item>[枪]</item>
+        <item>[青蛙]</item>
+        <item>[禁]</item>
+    </string-array>
+
+    <string name="N_A">N/A</string>
+    <string name="close">Close</string>
+    <string name="vdec">vdec</string>
+    <string name="fps">fps</string>
+    <string name="v_cache">v-cache</string>
+    <string name="a_cache">a-cache</string>
+
+    <string name="VideoView_ar_aspect_fit_parent">Aspect / Fit parent</string>
+    <string name="VideoView_ar_aspect_fill_parent">Aspect / Fill parent</string>
+    <string name="VideoView_ar_aspect_wrap_content">Aspect / Wrap content</string>
+    <string name="VideoView_ar_match_parent">Free / Fill parent</string>
+    <string name="VideoView_ar_16_9_fit_parent">16:9 / Fit parent</string>
+    <string name="VideoView_ar_4_3_fit_parent">4:3 / Fit parent</string>
+
+    <string name="VideoView_error_text_invalid_progressive_playback">Invalid progressive playback</string>
+    <string name="VideoView_error_text_unknown">Unknown</string>
+    <string name="VideoView_error_button">OK</string>
+
+    <string name="VideoView_render_none">Render: None</string>
+    <string name="VideoView_render_surface_view">Render: SurfaceView</string>
+    <string name="VideoView_render_texture_view">Render: TextureView</string>
+
+    <string name="VideoView_player_none">Player: None</string>
+    <string name="VideoView_player_AndroidMediaPlayer">Player: AndroidMediaPlayer</string>
+    <string name="VideoView_player_IjkMediaPlayer">Player: IjkMediaPlayer</string>
+    <string name="VideoView_player_IjkExoMediaPlayer">Player: IjkExoMediaPlayer</string>
+
+    <string name="TrackType_video">Video</string>
+    <string name="TrackType_audio">Audio</string>
+    <string name="TrackType_subtitle">Subtitle</string>
+    <string name="TrackType_timedtext">Timed text</string>
+    <string name="TrackType_metadata">Meta data</string>
+    <string name="TrackType_unknown">Unknown</string>
+
+    <string name="media_information">Media Information</string>
+    <string name="mi_player">Player</string>
+    <string name="mi_media">Media</string>
+    <string name="mi_profile_level">Profile level</string>
+    <string name="mi_pixel_format">Pixel format</string>
+    <string name="mi_resolution">Resolution</string>
+    <string name="mi_length">Length</string>
+    <string name="mi_stream_fmt1">Stream #%d</string>
+    <string name="mi_type">Type</string>
+    <string name="mi_language">Language</string>
+    <string name="mi_codec">Codec</string>
+    <string name="mi_frame_rate">Frame rate</string>
+    <string name="mi_bit_rate">Bit rate</string>
+    <string name="mi_sample_rate">Sample rate</string>
+    <string name="mi_channels">Channels</string>
+    <string name="mi__selected_video_track">*</string>
+    <string name="mi__selected_audio_track">*</string>
+
+    <string name="pref_title_general">General</string>
+    <string name="pref_key_enable_background_play">pref.enable_background_play</string>
+    <string name="pref_title_enable_background_play">Enable background play</string>
+    <string name="pref_summary_enable_background_play">need Android 4.0+</string>
+    <string name="pref_key_using_android_player">pref.using_android_player</string>
+    <string name="pref_title_using_android_player">Using system player</string>
+    <string name="pref_summary_using_android_player"></string>
+    <string name="pref_key_player">pref.player</string>
+    <string name="pref_title_player">Choose Player</string>
+
+    <string-array name="pref_entries_player">
+        <item>Auto Select</item>
+        <item>AndroidMediaPlayer</item>
+        <item>IjkMediaPlayer</item>
+        <item>IjkExoMediaPlayer</item>
+    </string-array>
+    <string-array name="pref_entry_values_player">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="pref_entry_summaries_player">
+        <item>Auto Select</item>
+        <item>AndroidMediaPlayer</item>
+        <item>IjkMediaPlayer</item>
+        <item>IjkExoMediaPlayer</item>
+    </string-array>
+
+    <!--  -->
+    <string name="pref_title_ijkplayer_video">Video: ijkplayer</string>
+    <string name="pref_key_using_media_codec">pref.using_media_codec</string>
+    <string name="pref_title_using_media_codec">Using MediaCodec</string>
+    <string name="pref_summary_using_media_codec"></string>
+    <string name="pref_key_using_media_codec_auto_rotate">pref.using_media_codec_auto_rotate</string>
+    <string name="pref_title_using_media_codec_auto_rotate">Using MediaCodec auto rotate</string>
+    <string name="pref_summary_using_media_codec_auto_rotate"></string>
+    <string name="pref_key_pixel_format">pref.pixel_format</string>
+    <string name="pref_title_pixel_format">Pixel Format</string>
+
+    <string-array name="pref_entries_pixel_format">
+        <item>Auto Select</item>
+        <item>RGB 565</item>
+        <item>RGB 888</item>
+        <item>RGBX 8888</item>
+        <item>YV12</item>
+        <item>OpenGL ES2</item>
+    </string-array>
+    <string-array name="pref_entry_values_pixel_format">
+        <item></item>
+        <item>fcc-rv16</item>
+        <item>fcc-rv24</item>
+        <item>fcc-rv32</item>
+        <item>fcc-yv12</item>
+        <item>fcc-_es2</item>
+    </string-array>
+    <string-array name="pref_entry_summaries_pixel_format">
+        <item>Auto Select</item>
+        <item>RGB 565</item>
+        <item>RGB 888</item>
+        <item>RGBX 8888</item>
+        <item>YV12</item>
+        <item>OpenGL ES2</item>
+    </string-array>
+
+    <!--  -->
+    <string name="pref_title_ijkplayer_audio">Audio: ijkplayer</string>
+    <string name="pref_key_using_opensl_es">pref.using_opensl_es</string>
+    <string name="pref_title_using_opensl_es">Using OpenSL ES</string>
+    <string name="pref_summary_using_opensl_es"></string>
+
+    <!--  -->
+    <string name="pref_title_render_view">RenderView</string>
+    <string name="pref_key_enable_no_view">pref.enable_no_view</string>
+    <string name="pref_title_enable_no_view">Enable NoView</string>
+    <string name="pref_summary_enable_no_view"></string>
+    <string name="pref_key_enable_surface_view">pref.enable_surface_view</string>
+    <string name="pref_title_enable_surface_view">Enable SurfaceView</string>
+    <string name="pref_summary_enable_surface_view"></string>
+    <string name="pref_key_enable_texture_view">pref.enable_texture_view</string>
+    <string name="pref_title_enable_texture_view">Enable TextureView</string>
+    <string name="pref_summary_enable_texture_view"></string>
+    <string name="pref_key_enable_detached_surface_texture">pref.enable_detached_surface_texture</string>
+    <string name="pref_title_enable_detached_surface_texture">Enable detached SurfaceTexture</string>
+    <string name="pref_summary_enable_detached_surface_texture"></string>
+
+    <!--  -->
+    <string name="pref_key_last_directory"></string>
+</resources>

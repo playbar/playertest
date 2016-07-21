@@ -1,0 +1,45 @@
+@charset "utf-8";
+.loan_jm1 { width: 94%; margin: 0 auto; }
+.loan_jm_spa1 { width: 39%; height: 40px; line-height: 40px; font-size: 1em; color: #666; display: block; float: left; }
+.loan_jm_l1 { margin-top: 10px; margin-bottom: 15px; height: 40px; }
+.wbk_srn 
+{ 
+	/*width: 57%; 
+	height: 40px; 
+	border: 1px solid #ccc; 
+	background: #FFF; 
+	float: left; 
+	padding-left: 3%; 
+	line-height: 40px; 
+	color: #ADADAD; 
+	font-size: 1.1em; 
+	background-size: 45%; 
+	background-position: center;
+	background: #fff; */
+	background: url(../image/xl.png) right 5px no-repeat; 
+}
+.wbk_srn b { 
+	width: 30px; 
+	height: 40px; 
+	border: 1px solid #ccc; 
+	background: #FFF; 
+	float: left; 
+	padding-left: 3%; 
+	line-height: 40px; 
+	color: #ADADAD; 
+	font-size: 1.1em; 
+	background-size: 45%; 
+	background-position: center; 
+	background: url(../image/xl.png) right 5px no-repeat; 
+	}
+
+/*城市弹层*/
+.container { width: 100%; position: absolute; top: 56px; left: 0; background-color: #ffffff; z-index: 9999; display: none; }
+.letter { width: 5%; overflow: hidden; line-height: 32px; font-size: 16px; position: fixed; top: 20px; right: 10px; text-align: center; }
+.letter ul { list-style-type: none; }
+.letter ul li a { text-decoration: none; }
+.city { width: 90%; overflow: hidden; padding: 20px; }
+.city-list { width: 100%; overflow: hidden; }
+.city-list .city-letter { color: #6e6e6e; font-size: 16px; display: inline-block; padding-top: 15px; padding-bottom: 5px; border-bottom: 1px solid #e8ecf1; width: 100%; }
+.city-list p { color: #afafaf; width: 95%; height: 50px; line-height: 50px; border-bottom: 1px solid #e8ecf1; cursor: pointer; }
+.UISelect { margin-top: 5px }

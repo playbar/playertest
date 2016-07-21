@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<web-dispatcher>
+	<!-- responseType: 1 常规请求,返回文本内容 responseType: 2 流请求,返回文件流 responseType: 
+		3 URL跳转请求 -->
+
+	<!--房间操作 -->
+
+	<request keyId="002-001" des="进入房间">{"basicData","userId(可选)","showId"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+
+
+	<request keyId="002-006" des="退出房间">{"basicData","userId(可选)","showId"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="002-007" des="踢人">{"basicData","starId","userId","showId"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+
+	<request keyId="002-009" des="发送消息">{"basicData","senderId","chatMode","showId","receiverId","txt"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="002-010" des="送礼物">{"basicData","senderId","receiverId","showId","giftId","cnt"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="002-013" des="点赞">{"basicData","showId","userId","cnt"}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	
+
+
+	<!-- 广播数据 -->
+
+   	<request keyId="004-003" des="直播间动态数据">{}</request>
+	<response>{"memberCnt","totalSupportCnt","supportCnt"}</response>
+
+	  	<request keyId="004-004" des="直播结束">{}</request>
+	<response>{"showId"}</response>
+    
+
+
+	<!-- 内部使用接口 -->
+	<request keyId="009-001" des="连接测试">{"basicData}</request>
+	<response>{"exeStatus","errCode"}</response>
+
+	<request keyId="009-002" des="广播消息">{"msg"}</request>
+	<response>{"exeStatus","errCode","msgId"}</response>
+
+	<request keyId="009-003" des="广播自我">{"msg"}</request>
+	<response>{"exeStatus","errCode","msgId"}</response>
+	
+	<request keyId="009-004" des="心跳">{"msg"}</request>
+	<response>{"exeStatus","errCode","msgId"}</response>
+
+</web-dispatcher>

@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>账号管理--提现记录</title>
+
+<link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css">
+<script type="text/javascript" src="/easyui/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#exchange-table').datagrid({
+			//url:"../service/001-021",
+			fitColumns : true,
+			striped:true,
+			pageNumber : 1,
+			pageSize : 10000,
+			pageList : [20,50,70, 100,500, 1000],
+			columns : [ [ 
+				{field : 'userId',title : '用户ID',width : 50},
+				{field : 'userName',title : '用户名称',width : 150},
+				{field : 'weChatId',title : '支付宝账号',width : 150},
+				{field : 'realName',title : '姓名',width : 150},
+				{field : 'mobileId',title : '手机号',width :150},
+				{field : 'createTime',title : '申请时间',width :200},
+				{field : 'rmbAmount',title : '提现金额',width : 100},
+				{field : 'status',title : '审核状态',width : 100,
+			    	formatter:function(value, row, index){
+						if(row.status == 0 ){
+							return '等待二审';
+						}else{
+							return '一审失败';
+						}
+					} 
+			    }
+			] ]
+		});
+		
+		//查询
+		$("#search_btn").click(function(){
+			var userId = $("#userId").textbox('getValue');
+			var startTime = $('#startTime').datebox('getValue');
+			var endTime = $('#endTime').datebox('getValue');
+			var status = $('#status-combobox').combobox('getValue');
+			$('#exchange-table').datagrid({
+				url:"../service/001-021"
+			});
+			$("#exchange-table").datagrid('load',{
+				"path" : "001-045",
+				"userId" : userId,
+				"startTime" : startTime,
+				"endTime" : endTime,
+				"status" : status
+			});
+		});
+	});
+	
+	function check(rowId,rowStatus){
+ 		$.messager.confirm('确认','您确定进行审核?',function(r){
+		    if (r){    
+		    	$.ajax({
+					type:"POST",
+					url:"../../service/001-022",
+					data:{"id":rowId,"status":rowStatus,"path":"001-"},
+					dataType:"json",
+					success:function(res){
+						if(res.exeStatus=="1"){
+					    	$.messager.alert('提示','审核通过！');
+					    	$('#exchange-table').datagrid('reload');
+					    }else{
+					    	$.messager.alert('提示','操作失败！');
+					    }
+					}
+				}); 
+		    }    
+		});
+	} 
+	
+</script>
+
+</head>
+<body>
+    <div class="easyui-panel" style="width:99%;height:90px;padding:1px;background:#fafafa;">
+		<center><p>
+		 <label for="name">用户ID:</label>   
+        	<input id="userId" name="userId" class="easyui-textbox" ></input>
+        <label for="name">开始日期:</label>   
+        	<input id="startTime" name="startTime" class="easyui-datebox" ></input>
+        <label for="name">结束日期:</label>   
+        	<input id="endTime" name="endTime" class="easyui-datebox" ></input>
+        <label for="name">类别:</label><!-- step -->
+		<select id="status-combobox" class="easyui-combobox" name="status-combobox" style="width:100px;">   
+			   <option value="1">一审</option>   
+			   <option value="2">二审</option>
+			   <option value="3">三审</option>
+		</select><p>
+        <a id="search_btn" class="easyui-linkbutton"style="width:10%"  data-options="iconCls:'icon-search'">查询</a><br>
+    	</center>	
+    </div><p>     
+	<table id="exchange-table" class="easyui-datagrid" style="width:99%" ></table> 
+</body>
+</html>

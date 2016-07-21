@@ -1,0 +1,238 @@
+@charset "utf-8";
+/*公共样式 start*/
+body,div,h1,p,h2,header,ul,li,dl,dt,dd,ol,nav,input,footer{ margin:0; padding:0;}
+body{ color:#000;font-family:"黑体" "微软雅黑" Arial, Helvetica, sans-serif;background:#ffffff;}
+body,html{ height:100%;-webkit-touch-callout: none;-webkit-user-select:none;}
+@media screen and (max-width:479px){
+	body{font-size:10px;-webkit-text-size-adjust: none;}
+	input{font-size:10px;}
+	.top dt img{width: 100%;}
+	.top p img{width: 40%;padding-right: 0.5em;}
+}
+@media screen and (min-width:320px) and (max-width:359px){
+	body{font-size:8px;}
+	input{font-size:8px;}
+}
+@media screen and (min-width:360px) and (max-width:384px){
+	body{font-size:9.5px;}
+	input{font-size:9.5px;}
+}
+@media screen and (min-width:480px) and (max-width:639px){
+	body{font-size:15px;-webkit-text-size-adjust: none;}
+	input{font-size:15px;}
+}
+@media screen and (min-width:640px) and (max-width:719px){
+	body{font-size:20px;-webkit-text-size-adjust: none;}
+	input{font-size:20px;}
+}
+@media screen and (min-width:720px) and (max-width:799px){
+	body{font-size:22.5px;-webkit-text-size-adjust: none;}
+	input{font-size:22.5px;}
+}
+@media screen and (min-width:800px){
+	body{font-size:19px;}
+	input{font-size:19px;}
+}
+@media only screen and (min-width:1080px) {
+	body{font-size:22px;}
+	input{font-size:22px;}
+}
+h1,h2,h3,h4,h5,h6{ margin:0; padding:0;font-size:100%; font-weight:normal;}
+ul,li{ list-style:none;}
+html{-webkit-text-size-adjust:none;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}
+img{border:none;  vertical-align:middle; max-width:100%;}
+.clearfix:after {content:"\200B"; display:block; height:0; clear:both;}
+.clearfix{ *zoom:1;}
+input{ font-family:Arial, Helvetica, sans-serif;}
+/*a{ text-decoration:none; color:#fff;}*/
+a:hover{ text-decoration:none;}
+/*自定义样式*/
+.top{
+	width: 100%;
+	height: 7em;
+	background-color: #ffd201;
+	position: relative;
+}
+.top p{
+	text-align: center;
+	font-size: 2em;
+	padding-top: 1em;
+}
+.head{
+	width: 4.5em;
+	height: 4.5em;
+	border-radius: 50%;
+	overflow: hidden;
+	border:0.3em solid #ffffff;
+	float: left;
+	margin: 1em;
+}
+.name{
+	/*position: absolute;*/
+}
+.name span{
+	font-size: 1.8em;
+	position: absolute;
+	top: 50%;
+	margin-top: -0.6em;
+	color: #000;
+}
+.rect{
+	width: 100%;
+	height: 1em;
+	background-color: #eeeeee;
+}
+.switch-account span{
+	position: absolute;
+	font-size: 1.4em;
+	text-align: right;
+	right: 1em;
+	bottom: 0.5em;
+	color: #fff;
+}
+.charge-money{
+	margin-top: 0.5em;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.yellow{
+	position: relative;
+	width: 100%;
+	height: 2.3em;
+	margin-left: 1em;
+	margin-top: 1em;
+}
+.yellow-rect{
+	position: absolute;
+	left: 0;
+	height: 2.3em;
+}
+.charge-count{
+	position: absolute;
+	font-size: 2em;
+	color: #282828;
+	opacity:0.6;
+	left: 0.5em;
+}
+.esq{
+	margin-top: 1.2em;
+	margin-left: 1em;
+	color: #000;
+	position: relative;
+	opacity:0.5;
+	font-size: 1.4em;
+}
+.charge-s{
+	background-color: #eeeeee;
+	width: 30%;
+	height: 6em;
+	float: left;
+	margin-top: 1.2em;
+	margin-left: 2.5%;
+	position: relative;
+	border-radius: 0.5em;
+	color: #282828;
+	opacity:0.7;
+	line-height: 2.2em;
+}
+.money{
+	position: absolute;
+	width:100%;
+	font-size: 2.2em;	
+	top: 0.4em;
+	left: 50%;
+	margin-left: -50%;
+	text-align: center;
+	color: #282828;
+}
+.money-cost{
+	position: absolute;
+	width: 100%;
+	font-size: 1.6em;
+	top: 2em;
+	left: 50%;
+	margin-left: -50%;
+	text-align: center;
+	color: #282828;
+	opacity: 0.7;
+}
+.select-color{
+	background-color: #ffd200;
+	color: #000;
+}
+.bottom{
+	background-color: #fff;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	z-index: 999;
+	display: none;
+}
+.click-mask{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #000 ;
+	z-index:10;
+	opacity: 0.6;
+	display: none;
+}
+.pay-money{
+	margin-top: 1em;
+	text-align: center;
+	font-size: 2em;
+	color: #282828;
+	opacity:0.6;
+}
+.pay-money-num{
+	margin-top: 0.4em;
+	text-align: center;
+	font-size: 3em;
+	color: #ff2323;
+	font-weight: 600;
+}
+.line{
+	background-color: #eee;
+	width: 94%;
+	height: 0.1em;
+	margin: auto;
+	margin-top: 1em;
+}
+.weixin-pay{
+	margin-top: 1em;
+	margin-left: 1em;
+	margin-bottom: 1em;
+	position: relative;
+}
+.weixin-pay img{
+	width: 10%;
+}
+.weixin-pay p {
+	position: absolute;	
+	font-size: 2em;
+	top: 14%;
+	left: 14%;
+}
+
+.zhifubao-pay{
+	margin-top: 1em;
+	margin-left: 1em;
+	margin-bottom: 1em;
+	position: relative;
+
+}
+.zhifubao-pay img{
+	width: 10%;
+}
+
+.zhifubao-pay p {
+	position: absolute;	
+	font-size: 2em;
+	top: 14%;
+	left: 14%;
+}
+.charge-title{
+	height: 10%;
+}

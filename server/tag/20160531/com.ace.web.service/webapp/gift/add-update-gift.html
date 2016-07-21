@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.json-2.4.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+
+		$("#button").click(function() {
+
+			$.ajax({
+				type : "post",
+				url : "../service/001-031",
+				data : $("#frm").serialize(),
+				beforeSend : function(data) {
+					$("#res").html("<font color='red'>请求发送中，请稍后....</font>");
+				},
+				success : function(data) {
+					$("#res").html("<font color='red'>结果：</font><br>" + data);
+				}
+			});
+
+		});
+
+	});
+</script>
+
+</head>
+<body>
+	<h2>
+	<font style="color:#288F53">添加，修改广告</font> <a href="../../debug.html">返回</a>
+	</h2>
+	<form name="frm1" id="frm" method="post" action="../service/001-031" enctype="multipart/form-data">
+		<table cellpadding="2" cellspacing="2">
+			<tr>
+				<td style="text-align:right">id:</td>
+				<td><input type="text" name="id" id="id" value=""></td>
+			</tr>
+			
+			<tr>
+				<td style="text-align:right">礼物名称</td>
+				<td><input type="text" name="name" id="name"></td>
+			</tr>
+			
+				<tr>
+				<td style="text-align:right">赠送价格</td>
+				<td><input type="text" name="sendPrice" id="sendPrice"></td>
+			</tr>
+			
+				<tr>
+				<td style="text-align:right">转换价格</td>
+				<td><input type="text" name="transformPrice" id="transformPrice"></td>
+			</tr>
+			
+				<tr>
+				<td style="text-align:right">是否组合礼物(预留)</td>
+				<td><input type="text" name="isCombined" id="isCombined"></td>
+			</tr>
+			<tr>
+				<td style="text-align:right">礼物类型</td>
+				<td>
+					<select name="type">
+						<option value="0">普通礼物</option>
+						<option value="1">超级礼物</option>
+					</select>
+				</td>
+			</tr>
+				<tr>
+				<td style="text-align:right">礼物状态 0 下架 1上架 2待处理</td>
+				<td>
+					<select name="status">
+						<option value="0">下架</option>
+						<option value="1">上架</option>
+						<option value="2">待上架</option>
+					</select>
+				</td>
+			</tr>
+			
+				<tr>
+				<td style="text-align:right">排序id</td>
+				<td><input type="text" name="sortId" id="sortId"></td>
+			</tr>
+			
+				<tr>
+				<td style="text-align:right">礼物图片</td>
+				<td><input type="text" name="pic" id="pic"></td>
+			</tr>
+			
+			<tr>
+				<td colspan="2" style="text-align:right"><input type="submit" value="提交"></td>
+			</tr>
+		</table>
+	</form>
+	<br>
+	<div id="res"></div>
+</body>
+</html>

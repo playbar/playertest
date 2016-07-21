@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-dispatcher>
+<!-- 
+responseType: 1 常规请求,返回文本内容
+responseType: 2 流请求,返回文件流
+responseType: 3 URL跳转请求
+		   001-*: 用户相关类请求
+		   002-*: 订单相关请求
+		   003-*: 股票池信息相关请求（股票池信息检索等）
+		   004-*: 第三方支付交易相关
+		   005-*: 消息中心
+		  
+
+ -->
+ 	<!--用户-->
+ 	<request keyId="001-001" des="冻结，解冻" responseType="1" isRedirect="0" url="">com.rednovo.ace.handler.account.UserHandler</request>
+ 
+
+	
+	
+</web-dispatcher>

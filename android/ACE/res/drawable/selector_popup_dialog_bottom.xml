@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ /**
+  ~  *
+  ~  * @version 1.0.0
+  ~  *
+  ~  * Copyright (C) 2012-2016 REDNOVO Corporation.
+  ~  */
+  -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/bg_dialog_btn_normal" android:state_pressed="false"/>
+    <item android:drawable="@drawable/bg_dialog_btn_pressed" android:state_pressed="true"/>
+</selector>
